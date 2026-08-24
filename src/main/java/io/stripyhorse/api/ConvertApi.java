@@ -32,6 +32,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.ZplHTMLInputBody;
+import io.stripyhorse.model.ZplHTMLOutputBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -401,7 +403,7 @@ public class ConvertApi {
 
     /**
      * Convert a PDF or image to ZPL
-     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $convert &#x3D; new StripyHorse\\Api\\ConvertApi(null, $config); $result &#x3D; $convert-&gt;convertDocument(new SplFileObject(&#39;shipping-label.pdf&#39;), preset: &#39;4x6&#39;); foreach ($result-&gt;getPages() as $page) { sendToPrinter($page-&gt;getZpl()); } &#x60;&#x60;&#x60;  **curl**: &#x60;&#x60;&#x60;bash curl https://api.stripyhorse.io/v1/convert \\   -H \&quot;X-Api-Key: sh_live_YOUR_KEY\&quot; -F file&#x3D;@shipping-label.pdf -F preset&#x3D;4x6 &#x60;&#x60;&#x60;
+     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.
      * @param _file PDF, PNG, GIF or JPEG (required)
      * @param barcodeAware EXPERIMENTAL: re-emit decodable barcodes as native ^BC/^BQ fields, verified by a decode round trip with automatic fallback to plain rasterization (optional)
      * @param compression acs (default) or z64 (zlib+base64, smaller payloads) (optional)
@@ -429,7 +431,7 @@ public class ConvertApi {
 
     /**
      * Convert a PDF or image to ZPL
-     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $convert &#x3D; new StripyHorse\\Api\\ConvertApi(null, $config); $result &#x3D; $convert-&gt;convertDocument(new SplFileObject(&#39;shipping-label.pdf&#39;), preset: &#39;4x6&#39;); foreach ($result-&gt;getPages() as $page) { sendToPrinter($page-&gt;getZpl()); } &#x60;&#x60;&#x60;  **curl**: &#x60;&#x60;&#x60;bash curl https://api.stripyhorse.io/v1/convert \\   -H \&quot;X-Api-Key: sh_live_YOUR_KEY\&quot; -F file&#x3D;@shipping-label.pdf -F preset&#x3D;4x6 &#x60;&#x60;&#x60;
+     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.
      * @param _file PDF, PNG, GIF or JPEG (required)
      * @param barcodeAware EXPERIMENTAL: re-emit decodable barcodes as native ^BC/^BQ fields, verified by a decode round trip with automatic fallback to plain rasterization (optional)
      * @param compression acs (default) or z64 (zlib+base64, smaller payloads) (optional)
@@ -458,7 +460,7 @@ public class ConvertApi {
 
     /**
      * Convert a PDF or image to ZPL (asynchronously)
-     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $convert &#x3D; new StripyHorse\\Api\\ConvertApi(null, $config); $result &#x3D; $convert-&gt;convertDocument(new SplFileObject(&#39;shipping-label.pdf&#39;), preset: &#39;4x6&#39;); foreach ($result-&gt;getPages() as $page) { sendToPrinter($page-&gt;getZpl()); } &#x60;&#x60;&#x60;  **curl**: &#x60;&#x60;&#x60;bash curl https://api.stripyhorse.io/v1/convert \\   -H \&quot;X-Api-Key: sh_live_YOUR_KEY\&quot; -F file&#x3D;@shipping-label.pdf -F preset&#x3D;4x6 &#x60;&#x60;&#x60;
+     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.
      * @param _file PDF, PNG, GIF or JPEG (required)
      * @param barcodeAware EXPERIMENTAL: re-emit decodable barcodes as native ^BC/^BQ fields, verified by a decode round trip with automatic fallback to plain rasterization (optional)
      * @param compression acs (default) or z64 (zlib+base64, smaller payloads) (optional)
@@ -560,7 +562,7 @@ public class ConvertApi {
 
     /**
      * Convert an HTML label design to ZPL
-     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;). Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
+     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;); optional &#x60;module&#x60; (^BY dots) and &#x60;mag&#x60; (QR magnification) attributes pin exact bar geometry instead of fitting it to the box. Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
      * @param htmlInputBody  (required)
      * @return HtmlOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -579,7 +581,7 @@ public class ConvertApi {
 
     /**
      * Convert an HTML label design to ZPL
-     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;). Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
+     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;); optional &#x60;module&#x60; (^BY dots) and &#x60;mag&#x60; (QR magnification) attributes pin exact bar geometry instead of fitting it to the box. Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
      * @param htmlInputBody  (required)
      * @return ApiResponse&lt;HtmlOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -599,7 +601,7 @@ public class ConvertApi {
 
     /**
      * Convert an HTML label design to ZPL (asynchronously)
-     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;). Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
+     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;); optional &#x60;module&#x60; (^BY dots) and &#x60;mag&#x60; (QR magnification) attributes pin exact bar geometry instead of fitting it to the box. Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
      * @param htmlInputBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -616,6 +618,138 @@ public class ConvertApi {
 
         okhttp3.Call localVarCall = convertHtmlValidateBeforeCall(htmlInputBody, _callback);
         Type localVarReturnType = new TypeToken<HtmlOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for convertZplToHtml
+     * @param zplHTMLInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call convertZplToHtmlCall(@javax.annotation.Nonnull ZplHTMLInputBody zplHTMLInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = zplHTMLInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/convert/zpl-html";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call convertZplToHtmlValidateBeforeCall(@javax.annotation.Nonnull ZplHTMLInputBody zplHTMLInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'zplHTMLInputBody' is set
+        if (zplHTMLInputBody == null) {
+            throw new ApiException("Missing the required parameter 'zplHTMLInputBody' when calling convertZplToHtml(Async)");
+        }
+
+        return convertZplToHtmlCall(zplHTMLInputBody, _callback);
+
+    }
+
+    /**
+     * Decompile ZPL into editable HTML
+     * The migration path for legacy ZPL templates: text, boxes and Code128/QR barcodes become editable HTML in the dialect convertHtml accepts; unsupported elements (raster graphics, exotic barcodes) are embedded as positioned images so the layout survives. Round-tripping through convertHtml preserves scannable barcodes.
+     * @param zplHTMLInputBody  (required)
+     * @return ZplHTMLOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ZplHTMLOutputBody convertZplToHtml(@javax.annotation.Nonnull ZplHTMLInputBody zplHTMLInputBody) throws ApiException {
+        ApiResponse<ZplHTMLOutputBody> localVarResp = convertZplToHtmlWithHttpInfo(zplHTMLInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Decompile ZPL into editable HTML
+     * The migration path for legacy ZPL templates: text, boxes and Code128/QR barcodes become editable HTML in the dialect convertHtml accepts; unsupported elements (raster graphics, exotic barcodes) are embedded as positioned images so the layout survives. Round-tripping through convertHtml preserves scannable barcodes.
+     * @param zplHTMLInputBody  (required)
+     * @return ApiResponse&lt;ZplHTMLOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ZplHTMLOutputBody> convertZplToHtmlWithHttpInfo(@javax.annotation.Nonnull ZplHTMLInputBody zplHTMLInputBody) throws ApiException {
+        okhttp3.Call localVarCall = convertZplToHtmlValidateBeforeCall(zplHTMLInputBody, null);
+        Type localVarReturnType = new TypeToken<ZplHTMLOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Decompile ZPL into editable HTML (asynchronously)
+     * The migration path for legacy ZPL templates: text, boxes and Code128/QR barcodes become editable HTML in the dialect convertHtml accepts; unsupported elements (raster graphics, exotic barcodes) are embedded as positioned images so the layout survives. Round-tripping through convertHtml preserves scannable barcodes.
+     * @param zplHTMLInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call convertZplToHtmlAsync(@javax.annotation.Nonnull ZplHTMLInputBody zplHTMLInputBody, final ApiCallback<ZplHTMLOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = convertZplToHtmlValidateBeforeCall(zplHTMLInputBody, _callback);
+        Type localVarReturnType = new TypeToken<ZplHTMLOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

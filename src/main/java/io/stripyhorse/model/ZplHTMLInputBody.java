@@ -47,69 +47,12 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * HtmlInputBody
+ * ZplHTMLInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:06:01.527781639Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class HtmlInputBody {
+public class ZplHTMLInputBody {
   /**
-   * Gets or Sets compression
-   */
-  @JsonAdapter(CompressionEnum.Adapter.class)
-  public enum CompressionEnum {
-    ACS("acs"),
-    
-    Z64("z64");
-
-    private String value;
-
-    CompressionEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static CompressionEnum fromValue(String value) {
-      for (CompressionEnum b : CompressionEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<CompressionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CompressionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CompressionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CompressionEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      CompressionEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_COMPRESSION = "compression";
-  @SerializedName(SERIALIZED_NAME_COMPRESSION)
-  @javax.annotation.Nullable
-  private CompressionEnum compression;
-
-  /**
-   * Gets or Sets dpmm
+   * Print density in dots/mm (152/203/300/600 dpi); default 8
    */
   @JsonAdapter(DpmmEnum.Adapter.class)
   public enum DpmmEnum {
@@ -174,13 +117,8 @@ public class HtmlInputBody {
   @javax.annotation.Nullable
   private Double heightMm;
 
-  public static final String SERIALIZED_NAME_HTML = "html";
-  @SerializedName(SERIALIZED_NAME_HTML)
-  @javax.annotation.Nonnull
-  private String html;
-
   /**
-   * Gets or Sets preset
+   * Named label size in inches; alternative to widthMm/heightMm
    */
   @JsonAdapter(PresetEnum.Adapter.class)
   public enum PresetEnum {
@@ -246,45 +184,26 @@ public class HtmlInputBody {
   @javax.annotation.Nullable
   private PresetEnum preset;
 
-  public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
-  @SerializedName(SERIALIZED_NAME_THRESHOLD)
-  @javax.annotation.Nullable
-  private Long threshold;
-
   public static final String SERIALIZED_NAME_WIDTH_MM = "widthMm";
   @SerializedName(SERIALIZED_NAME_WIDTH_MM)
   @javax.annotation.Nullable
   private Double widthMm;
 
-  public HtmlInputBody() {
+  public static final String SERIALIZED_NAME_ZPL = "zpl";
+  @SerializedName(SERIALIZED_NAME_ZPL)
+  @javax.annotation.Nonnull
+  private String zpl;
+
+  public ZplHTMLInputBody() {
   }
 
-  public HtmlInputBody compression(@javax.annotation.Nullable CompressionEnum compression) {
-    this.compression = compression;
-    return this;
-  }
-
-  /**
-   * Get compression
-   * @return compression
-   */
-  @javax.annotation.Nullable
-  public CompressionEnum getCompression() {
-    return compression;
-  }
-
-  public void setCompression(@javax.annotation.Nullable CompressionEnum compression) {
-    this.compression = compression;
-  }
-
-
-  public HtmlInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
+  public ZplHTMLInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
     this.dpmm = dpmm;
     return this;
   }
 
   /**
-   * Get dpmm
+   * Print density in dots/mm (152/203/300/600 dpi); default 8
    * @return dpmm
    */
   @javax.annotation.Nullable
@@ -297,7 +216,7 @@ public class HtmlInputBody {
   }
 
 
-  public HtmlInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
+  public ZplHTMLInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
     this.heightMm = heightMm;
     return this;
   }
@@ -317,32 +236,13 @@ public class HtmlInputBody {
   }
 
 
-  public HtmlInputBody html(@javax.annotation.Nonnull String html) {
-    this.html = html;
-    return this;
-  }
-
-  /**
-   * Label markup: HTML/CSS plus &lt;zpl-barcode&gt; elements
-   * @return html
-   */
-  @javax.annotation.Nonnull
-  public String getHtml() {
-    return html;
-  }
-
-  public void setHtml(@javax.annotation.Nonnull String html) {
-    this.html = html;
-  }
-
-
-  public HtmlInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
+  public ZplHTMLInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
     this.preset = preset;
     return this;
   }
 
   /**
-   * Get preset
+   * Named label size in inches; alternative to widthMm/heightMm
    * @return preset
    */
   @javax.annotation.Nullable
@@ -355,28 +255,7 @@ public class HtmlInputBody {
   }
 
 
-  public HtmlInputBody threshold(@javax.annotation.Nullable Long threshold) {
-    this.threshold = threshold;
-    return this;
-  }
-
-  /**
-   * Get threshold
-   * minimum: 1
-   * maximum: 255
-   * @return threshold
-   */
-  @javax.annotation.Nullable
-  public Long getThreshold() {
-    return threshold;
-  }
-
-  public void setThreshold(@javax.annotation.Nullable Long threshold) {
-    this.threshold = threshold;
-  }
-
-
-  public HtmlInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
+  public ZplHTMLInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
     this.widthMm = widthMm;
     return this;
   }
@@ -396,6 +275,25 @@ public class HtmlInputBody {
   }
 
 
+  public ZplHTMLInputBody zpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
+    return this;
+  }
+
+  /**
+   * Get zpl
+   * @return zpl
+   */
+  @javax.annotation.Nonnull
+  public String getZpl() {
+    return zpl;
+  }
+
+  public void setZpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -405,32 +303,28 @@ public class HtmlInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HtmlInputBody htmlInputBody = (HtmlInputBody) o;
-    return Objects.equals(this.compression, htmlInputBody.compression) &&
-        Objects.equals(this.dpmm, htmlInputBody.dpmm) &&
-        Objects.equals(this.heightMm, htmlInputBody.heightMm) &&
-        Objects.equals(this.html, htmlInputBody.html) &&
-        Objects.equals(this.preset, htmlInputBody.preset) &&
-        Objects.equals(this.threshold, htmlInputBody.threshold) &&
-        Objects.equals(this.widthMm, htmlInputBody.widthMm);
+    ZplHTMLInputBody zplHTMLInputBody = (ZplHTMLInputBody) o;
+    return Objects.equals(this.dpmm, zplHTMLInputBody.dpmm) &&
+        Objects.equals(this.heightMm, zplHTMLInputBody.heightMm) &&
+        Objects.equals(this.preset, zplHTMLInputBody.preset) &&
+        Objects.equals(this.widthMm, zplHTMLInputBody.widthMm) &&
+        Objects.equals(this.zpl, zplHTMLInputBody.zpl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compression, dpmm, heightMm, html, preset, threshold, widthMm);
+    return Objects.hash(dpmm, heightMm, preset, widthMm, zpl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HtmlInputBody {\n");
-    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
+    sb.append("class ZplHTMLInputBody {\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
     sb.append("    heightMm: ").append(toIndentedString(heightMm)).append("\n");
-    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
-    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("    widthMm: ").append(toIndentedString(widthMm)).append("\n");
+    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -449,53 +343,43 @@ public class HtmlInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("compression", "dpmm", "heightMm", "html", "preset", "threshold", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "heightMm", "preset", "widthMm", "zpl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("html"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to HtmlInputBody
+   * @throws IOException if the JSON Element is invalid with respect to ZplHTMLInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!HtmlInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HtmlInputBody is not found in the empty JSON string", HtmlInputBody.openapiRequiredFields.toString()));
+        if (!ZplHTMLInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ZplHTMLInputBody is not found in the empty JSON string", ZplHTMLInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!HtmlInputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HtmlInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ZplHTMLInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ZplHTMLInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : HtmlInputBody.openapiRequiredFields) {
+      for (String requiredField : ZplHTMLInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("compression") != null && !jsonObj.get("compression").isJsonNull()) && !jsonObj.get("compression").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `compression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("compression").toString()));
-      }
-      // validate the optional field `compression`
-      if (jsonObj.get("compression") != null && !jsonObj.get("compression").isJsonNull()) {
-        CompressionEnum.validateJsonElement(jsonObj.get("compression"));
-      }
       // validate the optional field `dpmm`
       if (jsonObj.get("dpmm") != null && !jsonObj.get("dpmm").isJsonNull()) {
         DpmmEnum.validateJsonElement(jsonObj.get("dpmm"));
-      }
-      if (!jsonObj.get("html").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `html` to be a primitive type in the JSON string but got `%s`", jsonObj.get("html").toString()));
       }
       if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
@@ -504,28 +388,31 @@ public class HtmlInputBody {
       if (jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) {
         PresetEnum.validateJsonElement(jsonObj.get("preset"));
       }
+      if (!jsonObj.get("zpl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!HtmlInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'HtmlInputBody' and its subtypes
+       if (!ZplHTMLInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ZplHTMLInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<HtmlInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(HtmlInputBody.class));
+       final TypeAdapter<ZplHTMLInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ZplHTMLInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<HtmlInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ZplHTMLInputBody>() {
            @Override
-           public void write(JsonWriter out, HtmlInputBody value) throws IOException {
+           public void write(JsonWriter out, ZplHTMLInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public HtmlInputBody read(JsonReader in) throws IOException {
+           public ZplHTMLInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -536,18 +423,18 @@ public class HtmlInputBody {
   }
 
   /**
-   * Create an instance of HtmlInputBody given an JSON string
+   * Create an instance of ZplHTMLInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of HtmlInputBody
-   * @throws IOException if the JSON string is invalid with respect to HtmlInputBody
+   * @return An instance of ZplHTMLInputBody
+   * @throws IOException if the JSON string is invalid with respect to ZplHTMLInputBody
    */
-  public static HtmlInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, HtmlInputBody.class);
+  public static ZplHTMLInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ZplHTMLInputBody.class);
   }
 
   /**
-   * Convert an instance of HtmlInputBody to an JSON string
+   * Convert an instance of ZplHTMLInputBody to an JSON string
    *
    * @return JSON string
    */

@@ -120,6 +120,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StateOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StatusSnapshot.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UpdatePrinterInputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ZplHTMLInputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ZplHTMLOutputBody.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

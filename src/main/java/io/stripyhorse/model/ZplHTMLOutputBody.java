@@ -47,58 +47,34 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ConvertedPage
+ * ZplHTMLOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:06:01.527781639Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class ConvertedPage {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
+public class ZplHTMLOutputBody {
+  public static final String SERIALIZED_NAME_HTML = "html";
+  @SerializedName(SERIALIZED_NAME_HTML)
   @javax.annotation.Nonnull
-  private Long page;
+  private String html;
 
-  public static final String SERIALIZED_NAME_ZPL = "zpl";
-  @SerializedName(SERIALIZED_NAME_ZPL)
-  @javax.annotation.Nonnull
-  private String zpl;
-
-  public ConvertedPage() {
+  public ZplHTMLOutputBody() {
   }
 
-  public ConvertedPage page(@javax.annotation.Nonnull Long page) {
-    this.page = page;
+  public ZplHTMLOutputBody html(@javax.annotation.Nonnull String html) {
+    this.html = html;
     return this;
   }
 
   /**
-   * 1-based page number
-   * @return page
+   * Editable HTML in the convertHtml dialect
+   * @return html
    */
   @javax.annotation.Nonnull
-  public Long getPage() {
-    return page;
+  public String getHtml() {
+    return html;
   }
 
-  public void setPage(@javax.annotation.Nonnull Long page) {
-    this.page = page;
-  }
-
-
-  public ConvertedPage zpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
-    return this;
-  }
-
-  /**
-   * Get zpl
-   * @return zpl
-   */
-  @javax.annotation.Nonnull
-  public String getZpl() {
-    return zpl;
-  }
-
-  public void setZpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public void setHtml(@javax.annotation.Nonnull String html) {
+    this.html = html;
   }
 
 
@@ -111,22 +87,20 @@ public class ConvertedPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertedPage convertedPage = (ConvertedPage) o;
-    return Objects.equals(this.page, convertedPage.page) &&
-        Objects.equals(this.zpl, convertedPage.zpl);
+    ZplHTMLOutputBody zplHTMLOutputBody = (ZplHTMLOutputBody) o;
+    return Objects.equals(this.html, zplHTMLOutputBody.html);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, zpl);
+    return Objects.hash(html);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertedPage {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
+    sb.append("class ZplHTMLOutputBody {\n");
+    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,42 +119,42 @@ public class ConvertedPage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("html"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("html"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConvertedPage
+   * @throws IOException if the JSON Element is invalid with respect to ZplHTMLOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ConvertedPage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConvertedPage is not found in the empty JSON string", ConvertedPage.openapiRequiredFields.toString()));
+        if (!ZplHTMLOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ZplHTMLOutputBody is not found in the empty JSON string", ZplHTMLOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConvertedPage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConvertedPage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ZplHTMLOutputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ZplHTMLOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConvertedPage.openapiRequiredFields) {
+      for (String requiredField : ZplHTMLOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("zpl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
+      if (!jsonObj.get("html").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `html` to be a primitive type in the JSON string but got `%s`", jsonObj.get("html").toString()));
       }
   }
 
@@ -188,22 +162,22 @@ public class ConvertedPage {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConvertedPage.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConvertedPage' and its subtypes
+       if (!ZplHTMLOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ZplHTMLOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConvertedPage> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConvertedPage.class));
+       final TypeAdapter<ZplHTMLOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ZplHTMLOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ConvertedPage>() {
+       return (TypeAdapter<T>) new TypeAdapter<ZplHTMLOutputBody>() {
            @Override
-           public void write(JsonWriter out, ConvertedPage value) throws IOException {
+           public void write(JsonWriter out, ZplHTMLOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ConvertedPage read(JsonReader in) throws IOException {
+           public ZplHTMLOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -214,18 +188,18 @@ public class ConvertedPage {
   }
 
   /**
-   * Create an instance of ConvertedPage given an JSON string
+   * Create an instance of ZplHTMLOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ConvertedPage
-   * @throws IOException if the JSON string is invalid with respect to ConvertedPage
+   * @return An instance of ZplHTMLOutputBody
+   * @throws IOException if the JSON string is invalid with respect to ZplHTMLOutputBody
    */
-  public static ConvertedPage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConvertedPage.class);
+  public static ZplHTMLOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ZplHTMLOutputBody.class);
   }
 
   /**
-   * Convert an instance of ConvertedPage to an JSON string
+   * Convert an instance of ZplHTMLOutputBody to an JSON string
    *
    * @return JSON string
    */

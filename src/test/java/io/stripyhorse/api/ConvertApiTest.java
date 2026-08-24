@@ -19,6 +19,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.ZplHTMLInputBody;
+import io.stripyhorse.model.ZplHTMLOutputBody;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -61,7 +63,7 @@ public class ConvertApiTest {
     /**
      * Convert a PDF or image to ZPL
      *
-     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $convert &#x3D; new StripyHorse\\Api\\ConvertApi(null, $config); $result &#x3D; $convert-&gt;convertDocument(new SplFileObject(&#39;shipping-label.pdf&#39;), preset: &#39;4x6&#39;); foreach ($result-&gt;getPages() as $page) { sendToPrinter($page-&gt;getZpl()); } &#x60;&#x60;&#x60;  **curl**: &#x60;&#x60;&#x60;bash curl https://api.stripyhorse.io/v1/convert \\   -H \&quot;X-Api-Key: sh_live_YOUR_KEY\&quot; -F file&#x3D;@shipping-label.pdf -F preset&#x3D;4x6 &#x60;&#x60;&#x60;
+     * Each page becomes its own ^GFA command (Zebra ACS run-length compression). PDFs up to 16 pages.
      *
      * @throws ApiException if the Api call fails
      */
@@ -84,7 +86,7 @@ public class ConvertApiTest {
     /**
      * Convert an HTML label design to ZPL
      *
-     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;). Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
+     * Renders the HTML at exact print resolution (headless Chrome, network access blocked) and rasterizes it — except &#x60;&lt;zpl-barcode type&#x3D;\&quot;code128|qr\&quot; data&#x3D;\&quot;…\&quot;&gt;&#x60; elements, which are measured from the layout and emitted as native ^BC/^BQ fields at their exact boxes. Size and position them with CSS (&#x60;left/top/width/height&#x60;); optional &#x60;module&#x60; (^BY dots) and &#x60;mag&#x60; (QR magnification) attributes pin exact bar geometry instead of fitting it to the box. Unsupported types or unencodable data fail loudly.  **PHP** (&#x60;composer require stripyhorse/stripyhorse-php&#x60;): &#x60;&#x60;&#x60;php $out &#x3D; $convert-&gt;convertHtml(new StripyHorse\\Model\\HtmlInputBody([     &#39;html&#39; &#x3D;&gt; &#39;&lt;div style&#x3D;\&quot;position:absolute;left:40px;top:40px;font-size:50px\&quot;&gt;Hello&lt;/div&gt;&#39;,     &#39;preset&#39; &#x3D;&gt; &#39;4x6&#39;, ])); echo $out-&gt;getZpl(); &#x60;&#x60;&#x60;
      *
      * @throws ApiException if the Api call fails
      */
@@ -92,6 +94,20 @@ public class ConvertApiTest {
     public void convertHtmlTest() throws ApiException {
         HtmlInputBody htmlInputBody = null;
         HtmlOutputBody response = api.convertHtml(htmlInputBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Decompile ZPL into editable HTML
+     *
+     * The migration path for legacy ZPL templates: text, boxes and Code128/QR barcodes become editable HTML in the dialect convertHtml accepts; unsupported elements (raster graphics, exotic barcodes) are embedded as positioned images so the layout survives. Round-tripping through convertHtml preserves scannable barcodes.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void convertZplToHtmlTest() throws ApiException {
+        ZplHTMLInputBody zplHTMLInputBody = null;
+        ZplHTMLOutputBody response = api.convertZplToHtml(zplHTMLInputBody);
         // TODO: test validations
     }
 
