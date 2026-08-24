@@ -1047,6 +1047,9 @@ components:
           - 2x4
           - 3x5
           - 5x3
+          - 2x3
+          - 3x2
+          - netstamp
           type: string
         webhookUrl:
           type: string
@@ -1161,6 +1164,9 @@ components:
           - 2x4
           - 3x5
           - 5x3
+          - 2x3
+          - 3x2
+          - netstamp
           type: string
         threshold:
           format: int64
@@ -1470,6 +1476,9 @@ components:
           - 2x4
           - 3x5
           - 5x3
+          - 2x3
+          - 3x2
+          - netstamp
           type: string
         rotation:
           enum:
@@ -1636,6 +1645,9 @@ components:
           - 2x4
           - 3x5
           - 5x3
+          - 2x3
+          - 3x2
+          - netstamp
           type: string
         stamp:
           description: "Attribution stamp, e.g. VOID: bfaerber"
@@ -1692,6 +1704,9 @@ components:
           - 2x4
           - 3x5
           - 5x3
+          - 2x3
+          - 3x2
+          - netstamp
           type: string
         widthMm:
           format: double

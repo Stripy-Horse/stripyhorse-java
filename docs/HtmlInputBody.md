@@ -48,6 +48,9 @@
 | _2X4 | &quot;2x4&quot; |
 | _3X5 | &quot;3x5&quot; |
 | _5X3 | &quot;5x3&quot; |
+| _2X3 | &quot;2x3&quot; |
+| _3X2 | &quot;3x2&quot; |
+| NETSTAMP | &quot;netstamp&quot; |
 
 
 

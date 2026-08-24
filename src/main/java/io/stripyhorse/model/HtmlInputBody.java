@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * HtmlInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:07:03.387089185Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T22:21:21.710221348Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class HtmlInputBody {
   /**
    * Gets or Sets compression
@@ -196,7 +196,13 @@ public class HtmlInputBody {
     
     _3X5("3x5"),
     
-    _5X3("5x3");
+    _5X3("5x3"),
+    
+    _2X3("2x3"),
+    
+    _3X2("3x2"),
+    
+    NETSTAMP("netstamp");
 
     private String value;
 
