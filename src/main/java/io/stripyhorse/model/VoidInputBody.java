@@ -47,12 +47,12 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ZplHTMLInputBody
+ * VoidInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:07:03.387089185Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class ZplHTMLInputBody {
+public class VoidInputBody {
   /**
-   * Print density in dots/mm (152/203/300/600 dpi); default 8
+   * Gets or Sets dpmm
    */
   @JsonAdapter(DpmmEnum.Adapter.class)
   public enum DpmmEnum {
@@ -184,6 +184,16 @@ public class ZplHTMLInputBody {
   @javax.annotation.Nullable
   private PresetEnum preset;
 
+  public static final String SERIALIZED_NAME_STAMP = "stamp";
+  @SerializedName(SERIALIZED_NAME_STAMP)
+  @javax.annotation.Nullable
+  private String stamp;
+
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  @javax.annotation.Nullable
+  private String text;
+
   public static final String SERIALIZED_NAME_WIDTH_MM = "widthMm";
   @SerializedName(SERIALIZED_NAME_WIDTH_MM)
   @javax.annotation.Nullable
@@ -194,16 +204,16 @@ public class ZplHTMLInputBody {
   @javax.annotation.Nonnull
   private String zpl;
 
-  public ZplHTMLInputBody() {
+  public VoidInputBody() {
   }
 
-  public ZplHTMLInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
+  public VoidInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
     this.dpmm = dpmm;
     return this;
   }
 
   /**
-   * Print density in dots/mm (152/203/300/600 dpi); default 8
+   * Get dpmm
    * @return dpmm
    */
   @javax.annotation.Nullable
@@ -216,7 +226,7 @@ public class ZplHTMLInputBody {
   }
 
 
-  public ZplHTMLInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
+  public VoidInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
     this.heightMm = heightMm;
     return this;
   }
@@ -236,7 +246,7 @@ public class ZplHTMLInputBody {
   }
 
 
-  public ZplHTMLInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
+  public VoidInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
     this.preset = preset;
     return this;
   }
@@ -255,7 +265,45 @@ public class ZplHTMLInputBody {
   }
 
 
-  public ZplHTMLInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
+  public VoidInputBody stamp(@javax.annotation.Nullable String stamp) {
+    this.stamp = stamp;
+    return this;
+  }
+
+  /**
+   * Attribution stamp, e.g. VOID: bfaerber
+   * @return stamp
+   */
+  @javax.annotation.Nullable
+  public String getStamp() {
+    return stamp;
+  }
+
+  public void setStamp(@javax.annotation.Nullable String stamp) {
+    this.stamp = stamp;
+  }
+
+
+  public VoidInputBody text(@javax.annotation.Nullable String text) {
+    this.text = text;
+    return this;
+  }
+
+  /**
+   * Warning text; default DO NOT SHIP
+   * @return text
+   */
+  @javax.annotation.Nullable
+  public String getText() {
+    return text;
+  }
+
+  public void setText(@javax.annotation.Nullable String text) {
+    this.text = text;
+  }
+
+
+  public VoidInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
     this.widthMm = widthMm;
     return this;
   }
@@ -275,7 +323,7 @@ public class ZplHTMLInputBody {
   }
 
 
-  public ZplHTMLInputBody zpl(@javax.annotation.Nonnull String zpl) {
+  public VoidInputBody zpl(@javax.annotation.Nonnull String zpl) {
     this.zpl = zpl;
     return this;
   }
@@ -303,26 +351,30 @@ public class ZplHTMLInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZplHTMLInputBody zplHTMLInputBody = (ZplHTMLInputBody) o;
-    return Objects.equals(this.dpmm, zplHTMLInputBody.dpmm) &&
-        Objects.equals(this.heightMm, zplHTMLInputBody.heightMm) &&
-        Objects.equals(this.preset, zplHTMLInputBody.preset) &&
-        Objects.equals(this.widthMm, zplHTMLInputBody.widthMm) &&
-        Objects.equals(this.zpl, zplHTMLInputBody.zpl);
+    VoidInputBody voidInputBody = (VoidInputBody) o;
+    return Objects.equals(this.dpmm, voidInputBody.dpmm) &&
+        Objects.equals(this.heightMm, voidInputBody.heightMm) &&
+        Objects.equals(this.preset, voidInputBody.preset) &&
+        Objects.equals(this.stamp, voidInputBody.stamp) &&
+        Objects.equals(this.text, voidInputBody.text) &&
+        Objects.equals(this.widthMm, voidInputBody.widthMm) &&
+        Objects.equals(this.zpl, voidInputBody.zpl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dpmm, heightMm, preset, widthMm, zpl);
+    return Objects.hash(dpmm, heightMm, preset, stamp, text, widthMm, zpl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZplHTMLInputBody {\n");
+    sb.append("class VoidInputBody {\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
     sb.append("    heightMm: ").append(toIndentedString(heightMm)).append("\n");
     sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
+    sb.append("    stamp: ").append(toIndentedString(stamp)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    widthMm: ").append(toIndentedString(widthMm)).append("\n");
     sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
@@ -343,7 +395,7 @@ public class ZplHTMLInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "heightMm", "preset", "widthMm", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "heightMm", "preset", "stamp", "text", "widthMm", "zpl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
@@ -353,25 +405,25 @@ public class ZplHTMLInputBody {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ZplHTMLInputBody
+   * @throws IOException if the JSON Element is invalid with respect to VoidInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ZplHTMLInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ZplHTMLInputBody is not found in the empty JSON string", ZplHTMLInputBody.openapiRequiredFields.toString()));
+        if (!VoidInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VoidInputBody is not found in the empty JSON string", VoidInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ZplHTMLInputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ZplHTMLInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!VoidInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VoidInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ZplHTMLInputBody.openapiRequiredFields) {
+      for (String requiredField : VoidInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -388,6 +440,12 @@ public class ZplHTMLInputBody {
       if (jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) {
         PresetEnum.validateJsonElement(jsonObj.get("preset"));
       }
+      if ((jsonObj.get("stamp") != null && !jsonObj.get("stamp").isJsonNull()) && !jsonObj.get("stamp").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stamp").toString()));
+      }
+      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      }
       if (!jsonObj.get("zpl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
       }
@@ -397,22 +455,22 @@ public class ZplHTMLInputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ZplHTMLInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ZplHTMLInputBody' and its subtypes
+       if (!VoidInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VoidInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ZplHTMLInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ZplHTMLInputBody.class));
+       final TypeAdapter<VoidInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VoidInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ZplHTMLInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<VoidInputBody>() {
            @Override
-           public void write(JsonWriter out, ZplHTMLInputBody value) throws IOException {
+           public void write(JsonWriter out, VoidInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ZplHTMLInputBody read(JsonReader in) throws IOException {
+           public VoidInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -423,18 +481,18 @@ public class ZplHTMLInputBody {
   }
 
   /**
-   * Create an instance of ZplHTMLInputBody given an JSON string
+   * Create an instance of VoidInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ZplHTMLInputBody
-   * @throws IOException if the JSON string is invalid with respect to ZplHTMLInputBody
+   * @return An instance of VoidInputBody
+   * @throws IOException if the JSON string is invalid with respect to VoidInputBody
    */
-  public static ZplHTMLInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ZplHTMLInputBody.class);
+  public static VoidInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VoidInputBody.class);
   }
 
   /**
-   * Convert an instance of ZplHTMLInputBody to an JSON string
+   * Convert an instance of VoidInputBody to an JSON string
    *
    * @return JSON string
    */

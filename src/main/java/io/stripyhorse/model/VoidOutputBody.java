@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.stripyhorse.model.RenderedLabel;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,66 +47,34 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * RenderOutputBody
+ * VoidOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:07:03.387089185Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class RenderOutputBody {
-  public static final String SERIALIZED_NAME_LABEL_COUNT = "labelCount";
-  @SerializedName(SERIALIZED_NAME_LABEL_COUNT)
+public class VoidOutputBody {
+  public static final String SERIALIZED_NAME_ZPL = "zpl";
+  @SerializedName(SERIALIZED_NAME_ZPL)
   @javax.annotation.Nonnull
-  private Long labelCount;
+  private String zpl;
 
-  public static final String SERIALIZED_NAME_LABELS = "labels";
-  @SerializedName(SERIALIZED_NAME_LABELS)
-  @javax.annotation.Nullable
-  private List<RenderedLabel> labels;
-
-  public RenderOutputBody() {
+  public VoidOutputBody() {
   }
 
-  public RenderOutputBody labelCount(@javax.annotation.Nonnull Long labelCount) {
-    this.labelCount = labelCount;
+  public VoidOutputBody zpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
     return this;
   }
 
   /**
-   * Get labelCount
-   * @return labelCount
+   * Get zpl
+   * @return zpl
    */
   @javax.annotation.Nonnull
-  public Long getLabelCount() {
-    return labelCount;
+  public String getZpl() {
+    return zpl;
   }
 
-  public void setLabelCount(@javax.annotation.Nonnull Long labelCount) {
-    this.labelCount = labelCount;
-  }
-
-
-  public RenderOutputBody labels(@javax.annotation.Nullable List<RenderedLabel> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public RenderOutputBody addLabelsItem(RenderedLabel labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<>();
-    }
-    this.labels.add(labelsItem);
-    return this;
-  }
-
-  /**
-   * Get labels
-   * @return labels
-   */
-  @javax.annotation.Nullable
-  public List<RenderedLabel> getLabels() {
-    return labels;
-  }
-
-  public void setLabels(@javax.annotation.Nullable List<RenderedLabel> labels) {
-    this.labels = labels;
+  public void setZpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
   }
 
 
@@ -122,22 +87,20 @@ public class RenderOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RenderOutputBody renderOutputBody = (RenderOutputBody) o;
-    return Objects.equals(this.labelCount, renderOutputBody.labelCount) &&
-        Objects.equals(this.labels, renderOutputBody.labels);
+    VoidOutputBody voidOutputBody = (VoidOutputBody) o;
+    return Objects.equals(this.zpl, voidOutputBody.zpl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(labelCount, labels);
+    return Objects.hash(zpl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RenderOutputBody {\n");
-    sb.append("    labelCount: ").append(toIndentedString(labelCount)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("class VoidOutputBody {\n");
+    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,49 +119,42 @@ public class RenderOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("labelCount", "labels"));
+    openapiFields = new HashSet<String>(Arrays.asList("zpl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("labelCount", "labels"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to RenderOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to VoidOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RenderOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RenderOutputBody is not found in the empty JSON string", RenderOutputBody.openapiRequiredFields.toString()));
+        if (!VoidOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VoidOutputBody is not found in the empty JSON string", VoidOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!RenderOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RenderOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!VoidOutputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VoidOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RenderOutputBody.openapiRequiredFields) {
+      for (String requiredField : VoidOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("labels") != null && !jsonObj.get("labels").isJsonNull()) {
-        if (!jsonObj.get("labels").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `labels` to be an array in the JSON string but got `%s`", jsonObj.get("labels").toString()));
-        }
-        JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
-        // validate the required field `labels` (array)
-        for (int i = 0; i < jsonArraylabels.size(); i++) {
-          RenderedLabel.validateJsonElement(jsonArraylabels.get(i));
-        }
+      if (!jsonObj.get("zpl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
       }
   }
 
@@ -206,22 +162,22 @@ public class RenderOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RenderOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RenderOutputBody' and its subtypes
+       if (!VoidOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VoidOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RenderOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RenderOutputBody.class));
+       final TypeAdapter<VoidOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VoidOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RenderOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<VoidOutputBody>() {
            @Override
-           public void write(JsonWriter out, RenderOutputBody value) throws IOException {
+           public void write(JsonWriter out, VoidOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RenderOutputBody read(JsonReader in) throws IOException {
+           public VoidOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -232,18 +188,18 @@ public class RenderOutputBody {
   }
 
   /**
-   * Create an instance of RenderOutputBody given an JSON string
+   * Create an instance of VoidOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of RenderOutputBody
-   * @throws IOException if the JSON string is invalid with respect to RenderOutputBody
+   * @return An instance of VoidOutputBody
+   * @throws IOException if the JSON string is invalid with respect to VoidOutputBody
    */
-  public static RenderOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RenderOutputBody.class);
+  public static VoidOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VoidOutputBody.class);
   }
 
   /**
-   * Convert an instance of RenderOutputBody to an JSON string
+   * Convert an instance of VoidOutputBody to an JSON string
    *
    * @return JSON string
    */

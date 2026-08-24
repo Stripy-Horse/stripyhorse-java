@@ -8,6 +8,7 @@ All URIs are relative to *https://api.stripyhorse.io*
 | [**convertDocument**](ConvertApi.md#convertDocument) | **POST** /v1/convert | Convert a PDF or image to ZPL |
 | [**convertHtml**](ConvertApi.md#convertHtml) | **POST** /v1/convert/html | Convert an HTML label design to ZPL |
 | [**convertZplToHtml**](ConvertApi.md#convertZplToHtml) | **POST** /v1/convert/zpl-html | Decompile ZPL into editable HTML |
+| [**voidZpl**](ConvertApi.md#voidZpl) | **POST** /v1/void | Stamp ZPL as void / do-not-ship |
 
 
 <a id="convertBatch"></a>
@@ -325,6 +326,80 @@ public class Example {
 ### Return type
 
 [**ZplHTMLOutputBody**](ZplHTMLOutputBody.md)
+
+### Authorization
+
+[headerKey](../README.md#headerKey), [bearerKey](../README.md#bearerKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
+
+<a id="voidZpl"></a>
+# **voidZpl**
+> VoidOutputBody voidZpl(voidInputBody)
+
+Stamp ZPL as void / do-not-ship
+
+Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+
+### Example
+```java
+// Import classes:
+import io.stripyhorse.ApiClient;
+import io.stripyhorse.ApiException;
+import io.stripyhorse.Configuration;
+import io.stripyhorse.auth.*;
+import io.stripyhorse.models.*;
+import io.stripyhorse.api.ConvertApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.stripyhorse.io");
+    
+    // Configure API key authorization: headerKey
+    ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
+    headerKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //headerKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerKey
+    HttpBearerAuth bearerKey = (HttpBearerAuth) defaultClient.getAuthentication("bearerKey");
+    bearerKey.setBearerToken("BEARER TOKEN");
+
+    ConvertApi apiInstance = new ConvertApi(defaultClient);
+    VoidInputBody voidInputBody = new VoidInputBody(); // VoidInputBody | 
+    try {
+      VoidOutputBody result = apiInstance.voidZpl(voidInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConvertApi#voidZpl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **voidInputBody** | [**VoidInputBody**](VoidInputBody.md)|  | |
+
+### Return type
+
+[**VoidOutputBody**](VoidOutputBody.md)
 
 ### Authorization
 

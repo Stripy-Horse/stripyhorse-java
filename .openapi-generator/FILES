@@ -29,6 +29,8 @@ docs/SimulatorApi.md
 docs/StateOutputBody.md
 docs/StatusSnapshot.md
 docs/UpdatePrinterInputBody.md
+docs/VoidInputBody.md
+docs/VoidOutputBody.md
 docs/ZplHTMLInputBody.md
 docs/ZplHTMLOutputBody.md
 git_push.sh
@@ -81,6 +83,8 @@ src/main/java/io/stripyhorse/model/RenderedLabel.java
 src/main/java/io/stripyhorse/model/StateOutputBody.java
 src/main/java/io/stripyhorse/model/StatusSnapshot.java
 src/main/java/io/stripyhorse/model/UpdatePrinterInputBody.java
+src/main/java/io/stripyhorse/model/VoidInputBody.java
+src/main/java/io/stripyhorse/model/VoidOutputBody.java
 src/main/java/io/stripyhorse/model/ZplHTMLInputBody.java
 src/main/java/io/stripyhorse/model/ZplHTMLOutputBody.java
 src/test/java/io/stripyhorse/api/ConvertApiTest.java
@@ -106,5 +110,7 @@ src/test/java/io/stripyhorse/model/RenderedLabelTest.java
 src/test/java/io/stripyhorse/model/StateOutputBodyTest.java
 src/test/java/io/stripyhorse/model/StatusSnapshotTest.java
 src/test/java/io/stripyhorse/model/UpdatePrinterInputBodyTest.java
+src/test/java/io/stripyhorse/model/VoidInputBodyTest.java
+src/test/java/io/stripyhorse/model/VoidOutputBodyTest.java
 src/test/java/io/stripyhorse/model/ZplHTMLInputBodyTest.java
 src/test/java/io/stripyhorse/model/ZplHTMLOutputBodyTest.java

@@ -32,6 +32,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.VoidInputBody;
+import io.stripyhorse.model.VoidOutputBody;
 import io.stripyhorse.model.ZplHTMLInputBody;
 import io.stripyhorse.model.ZplHTMLOutputBody;
 
@@ -750,6 +752,138 @@ public class ConvertApi {
 
         okhttp3.Call localVarCall = convertZplToHtmlValidateBeforeCall(zplHTMLInputBody, _callback);
         Type localVarReturnType = new TypeToken<ZplHTMLOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for voidZpl
+     * @param voidInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call voidZplCall(@javax.annotation.Nonnull VoidInputBody voidInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = voidInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/void";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call voidZplValidateBeforeCall(@javax.annotation.Nonnull VoidInputBody voidInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'voidInputBody' is set
+        if (voidInputBody == null) {
+            throw new ApiException("Missing the required parameter 'voidInputBody' when calling voidZpl(Async)");
+        }
+
+        return voidZplCall(voidInputBody, _callback);
+
+    }
+
+    /**
+     * Stamp ZPL as void / do-not-ship
+     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * @param voidInputBody  (required)
+     * @return VoidOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public VoidOutputBody voidZpl(@javax.annotation.Nonnull VoidInputBody voidInputBody) throws ApiException {
+        ApiResponse<VoidOutputBody> localVarResp = voidZplWithHttpInfo(voidInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stamp ZPL as void / do-not-ship
+     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * @param voidInputBody  (required)
+     * @return ApiResponse&lt;VoidOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<VoidOutputBody> voidZplWithHttpInfo(@javax.annotation.Nonnull VoidInputBody voidInputBody) throws ApiException {
+        okhttp3.Call localVarCall = voidZplValidateBeforeCall(voidInputBody, null);
+        Type localVarReturnType = new TypeToken<VoidOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stamp ZPL as void / do-not-ship (asynchronously)
+     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * @param voidInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call voidZplAsync(@javax.annotation.Nonnull VoidInputBody voidInputBody, final ApiCallback<VoidOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = voidZplValidateBeforeCall(voidInputBody, _callback);
+        Type localVarReturnType = new TypeToken<VoidOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -51,7 +51,7 @@ import io.stripyhorse.JSON;
 /**
  * JobOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:06:01.527781639Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T21:07:03.387089185Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class JobOutputBody {
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)

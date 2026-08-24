@@ -19,6 +19,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.VoidInputBody;
+import io.stripyhorse.model.VoidOutputBody;
 import io.stripyhorse.model.ZplHTMLInputBody;
 import io.stripyhorse.model.ZplHTMLOutputBody;
 import org.junit.jupiter.api.Disabled;
@@ -108,6 +110,20 @@ public class ConvertApiTest {
     public void convertZplToHtmlTest() throws ApiException {
         ZplHTMLInputBody zplHTMLInputBody = null;
         ZplHTMLOutputBody response = api.convertZplToHtml(zplHTMLInputBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Stamp ZPL as void / do-not-ship
+     *
+     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void voidZplTest() throws ApiException {
+        VoidInputBody voidInputBody = null;
+        VoidOutputBody response = api.voidZpl(voidInputBody);
         // TODO: test validations
     }
 
