@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * Faults
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T22:21:21.710221348Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T23:10:48.472067722Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class Faults {
   public static final String SERIALIZED_NAME_HEAD_UP = "headUp";
   @SerializedName(SERIALIZED_NAME_HEAD_UP)

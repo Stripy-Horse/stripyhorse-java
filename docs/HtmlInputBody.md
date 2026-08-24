@@ -51,6 +51,14 @@
 | _2X3 | &quot;2x3&quot; |
 | _3X2 | &quot;3x2&quot; |
 | NETSTAMP | &quot;netstamp&quot; |
+| _2_25X1_25 | &quot;2.25x1.25&quot; |
+| _2X1 | &quot;2x1&quot; |
+| _3X1 | &quot;3x1&quot; |
+| _4X1 | &quot;4x1&quot; |
+| _1X1 | &quot;1x1&quot; |
+| _4X3 | &quot;4x3&quot; |
+| _4X8 | &quot;4x8&quot; |
+| A6 | &quot;a6&quot; |
 
 
 
