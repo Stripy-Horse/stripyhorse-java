@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.stripyhorse.model.RenderedLabel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,75 +51,83 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * UnicodeOutputBody
+ * ComposeOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T20:52:49.742615742Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class UnicodeOutputBody {
-  public static final String SERIALIZED_NAME_FIELDS_RASTERIZED = "fieldsRasterized";
-  @SerializedName(SERIALIZED_NAME_FIELDS_RASTERIZED)
-  @javax.annotation.Nonnull
-  private Long fieldsRasterized;
-
-  public static final String SERIALIZED_NAME_SKIPPED = "skipped";
-  @SerializedName(SERIALIZED_NAME_SKIPPED)
+public class ComposeOutputBody {
+  public static final String SERIALIZED_NAME_LABELS = "labels";
+  @SerializedName(SERIALIZED_NAME_LABELS)
   @javax.annotation.Nullable
-  private List<String> skipped;
+  private List<RenderedLabel> labels;
+
+  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+  @SerializedName(SERIALIZED_NAME_WARNINGS)
+  @javax.annotation.Nullable
+  private List<String> warnings;
 
   public static final String SERIALIZED_NAME_ZPL = "zpl";
   @SerializedName(SERIALIZED_NAME_ZPL)
   @javax.annotation.Nonnull
   private String zpl;
 
-  public UnicodeOutputBody() {
+  public ComposeOutputBody() {
   }
 
-  public UnicodeOutputBody fieldsRasterized(@javax.annotation.Nonnull Long fieldsRasterized) {
-    this.fieldsRasterized = fieldsRasterized;
+  public ComposeOutputBody labels(@javax.annotation.Nullable List<RenderedLabel> labels) {
+    this.labels = labels;
     return this;
   }
 
-  /**
-   * Get fieldsRasterized
-   * @return fieldsRasterized
-   */
-  @javax.annotation.Nonnull
-  public Long getFieldsRasterized() {
-    return fieldsRasterized;
-  }
-
-  public void setFieldsRasterized(@javax.annotation.Nonnull Long fieldsRasterized) {
-    this.fieldsRasterized = fieldsRasterized;
-  }
-
-
-  public UnicodeOutputBody skipped(@javax.annotation.Nullable List<String> skipped) {
-    this.skipped = skipped;
-    return this;
-  }
-
-  public UnicodeOutputBody addSkippedItem(String skippedItem) {
-    if (this.skipped == null) {
-      this.skipped = new ArrayList<>();
+  public ComposeOutputBody addLabelsItem(RenderedLabel labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<>();
     }
-    this.skipped.add(skippedItem);
+    this.labels.add(labelsItem);
     return this;
   }
 
   /**
-   * Get skipped
-   * @return skipped
+   * Rendered previews when preview&#x3D;true
+   * @return labels
    */
   @javax.annotation.Nullable
-  public List<String> getSkipped() {
-    return skipped;
+  public List<RenderedLabel> getLabels() {
+    return labels;
   }
 
-  public void setSkipped(@javax.annotation.Nullable List<String> skipped) {
-    this.skipped = skipped;
+  public void setLabels(@javax.annotation.Nullable List<RenderedLabel> labels) {
+    this.labels = labels;
   }
 
 
-  public UnicodeOutputBody zpl(@javax.annotation.Nonnull String zpl) {
+  public ComposeOutputBody warnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public ComposeOutputBody addWarningsItem(String warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+  /**
+   * Get warnings
+   * @return warnings
+   */
+  @javax.annotation.Nullable
+  public List<String> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+  }
+
+
+  public ComposeOutputBody zpl(@javax.annotation.Nonnull String zpl) {
     this.zpl = zpl;
     return this;
   }
@@ -146,10 +155,10 @@ public class UnicodeOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UnicodeOutputBody unicodeOutputBody = (UnicodeOutputBody) o;
-    return Objects.equals(this.fieldsRasterized, unicodeOutputBody.fieldsRasterized) &&
-        Objects.equals(this.skipped, unicodeOutputBody.skipped) &&
-        Objects.equals(this.zpl, unicodeOutputBody.zpl);
+    ComposeOutputBody composeOutputBody = (ComposeOutputBody) o;
+    return Objects.equals(this.labels, composeOutputBody.labels) &&
+        Objects.equals(this.warnings, composeOutputBody.warnings) &&
+        Objects.equals(this.zpl, composeOutputBody.zpl);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -158,7 +167,7 @@ public class UnicodeOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldsRasterized, skipped, zpl);
+    return Objects.hash(labels, warnings, zpl);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,9 +180,9 @@ public class UnicodeOutputBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UnicodeOutputBody {\n");
-    sb.append("    fieldsRasterized: ").append(toIndentedString(fieldsRasterized)).append("\n");
-    sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
+    sb.append("class ComposeOutputBody {\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -193,43 +202,59 @@ public class UnicodeOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("fieldsRasterized", "skipped", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("labels", "warnings", "zpl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("fieldsRasterized", "zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("warnings", "zpl"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UnicodeOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to ComposeOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UnicodeOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UnicodeOutputBody is not found in the empty JSON string", UnicodeOutputBody.openapiRequiredFields.toString()));
+        if (!ComposeOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ComposeOutputBody is not found in the empty JSON string", ComposeOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UnicodeOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UnicodeOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ComposeOutputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ComposeOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UnicodeOutputBody.openapiRequiredFields) {
+      for (String requiredField : ComposeOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("skipped") != null && !jsonObj.get("skipped").isJsonNull() && !jsonObj.get("skipped").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skipped` to be an array in the JSON string but got `%s`", jsonObj.get("skipped").toString()));
+      if (jsonObj.get("labels") != null && !jsonObj.get("labels").isJsonNull()) {
+        JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
+        if (jsonArraylabels != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("labels").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `labels` to be an array in the JSON string but got `%s`", jsonObj.get("labels").toString()));
+          }
+
+          // validate the optional field `labels` (array)
+          for (int i = 0; i < jsonArraylabels.size(); i++) {
+            RenderedLabel.validateJsonElement(jsonArraylabels.get(i));
+          };
+        }
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("warnings") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("warnings").isJsonArray() && !jsonObj.get("warnings").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
       }
       if (!jsonObj.get("zpl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
@@ -240,22 +265,22 @@ public class UnicodeOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UnicodeOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UnicodeOutputBody' and its subtypes
+       if (!ComposeOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ComposeOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UnicodeOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UnicodeOutputBody.class));
+       final TypeAdapter<ComposeOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ComposeOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UnicodeOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ComposeOutputBody>() {
            @Override
-           public void write(JsonWriter out, UnicodeOutputBody value) throws IOException {
+           public void write(JsonWriter out, ComposeOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public UnicodeOutputBody read(JsonReader in) throws IOException {
+           public ComposeOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -266,18 +291,18 @@ public class UnicodeOutputBody {
   }
 
   /**
-   * Create an instance of UnicodeOutputBody given an JSON string
+   * Create an instance of ComposeOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UnicodeOutputBody
-   * @throws IOException if the JSON string is invalid with respect to UnicodeOutputBody
+   * @return An instance of ComposeOutputBody
+   * @throws IOException if the JSON string is invalid with respect to ComposeOutputBody
    */
-  public static UnicodeOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UnicodeOutputBody.class);
+  public static ComposeOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ComposeOutputBody.class);
   }
 
   /**
-   * Convert an instance of UnicodeOutputBody to an JSON string
+   * Convert an instance of ComposeOutputBody to an JSON string
    *
    * @return JSON string
    */

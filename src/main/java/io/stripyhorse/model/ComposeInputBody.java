@@ -19,8 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.stripyhorse.model.Element;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,10 +52,10 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * VoidInputBody
+ * ComposeInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T20:52:49.742615742Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class VoidInputBody {
+public class ComposeInputBody {
   /**
    * Gets or Sets dpmm
    */
@@ -112,13 +117,18 @@ public class VoidInputBody {
   @javax.annotation.Nullable
   private DpmmEnum dpmm;
 
+  public static final String SERIALIZED_NAME_ELEMENTS = "elements";
+  @SerializedName(SERIALIZED_NAME_ELEMENTS)
+  @javax.annotation.Nullable
+  private List<Element> elements;
+
   public static final String SERIALIZED_NAME_HEIGHT_MM = "heightMm";
   @SerializedName(SERIALIZED_NAME_HEIGHT_MM)
   @javax.annotation.Nullable
   private Double heightMm;
 
   /**
-   * Named label size in inches; alternative to widthMm/heightMm
+   * Named label size; alternative to widthMm/heightMm
    */
   @JsonAdapter(PresetEnum.Adapter.class)
   public enum PresetEnum {
@@ -206,30 +216,25 @@ public class VoidInputBody {
   @javax.annotation.Nullable
   private PresetEnum preset;
 
-  public static final String SERIALIZED_NAME_STAMP = "stamp";
-  @SerializedName(SERIALIZED_NAME_STAMP)
+  public static final String SERIALIZED_NAME_PREVIEW = "preview";
+  @SerializedName(SERIALIZED_NAME_PREVIEW)
   @javax.annotation.Nullable
-  private String stamp;
+  private Boolean preview;
 
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
+  public static final String SERIALIZED_NAME_VARIABLES = "variables";
+  @SerializedName(SERIALIZED_NAME_VARIABLES)
   @javax.annotation.Nullable
-  private String text;
+  private Map<String, String> variables = new HashMap<>();
 
   public static final String SERIALIZED_NAME_WIDTH_MM = "widthMm";
   @SerializedName(SERIALIZED_NAME_WIDTH_MM)
   @javax.annotation.Nullable
   private Double widthMm;
 
-  public static final String SERIALIZED_NAME_ZPL = "zpl";
-  @SerializedName(SERIALIZED_NAME_ZPL)
-  @javax.annotation.Nonnull
-  private String zpl;
-
-  public VoidInputBody() {
+  public ComposeInputBody() {
   }
 
-  public VoidInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
+  public ComposeInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
     this.dpmm = dpmm;
     return this;
   }
@@ -248,7 +253,34 @@ public class VoidInputBody {
   }
 
 
-  public VoidInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
+  public ComposeInputBody elements(@javax.annotation.Nullable List<Element> elements) {
+    this.elements = elements;
+    return this;
+  }
+
+  public ComposeInputBody addElementsItem(Element elementsItem) {
+    if (this.elements == null) {
+      this.elements = new ArrayList<>();
+    }
+    this.elements.add(elementsItem);
+    return this;
+  }
+
+  /**
+   * Get elements
+   * @return elements
+   */
+  @javax.annotation.Nullable
+  public List<Element> getElements() {
+    return elements;
+  }
+
+  public void setElements(@javax.annotation.Nullable List<Element> elements) {
+    this.elements = elements;
+  }
+
+
+  public ComposeInputBody heightMm(@javax.annotation.Nullable Double heightMm) {
     this.heightMm = heightMm;
     return this;
   }
@@ -268,13 +300,13 @@ public class VoidInputBody {
   }
 
 
-  public VoidInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
+  public ComposeInputBody preset(@javax.annotation.Nullable PresetEnum preset) {
     this.preset = preset;
     return this;
   }
 
   /**
-   * Named label size in inches; alternative to widthMm/heightMm
+   * Named label size; alternative to widthMm/heightMm
    * @return preset
    */
   @javax.annotation.Nullable
@@ -287,45 +319,53 @@ public class VoidInputBody {
   }
 
 
-  public VoidInputBody stamp(@javax.annotation.Nullable String stamp) {
-    this.stamp = stamp;
+  public ComposeInputBody preview(@javax.annotation.Nullable Boolean preview) {
+    this.preview = preview;
     return this;
   }
 
   /**
-   * Attribution stamp, e.g. VOID: bfaerber
-   * @return stamp
+   * Also render the composed label to PNG
+   * @return preview
    */
   @javax.annotation.Nullable
-  public String getStamp() {
-    return stamp;
+  public Boolean getPreview() {
+    return preview;
   }
 
-  public void setStamp(@javax.annotation.Nullable String stamp) {
-    this.stamp = stamp;
+  public void setPreview(@javax.annotation.Nullable Boolean preview) {
+    this.preview = preview;
   }
 
 
-  public VoidInputBody text(@javax.annotation.Nullable String text) {
-    this.text = text;
+  public ComposeInputBody variables(@javax.annotation.Nullable Map<String, String> variables) {
+    this.variables = variables;
+    return this;
+  }
+
+  public ComposeInputBody putVariablesItem(String key, String variablesItem) {
+    if (this.variables == null) {
+      this.variables = new HashMap<>();
+    }
+    this.variables.put(key, variablesItem);
     return this;
   }
 
   /**
-   * Warning text; default VOID - DO NOT MAIL
-   * @return text
+   * Values for {{name}} references
+   * @return variables
    */
   @javax.annotation.Nullable
-  public String getText() {
-    return text;
+  public Map<String, String> getVariables() {
+    return variables;
   }
 
-  public void setText(@javax.annotation.Nullable String text) {
-    this.text = text;
+  public void setVariables(@javax.annotation.Nullable Map<String, String> variables) {
+    this.variables = variables;
   }
 
 
-  public VoidInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
+  public ComposeInputBody widthMm(@javax.annotation.Nullable Double widthMm) {
     this.widthMm = widthMm;
     return this;
   }
@@ -345,25 +385,6 @@ public class VoidInputBody {
   }
 
 
-  public VoidInputBody zpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
-    return this;
-  }
-
-  /**
-   * Get zpl
-   * @return zpl
-   */
-  @javax.annotation.Nonnull
-  public String getZpl() {
-    return zpl;
-  }
-
-  public void setZpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -373,32 +394,32 @@ public class VoidInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoidInputBody voidInputBody = (VoidInputBody) o;
-    return Objects.equals(this.dpmm, voidInputBody.dpmm) &&
-        Objects.equals(this.heightMm, voidInputBody.heightMm) &&
-        Objects.equals(this.preset, voidInputBody.preset) &&
-        Objects.equals(this.stamp, voidInputBody.stamp) &&
-        Objects.equals(this.text, voidInputBody.text) &&
-        Objects.equals(this.widthMm, voidInputBody.widthMm) &&
-        Objects.equals(this.zpl, voidInputBody.zpl);
+    ComposeInputBody composeInputBody = (ComposeInputBody) o;
+    return Objects.equals(this.dpmm, composeInputBody.dpmm) &&
+        Objects.equals(this.elements, composeInputBody.elements) &&
+        Objects.equals(this.heightMm, composeInputBody.heightMm) &&
+        Objects.equals(this.preset, composeInputBody.preset) &&
+        Objects.equals(this.preview, composeInputBody.preview) &&
+        Objects.equals(this.variables, composeInputBody.variables) &&
+        Objects.equals(this.widthMm, composeInputBody.widthMm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dpmm, heightMm, preset, stamp, text, widthMm, zpl);
+    return Objects.hash(dpmm, elements, heightMm, preset, preview, variables, widthMm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoidInputBody {\n");
+    sb.append("class ComposeInputBody {\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
+    sb.append("    elements: ").append(toIndentedString(elements)).append("\n");
     sb.append("    heightMm: ").append(toIndentedString(heightMm)).append("\n");
     sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
-    sb.append("    stamp: ").append(toIndentedString(stamp)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    preview: ").append(toIndentedString(preview)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    widthMm: ").append(toIndentedString(widthMm)).append("\n");
-    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -417,35 +438,35 @@ public class VoidInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "heightMm", "preset", "stamp", "text", "widthMm", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "elements", "heightMm", "preset", "preview", "variables", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("elements"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to VoidInputBody
+   * @throws IOException if the JSON Element is invalid with respect to ComposeInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!VoidInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VoidInputBody is not found in the empty JSON string", VoidInputBody.openapiRequiredFields.toString()));
+        if (!ComposeInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ComposeInputBody is not found in the empty JSON string", ComposeInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!VoidInputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VoidInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ComposeInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ComposeInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : VoidInputBody.openapiRequiredFields) {
+      for (String requiredField : ComposeInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -455,6 +476,16 @@ public class VoidInputBody {
       if (jsonObj.get("dpmm") != null && !jsonObj.get("dpmm").isJsonNull()) {
         DpmmEnum.validateJsonElement(jsonObj.get("dpmm"));
       }
+      if (jsonObj.get("elements") != null && !jsonObj.get("elements").isJsonNull()) {
+        if (!jsonObj.get("elements").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elements` to be an array in the JSON string but got `%s`", jsonObj.get("elements").toString()));
+        }
+        JsonArray jsonArrayelements = jsonObj.getAsJsonArray("elements");
+        // validate the required field `elements` (array)
+        for (int i = 0; i < jsonArrayelements.size(); i++) {
+          Element.validateJsonElement(jsonArrayelements.get(i));
+        }
+      }
       if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
       }
@@ -462,37 +493,28 @@ public class VoidInputBody {
       if (jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) {
         PresetEnum.validateJsonElement(jsonObj.get("preset"));
       }
-      if ((jsonObj.get("stamp") != null && !jsonObj.get("stamp").isJsonNull()) && !jsonObj.get("stamp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stamp").toString()));
-      }
-      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
-      }
-      if (!jsonObj.get("zpl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VoidInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VoidInputBody' and its subtypes
+       if (!ComposeInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ComposeInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VoidInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VoidInputBody.class));
+       final TypeAdapter<ComposeInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ComposeInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VoidInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ComposeInputBody>() {
            @Override
-           public void write(JsonWriter out, VoidInputBody value) throws IOException {
+           public void write(JsonWriter out, ComposeInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VoidInputBody read(JsonReader in) throws IOException {
+           public ComposeInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -503,18 +525,18 @@ public class VoidInputBody {
   }
 
   /**
-   * Create an instance of VoidInputBody given an JSON string
+   * Create an instance of ComposeInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of VoidInputBody
-   * @throws IOException if the JSON string is invalid with respect to VoidInputBody
+   * @return An instance of ComposeInputBody
+   * @throws IOException if the JSON string is invalid with respect to ComposeInputBody
    */
-  public static VoidInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VoidInputBody.class);
+  public static ComposeInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ComposeInputBody.class);
   }
 
   /**
-   * Convert an instance of VoidInputBody to an JSON string
+   * Convert an instance of ComposeInputBody to an JSON string
    *
    * @return JSON string
    */

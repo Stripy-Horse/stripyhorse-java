@@ -102,10 +102,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.Barcode.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.Check.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ComposeInputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ComposeOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ConvertOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ConvertedPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.CreatePrinterInputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.DPIVerdict.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.Element.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ErrorDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ErrorModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.Faults.CustomTypeAdapterFactory());
