@@ -11,7 +11,7 @@
 |**heightMm** | **Double** |  |  [optional] |
 |**preset** | [**PresetEnum**](#PresetEnum) | Named label size in inches; alternative to widthMm/heightMm |  [optional] |
 |**stamp** | **String** | Attribution stamp, e.g. VOID: bfaerber |  [optional] |
-|**text** | **String** | Warning text; default DO NOT SHIP |  [optional] |
+|**text** | **String** | Warning text; default VOID - DO NOT MAIL |  [optional] |
 |**widthMm** | **Double** |  |  [optional] |
 |**zpl** | **String** |  |  |
 

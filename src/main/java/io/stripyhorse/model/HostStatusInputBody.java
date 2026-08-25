@@ -47,34 +47,34 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * UnicodeInputBody
+ * HostStatusInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T05:58:44.704425797Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class UnicodeInputBody {
-  public static final String SERIALIZED_NAME_ZPL = "zpl";
-  @SerializedName(SERIALIZED_NAME_ZPL)
+public class HostStatusInputBody {
+  public static final String SERIALIZED_NAME_RESPONSE = "response";
+  @SerializedName(SERIALIZED_NAME_RESPONSE)
   @javax.annotation.Nonnull
-  private String zpl;
+  private String response;
 
-  public UnicodeInputBody() {
+  public HostStatusInputBody() {
   }
 
-  public UnicodeInputBody zpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public HostStatusInputBody response(@javax.annotation.Nonnull String response) {
+    this.response = response;
     return this;
   }
 
   /**
-   * Get zpl
-   * @return zpl
+   * The three ~HS status lines, as received
+   * @return response
    */
   @javax.annotation.Nonnull
-  public String getZpl() {
-    return zpl;
+  public String getResponse() {
+    return response;
   }
 
-  public void setZpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public void setResponse(@javax.annotation.Nonnull String response) {
+    this.response = response;
   }
 
 
@@ -87,20 +87,20 @@ public class UnicodeInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UnicodeInputBody unicodeInputBody = (UnicodeInputBody) o;
-    return Objects.equals(this.zpl, unicodeInputBody.zpl);
+    HostStatusInputBody hostStatusInputBody = (HostStatusInputBody) o;
+    return Objects.equals(this.response, hostStatusInputBody.response);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zpl);
+    return Objects.hash(response);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UnicodeInputBody {\n");
-    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
+    sb.append("class HostStatusInputBody {\n");
+    sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -119,42 +119,42 @@ public class UnicodeInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("response"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("response"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UnicodeInputBody
+   * @throws IOException if the JSON Element is invalid with respect to HostStatusInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UnicodeInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UnicodeInputBody is not found in the empty JSON string", UnicodeInputBody.openapiRequiredFields.toString()));
+        if (!HostStatusInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HostStatusInputBody is not found in the empty JSON string", HostStatusInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UnicodeInputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UnicodeInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!HostStatusInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HostStatusInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UnicodeInputBody.openapiRequiredFields) {
+      for (String requiredField : HostStatusInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("zpl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
+      if (!jsonObj.get("response").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
       }
   }
 
@@ -162,22 +162,22 @@ public class UnicodeInputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UnicodeInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UnicodeInputBody' and its subtypes
+       if (!HostStatusInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'HostStatusInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UnicodeInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UnicodeInputBody.class));
+       final TypeAdapter<HostStatusInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(HostStatusInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UnicodeInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<HostStatusInputBody>() {
            @Override
-           public void write(JsonWriter out, UnicodeInputBody value) throws IOException {
+           public void write(JsonWriter out, HostStatusInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public UnicodeInputBody read(JsonReader in) throws IOException {
+           public HostStatusInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -188,18 +188,18 @@ public class UnicodeInputBody {
   }
 
   /**
-   * Create an instance of UnicodeInputBody given an JSON string
+   * Create an instance of HostStatusInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UnicodeInputBody
-   * @throws IOException if the JSON string is invalid with respect to UnicodeInputBody
+   * @return An instance of HostStatusInputBody
+   * @throws IOException if the JSON string is invalid with respect to HostStatusInputBody
    */
-  public static UnicodeInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UnicodeInputBody.class);
+  public static HostStatusInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, HostStatusInputBody.class);
   }
 
   /**
-   * Convert an instance of UnicodeInputBody to an JSON string
+   * Convert an instance of HostStatusInputBody to an JSON string
    *
    * @return JSON string
    */

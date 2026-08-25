@@ -106,6 +106,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ErrorDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.ErrorModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.Faults.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.HostStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.HostStatusInputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.HostStatusOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.HtmlInputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.HtmlOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.JobOutputBody.CustomTypeAdapterFactory());
@@ -118,6 +121,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.RenderOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.RenderedLabel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StateOutputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StatusField.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StatusSnapshot.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UnicodeInputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UnicodeOutputBody.CustomTypeAdapterFactory());

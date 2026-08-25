@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * VoidInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T01:49:00.057836383Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T05:58:44.704425797Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class VoidInputBody {
   /**
    * Gets or Sets dpmm
@@ -312,7 +312,7 @@ public class VoidInputBody {
   }
 
   /**
-   * Warning text; default DO NOT SHIP
+   * Warning text; default VOID - DO NOT MAIL
    * @return text
    */
   @javax.annotation.Nullable

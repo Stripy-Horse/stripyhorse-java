@@ -962,7 +962,7 @@ public class ConvertApi {
 
     /**
      * Stamp ZPL as void / do-not-ship
-     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * Overlays a large diagonal VOID - DO NOT MAIL warning (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
      * @param voidInputBody  (required)
      * @return VoidOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -981,7 +981,7 @@ public class ConvertApi {
 
     /**
      * Stamp ZPL as void / do-not-ship
-     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * Overlays a large diagonal VOID - DO NOT MAIL warning (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
      * @param voidInputBody  (required)
      * @return ApiResponse&lt;VoidOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1001,7 +1001,7 @@ public class ConvertApi {
 
     /**
      * Stamp ZPL as void / do-not-ship (asynchronously)
-     * Overlays large DO NOT SHIP warnings (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
+     * Overlays a large diagonal VOID - DO NOT MAIL warning (and an optional attribution stamp) across every label in the stream, so printed dev and test labels can never be mistaken for shippable ones. Original fields are untouched; stamps draw on top.
      * @param voidInputBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

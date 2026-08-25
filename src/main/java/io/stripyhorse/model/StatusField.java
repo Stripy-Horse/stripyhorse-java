@@ -47,58 +47,82 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ConvertedPage
+ * StatusField
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T05:58:44.704425797Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class ConvertedPage {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
+public class StatusField {
+  public static final String SERIALIZED_NAME_FIELD = "field";
+  @SerializedName(SERIALIZED_NAME_FIELD)
   @javax.annotation.Nonnull
-  private Long page;
+  private String field;
 
-  public static final String SERIALIZED_NAME_ZPL = "zpl";
-  @SerializedName(SERIALIZED_NAME_ZPL)
+  public static final String SERIALIZED_NAME_RAW = "raw";
+  @SerializedName(SERIALIZED_NAME_RAW)
   @javax.annotation.Nonnull
-  private String zpl;
+  private String raw;
 
-  public ConvertedPage() {
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
+
+  public StatusField() {
   }
 
-  public ConvertedPage page(@javax.annotation.Nonnull Long page) {
-    this.page = page;
+  public StatusField field(@javax.annotation.Nonnull String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * 1-based page number
-   * @return page
+   * Get field
+   * @return field
    */
   @javax.annotation.Nonnull
-  public Long getPage() {
-    return page;
+  public String getField() {
+    return field;
   }
 
-  public void setPage(@javax.annotation.Nonnull Long page) {
-    this.page = page;
+  public void setField(@javax.annotation.Nonnull String field) {
+    this.field = field;
   }
 
 
-  public ConvertedPage zpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public StatusField raw(@javax.annotation.Nonnull String raw) {
+    this.raw = raw;
     return this;
   }
 
   /**
-   * Get zpl
-   * @return zpl
+   * Get raw
+   * @return raw
    */
   @javax.annotation.Nonnull
-  public String getZpl() {
-    return zpl;
+  public String getRaw() {
+    return raw;
   }
 
-  public void setZpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public void setRaw(@javax.annotation.Nonnull String raw) {
+    this.raw = raw;
+  }
+
+
+  public StatusField value(@javax.annotation.Nonnull String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Get value
+   * @return value
+   */
+  @javax.annotation.Nonnull
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
 
@@ -111,22 +135,24 @@ public class ConvertedPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertedPage convertedPage = (ConvertedPage) o;
-    return Objects.equals(this.page, convertedPage.page) &&
-        Objects.equals(this.zpl, convertedPage.zpl);
+    StatusField statusField = (StatusField) o;
+    return Objects.equals(this.field, statusField.field) &&
+        Objects.equals(this.raw, statusField.raw) &&
+        Objects.equals(this.value, statusField.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, zpl);
+    return Objects.hash(field, raw, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertedPage {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
+    sb.append("class StatusField {\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,42 +171,48 @@ public class ConvertedPage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("field", "raw", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("field", "raw", "value"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConvertedPage
+   * @throws IOException if the JSON Element is invalid with respect to StatusField
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ConvertedPage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConvertedPage is not found in the empty JSON string", ConvertedPage.openapiRequiredFields.toString()));
+        if (!StatusField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StatusField is not found in the empty JSON string", StatusField.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConvertedPage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConvertedPage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StatusField.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StatusField` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConvertedPage.openapiRequiredFields) {
+      for (String requiredField : StatusField.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("zpl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
+      if (!jsonObj.get("field").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `field` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field").toString()));
+      }
+      if (!jsonObj.get("raw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `raw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw").toString()));
+      }
+      if (!jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -188,22 +220,22 @@ public class ConvertedPage {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConvertedPage.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConvertedPage' and its subtypes
+       if (!StatusField.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StatusField' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConvertedPage> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConvertedPage.class));
+       final TypeAdapter<StatusField> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StatusField.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ConvertedPage>() {
+       return (TypeAdapter<T>) new TypeAdapter<StatusField>() {
            @Override
-           public void write(JsonWriter out, ConvertedPage value) throws IOException {
+           public void write(JsonWriter out, StatusField value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ConvertedPage read(JsonReader in) throws IOException {
+           public StatusField read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -214,18 +246,18 @@ public class ConvertedPage {
   }
 
   /**
-   * Create an instance of ConvertedPage given an JSON string
+   * Create an instance of StatusField given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ConvertedPage
-   * @throws IOException if the JSON string is invalid with respect to ConvertedPage
+   * @return An instance of StatusField
+   * @throws IOException if the JSON string is invalid with respect to StatusField
    */
-  public static ConvertedPage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConvertedPage.class);
+  public static StatusField fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StatusField.class);
   }
 
   /**
-   * Convert an instance of ConvertedPage to an JSON string
+   * Convert an instance of StatusField to an JSON string
    *
    * @return JSON string
    */

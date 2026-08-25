@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.stripyhorse.model.PrinterBody;
+import io.stripyhorse.model.HostStatus;
+import io.stripyhorse.model.StatusField;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,42 +51,66 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ListPrintersOutputBody
+ * HostStatusOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T05:58:44.704425797Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class ListPrintersOutputBody {
-  public static final String SERIALIZED_NAME_PRINTERS = "printers";
-  @SerializedName(SERIALIZED_NAME_PRINTERS)
+public class HostStatusOutputBody {
+  public static final String SERIALIZED_NAME_FIELDS = "fields";
+  @SerializedName(SERIALIZED_NAME_FIELDS)
   @javax.annotation.Nullable
-  private List<PrinterBody> printers;
+  private List<StatusField> fields;
 
-  public ListPrintersOutputBody() {
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private HostStatus status;
+
+  public HostStatusOutputBody() {
   }
 
-  public ListPrintersOutputBody printers(@javax.annotation.Nullable List<PrinterBody> printers) {
-    this.printers = printers;
+  public HostStatusOutputBody fields(@javax.annotation.Nullable List<StatusField> fields) {
+    this.fields = fields;
     return this;
   }
 
-  public ListPrintersOutputBody addPrintersItem(PrinterBody printersItem) {
-    if (this.printers == null) {
-      this.printers = new ArrayList<>();
+  public HostStatusOutputBody addFieldsItem(StatusField fieldsItem) {
+    if (this.fields == null) {
+      this.fields = new ArrayList<>();
     }
-    this.printers.add(printersItem);
+    this.fields.add(fieldsItem);
     return this;
   }
 
   /**
-   * Get printers
-   * @return printers
+   * Every field with its documented meaning and raw token
+   * @return fields
    */
   @javax.annotation.Nullable
-  public List<PrinterBody> getPrinters() {
-    return printers;
+  public List<StatusField> getFields() {
+    return fields;
   }
 
-  public void setPrinters(@javax.annotation.Nullable List<PrinterBody> printers) {
-    this.printers = printers;
+  public void setFields(@javax.annotation.Nullable List<StatusField> fields) {
+    this.fields = fields;
+  }
+
+
+  public HostStatusOutputBody status(@javax.annotation.Nonnull HostStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public HostStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nonnull HostStatus status) {
+    this.status = status;
   }
 
 
@@ -98,20 +123,22 @@ public class ListPrintersOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListPrintersOutputBody listPrintersOutputBody = (ListPrintersOutputBody) o;
-    return Objects.equals(this.printers, listPrintersOutputBody.printers);
+    HostStatusOutputBody hostStatusOutputBody = (HostStatusOutputBody) o;
+    return Objects.equals(this.fields, hostStatusOutputBody.fields) &&
+        Objects.equals(this.status, hostStatusOutputBody.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(printers);
+    return Objects.hash(fields, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListPrintersOutputBody {\n");
-    sb.append("    printers: ").append(toIndentedString(printers)).append("\n");
+    sb.append("class HostStatusOutputBody {\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,72 +157,74 @@ public class ListPrintersOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("printers"));
+    openapiFields = new HashSet<String>(Arrays.asList("fields", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("printers"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("fields", "status"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ListPrintersOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to HostStatusOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ListPrintersOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ListPrintersOutputBody is not found in the empty JSON string", ListPrintersOutputBody.openapiRequiredFields.toString()));
+        if (!HostStatusOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HostStatusOutputBody is not found in the empty JSON string", HostStatusOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ListPrintersOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ListPrintersOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!HostStatusOutputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HostStatusOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ListPrintersOutputBody.openapiRequiredFields) {
+      for (String requiredField : HostStatusOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("printers") != null && !jsonObj.get("printers").isJsonNull()) {
-        if (!jsonObj.get("printers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `printers` to be an array in the JSON string but got `%s`", jsonObj.get("printers").toString()));
+      if (jsonObj.get("fields") != null && !jsonObj.get("fields").isJsonNull()) {
+        if (!jsonObj.get("fields").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fields` to be an array in the JSON string but got `%s`", jsonObj.get("fields").toString()));
         }
-        JsonArray jsonArrayprinters = jsonObj.getAsJsonArray("printers");
-        // validate the required field `printers` (array)
-        for (int i = 0; i < jsonArrayprinters.size(); i++) {
-          PrinterBody.validateJsonElement(jsonArrayprinters.get(i));
+        JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
+        // validate the required field `fields` (array)
+        for (int i = 0; i < jsonArrayfields.size(); i++) {
+          StatusField.validateJsonElement(jsonArrayfields.get(i));
         }
       }
+      // validate the required field `status`
+      HostStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ListPrintersOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ListPrintersOutputBody' and its subtypes
+       if (!HostStatusOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'HostStatusOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ListPrintersOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ListPrintersOutputBody.class));
+       final TypeAdapter<HostStatusOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(HostStatusOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ListPrintersOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<HostStatusOutputBody>() {
            @Override
-           public void write(JsonWriter out, ListPrintersOutputBody value) throws IOException {
+           public void write(JsonWriter out, HostStatusOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ListPrintersOutputBody read(JsonReader in) throws IOException {
+           public HostStatusOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -206,18 +235,18 @@ public class ListPrintersOutputBody {
   }
 
   /**
-   * Create an instance of ListPrintersOutputBody given an JSON string
+   * Create an instance of HostStatusOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ListPrintersOutputBody
-   * @throws IOException if the JSON string is invalid with respect to ListPrintersOutputBody
+   * @return An instance of HostStatusOutputBody
+   * @throws IOException if the JSON string is invalid with respect to HostStatusOutputBody
    */
-  public static ListPrintersOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListPrintersOutputBody.class);
+  public static HostStatusOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, HostStatusOutputBody.class);
   }
 
   /**
-   * Convert an instance of ListPrintersOutputBody to an JSON string
+   * Convert an instance of HostStatusOutputBody to an JSON string
    *
    * @return JSON string
    */
