@@ -119,6 +119,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.RenderedLabel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StateOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.StatusSnapshot.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UnicodeInputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UnicodeOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.UpdatePrinterInputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.VoidInputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.stripyhorse.model.VoidOutputBody.CustomTypeAdapterFactory());

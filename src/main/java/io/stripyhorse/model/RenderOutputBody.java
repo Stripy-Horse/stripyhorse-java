@@ -52,7 +52,7 @@ import io.stripyhorse.JSON;
 /**
  * RenderOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T23:10:48.472067722Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T01:49:00.057836383Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class RenderOutputBody {
   public static final String SERIALIZED_NAME_LABEL_COUNT = "labelCount";
   @SerializedName(SERIALIZED_NAME_LABEL_COUNT)

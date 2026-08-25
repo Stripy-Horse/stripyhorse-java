@@ -19,6 +19,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.UnicodeInputBody;
+import io.stripyhorse.model.UnicodeOutputBody;
 import io.stripyhorse.model.VoidInputBody;
 import io.stripyhorse.model.VoidOutputBody;
 import io.stripyhorse.model.ZplHTMLInputBody;
@@ -110,6 +112,20 @@ public class ConvertApiTest {
     public void convertZplToHtmlTest() throws ApiException {
         ZplHTMLInputBody zplHTMLInputBody = null;
         ZplHTMLOutputBody response = api.convertZplToHtml(zplHTMLInputBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Make Unicode ZPL printable on any Zebra
+     *
+     * Text fields containing characters the printer&#39;s fonts can&#39;t render — Arabic (contextual joining, RTL), Cyrillic, and everything else beyond ASCII — are shaped properly and re-emitted as ^GFA bitmaps at the field&#39;s exact position and size. Every other byte (barcodes, ASCII text, graphics) passes through untouched. Fields that can&#39;t be converted safely (rotated, ^FH-escaped) are left unchanged and reported in &#x60;skipped&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void rasterizeUnicodeTest() throws ApiException {
+        UnicodeInputBody unicodeInputBody = null;
+        UnicodeOutputBody response = api.rasterizeUnicode(unicodeInputBody);
         // TODO: test validations
     }
 

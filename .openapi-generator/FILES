@@ -28,6 +28,8 @@ docs/RenderedLabel.md
 docs/SimulatorApi.md
 docs/StateOutputBody.md
 docs/StatusSnapshot.md
+docs/UnicodeInputBody.md
+docs/UnicodeOutputBody.md
 docs/UpdatePrinterInputBody.md
 docs/VoidInputBody.md
 docs/VoidOutputBody.md
@@ -82,6 +84,8 @@ src/main/java/io/stripyhorse/model/RenderOutputBody.java
 src/main/java/io/stripyhorse/model/RenderedLabel.java
 src/main/java/io/stripyhorse/model/StateOutputBody.java
 src/main/java/io/stripyhorse/model/StatusSnapshot.java
+src/main/java/io/stripyhorse/model/UnicodeInputBody.java
+src/main/java/io/stripyhorse/model/UnicodeOutputBody.java
 src/main/java/io/stripyhorse/model/UpdatePrinterInputBody.java
 src/main/java/io/stripyhorse/model/VoidInputBody.java
 src/main/java/io/stripyhorse/model/VoidOutputBody.java
@@ -109,6 +113,8 @@ src/test/java/io/stripyhorse/model/RenderOutputBodyTest.java
 src/test/java/io/stripyhorse/model/RenderedLabelTest.java
 src/test/java/io/stripyhorse/model/StateOutputBodyTest.java
 src/test/java/io/stripyhorse/model/StatusSnapshotTest.java
+src/test/java/io/stripyhorse/model/UnicodeInputBodyTest.java
+src/test/java/io/stripyhorse/model/UnicodeOutputBodyTest.java
 src/test/java/io/stripyhorse/model/UpdatePrinterInputBodyTest.java
 src/test/java/io/stripyhorse/model/VoidInputBodyTest.java
 src/test/java/io/stripyhorse/model/VoidOutputBodyTest.java

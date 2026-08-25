@@ -20,7 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,19 +50,75 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * VoidOutputBody
+ * UnicodeOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T01:49:00.057836383Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class VoidOutputBody {
+public class UnicodeOutputBody {
+  public static final String SERIALIZED_NAME_FIELDS_RASTERIZED = "fieldsRasterized";
+  @SerializedName(SERIALIZED_NAME_FIELDS_RASTERIZED)
+  @javax.annotation.Nonnull
+  private Long fieldsRasterized;
+
+  public static final String SERIALIZED_NAME_SKIPPED = "skipped";
+  @SerializedName(SERIALIZED_NAME_SKIPPED)
+  @javax.annotation.Nullable
+  private List<String> skipped;
+
   public static final String SERIALIZED_NAME_ZPL = "zpl";
   @SerializedName(SERIALIZED_NAME_ZPL)
   @javax.annotation.Nonnull
   private String zpl;
 
-  public VoidOutputBody() {
+  public UnicodeOutputBody() {
   }
 
-  public VoidOutputBody zpl(@javax.annotation.Nonnull String zpl) {
+  public UnicodeOutputBody fieldsRasterized(@javax.annotation.Nonnull Long fieldsRasterized) {
+    this.fieldsRasterized = fieldsRasterized;
+    return this;
+  }
+
+  /**
+   * Get fieldsRasterized
+   * @return fieldsRasterized
+   */
+  @javax.annotation.Nonnull
+  public Long getFieldsRasterized() {
+    return fieldsRasterized;
+  }
+
+  public void setFieldsRasterized(@javax.annotation.Nonnull Long fieldsRasterized) {
+    this.fieldsRasterized = fieldsRasterized;
+  }
+
+
+  public UnicodeOutputBody skipped(@javax.annotation.Nullable List<String> skipped) {
+    this.skipped = skipped;
+    return this;
+  }
+
+  public UnicodeOutputBody addSkippedItem(String skippedItem) {
+    if (this.skipped == null) {
+      this.skipped = new ArrayList<>();
+    }
+    this.skipped.add(skippedItem);
+    return this;
+  }
+
+  /**
+   * Get skipped
+   * @return skipped
+   */
+  @javax.annotation.Nullable
+  public List<String> getSkipped() {
+    return skipped;
+  }
+
+  public void setSkipped(@javax.annotation.Nullable List<String> skipped) {
+    this.skipped = skipped;
+  }
+
+
+  public UnicodeOutputBody zpl(@javax.annotation.Nonnull String zpl) {
     this.zpl = zpl;
     return this;
   }
@@ -87,19 +146,34 @@ public class VoidOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoidOutputBody voidOutputBody = (VoidOutputBody) o;
-    return Objects.equals(this.zpl, voidOutputBody.zpl);
+    UnicodeOutputBody unicodeOutputBody = (UnicodeOutputBody) o;
+    return Objects.equals(this.fieldsRasterized, unicodeOutputBody.fieldsRasterized) &&
+        Objects.equals(this.skipped, unicodeOutputBody.skipped) &&
+        Objects.equals(this.zpl, unicodeOutputBody.zpl);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zpl);
+    return Objects.hash(fieldsRasterized, skipped, zpl);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoidOutputBody {\n");
+    sb.append("class UnicodeOutputBody {\n");
+    sb.append("    fieldsRasterized: ").append(toIndentedString(fieldsRasterized)).append("\n");
+    sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -119,40 +193,44 @@ public class VoidOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("fieldsRasterized", "skipped", "zpl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("fieldsRasterized", "zpl"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to VoidOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to UnicodeOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!VoidOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VoidOutputBody is not found in the empty JSON string", VoidOutputBody.openapiRequiredFields.toString()));
+        if (!UnicodeOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UnicodeOutputBody is not found in the empty JSON string", UnicodeOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!VoidOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VoidOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!UnicodeOutputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UnicodeOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : VoidOutputBody.openapiRequiredFields) {
+      for (String requiredField : UnicodeOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("skipped") != null && !jsonObj.get("skipped").isJsonNull() && !jsonObj.get("skipped").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skipped` to be an array in the JSON string but got `%s`", jsonObj.get("skipped").toString()));
+      }
       if (!jsonObj.get("zpl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
       }
@@ -162,22 +240,22 @@ public class VoidOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VoidOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VoidOutputBody' and its subtypes
+       if (!UnicodeOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UnicodeOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VoidOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VoidOutputBody.class));
+       final TypeAdapter<UnicodeOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UnicodeOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VoidOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<UnicodeOutputBody>() {
            @Override
-           public void write(JsonWriter out, VoidOutputBody value) throws IOException {
+           public void write(JsonWriter out, UnicodeOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VoidOutputBody read(JsonReader in) throws IOException {
+           public UnicodeOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -188,18 +266,18 @@ public class VoidOutputBody {
   }
 
   /**
-   * Create an instance of VoidOutputBody given an JSON string
+   * Create an instance of UnicodeOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of VoidOutputBody
-   * @throws IOException if the JSON string is invalid with respect to VoidOutputBody
+   * @return An instance of UnicodeOutputBody
+   * @throws IOException if the JSON string is invalid with respect to UnicodeOutputBody
    */
-  public static VoidOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VoidOutputBody.class);
+  public static UnicodeOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UnicodeOutputBody.class);
   }
 
   /**
-   * Convert an instance of VoidOutputBody to an JSON string
+   * Convert an instance of UnicodeOutputBody to an JSON string
    *
    * @return JSON string
    */

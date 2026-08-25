@@ -32,6 +32,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.UnicodeInputBody;
+import io.stripyhorse.model.UnicodeOutputBody;
 import io.stripyhorse.model.VoidInputBody;
 import io.stripyhorse.model.VoidOutputBody;
 import io.stripyhorse.model.ZplHTMLInputBody;
@@ -752,6 +754,138 @@ public class ConvertApi {
 
         okhttp3.Call localVarCall = convertZplToHtmlValidateBeforeCall(zplHTMLInputBody, _callback);
         Type localVarReturnType = new TypeToken<ZplHTMLOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for rasterizeUnicode
+     * @param unicodeInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rasterizeUnicodeCall(@javax.annotation.Nonnull UnicodeInputBody unicodeInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = unicodeInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/unicode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rasterizeUnicodeValidateBeforeCall(@javax.annotation.Nonnull UnicodeInputBody unicodeInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'unicodeInputBody' is set
+        if (unicodeInputBody == null) {
+            throw new ApiException("Missing the required parameter 'unicodeInputBody' when calling rasterizeUnicode(Async)");
+        }
+
+        return rasterizeUnicodeCall(unicodeInputBody, _callback);
+
+    }
+
+    /**
+     * Make Unicode ZPL printable on any Zebra
+     * Text fields containing characters the printer&#39;s fonts can&#39;t render — Arabic (contextual joining, RTL), Cyrillic, and everything else beyond ASCII — are shaped properly and re-emitted as ^GFA bitmaps at the field&#39;s exact position and size. Every other byte (barcodes, ASCII text, graphics) passes through untouched. Fields that can&#39;t be converted safely (rotated, ^FH-escaped) are left unchanged and reported in &#x60;skipped&#x60;.
+     * @param unicodeInputBody  (required)
+     * @return UnicodeOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public UnicodeOutputBody rasterizeUnicode(@javax.annotation.Nonnull UnicodeInputBody unicodeInputBody) throws ApiException {
+        ApiResponse<UnicodeOutputBody> localVarResp = rasterizeUnicodeWithHttpInfo(unicodeInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Make Unicode ZPL printable on any Zebra
+     * Text fields containing characters the printer&#39;s fonts can&#39;t render — Arabic (contextual joining, RTL), Cyrillic, and everything else beyond ASCII — are shaped properly and re-emitted as ^GFA bitmaps at the field&#39;s exact position and size. Every other byte (barcodes, ASCII text, graphics) passes through untouched. Fields that can&#39;t be converted safely (rotated, ^FH-escaped) are left unchanged and reported in &#x60;skipped&#x60;.
+     * @param unicodeInputBody  (required)
+     * @return ApiResponse&lt;UnicodeOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UnicodeOutputBody> rasterizeUnicodeWithHttpInfo(@javax.annotation.Nonnull UnicodeInputBody unicodeInputBody) throws ApiException {
+        okhttp3.Call localVarCall = rasterizeUnicodeValidateBeforeCall(unicodeInputBody, null);
+        Type localVarReturnType = new TypeToken<UnicodeOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Make Unicode ZPL printable on any Zebra (asynchronously)
+     * Text fields containing characters the printer&#39;s fonts can&#39;t render — Arabic (contextual joining, RTL), Cyrillic, and everything else beyond ASCII — are shaped properly and re-emitted as ^GFA bitmaps at the field&#39;s exact position and size. Every other byte (barcodes, ASCII text, graphics) passes through untouched. Fields that can&#39;t be converted safely (rotated, ^FH-escaped) are left unchanged and reported in &#x60;skipped&#x60;.
+     * @param unicodeInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rasterizeUnicodeAsync(@javax.annotation.Nonnull UnicodeInputBody unicodeInputBody, final ApiCallback<UnicodeOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rasterizeUnicodeValidateBeforeCall(unicodeInputBody, _callback);
+        Type localVarReturnType = new TypeToken<UnicodeOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

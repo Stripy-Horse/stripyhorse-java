@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.stripyhorse.model.ConvertedPage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,42 +47,34 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ConvertOutputBody
+ * UnicodeInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T01:49:00.057836383Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
-public class ConvertOutputBody {
-  public static final String SERIALIZED_NAME_PAGES = "pages";
-  @SerializedName(SERIALIZED_NAME_PAGES)
-  @javax.annotation.Nullable
-  private List<ConvertedPage> pages;
+public class UnicodeInputBody {
+  public static final String SERIALIZED_NAME_ZPL = "zpl";
+  @SerializedName(SERIALIZED_NAME_ZPL)
+  @javax.annotation.Nonnull
+  private String zpl;
 
-  public ConvertOutputBody() {
+  public UnicodeInputBody() {
   }
 
-  public ConvertOutputBody pages(@javax.annotation.Nullable List<ConvertedPage> pages) {
-    this.pages = pages;
-    return this;
-  }
-
-  public ConvertOutputBody addPagesItem(ConvertedPage pagesItem) {
-    if (this.pages == null) {
-      this.pages = new ArrayList<>();
-    }
-    this.pages.add(pagesItem);
+  public UnicodeInputBody zpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
     return this;
   }
 
   /**
-   * Get pages
-   * @return pages
+   * Get zpl
+   * @return zpl
    */
-  @javax.annotation.Nullable
-  public List<ConvertedPage> getPages() {
-    return pages;
+  @javax.annotation.Nonnull
+  public String getZpl() {
+    return zpl;
   }
 
-  public void setPages(@javax.annotation.Nullable List<ConvertedPage> pages) {
-    this.pages = pages;
+  public void setZpl(@javax.annotation.Nonnull String zpl) {
+    this.zpl = zpl;
   }
 
 
@@ -98,20 +87,20 @@ public class ConvertOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertOutputBody convertOutputBody = (ConvertOutputBody) o;
-    return Objects.equals(this.pages, convertOutputBody.pages);
+    UnicodeInputBody unicodeInputBody = (UnicodeInputBody) o;
+    return Objects.equals(this.zpl, unicodeInputBody.zpl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pages);
+    return Objects.hash(zpl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertOutputBody {\n");
-    sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("class UnicodeInputBody {\n");
+    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,49 +119,42 @@ public class ConvertOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("pages"));
+    openapiFields = new HashSet<String>(Arrays.asList("zpl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("pages"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("zpl"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConvertOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to UnicodeInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ConvertOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConvertOutputBody is not found in the empty JSON string", ConvertOutputBody.openapiRequiredFields.toString()));
+        if (!UnicodeInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UnicodeInputBody is not found in the empty JSON string", UnicodeInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConvertOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConvertOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!UnicodeInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UnicodeInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConvertOutputBody.openapiRequiredFields) {
+      for (String requiredField : UnicodeInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("pages") != null && !jsonObj.get("pages").isJsonNull()) {
-        if (!jsonObj.get("pages").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pages` to be an array in the JSON string but got `%s`", jsonObj.get("pages").toString()));
-        }
-        JsonArray jsonArraypages = jsonObj.getAsJsonArray("pages");
-        // validate the required field `pages` (array)
-        for (int i = 0; i < jsonArraypages.size(); i++) {
-          ConvertedPage.validateJsonElement(jsonArraypages.get(i));
-        }
+      if (!jsonObj.get("zpl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
       }
   }
 
@@ -180,22 +162,22 @@ public class ConvertOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConvertOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConvertOutputBody' and its subtypes
+       if (!UnicodeInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UnicodeInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConvertOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConvertOutputBody.class));
+       final TypeAdapter<UnicodeInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UnicodeInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ConvertOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<UnicodeInputBody>() {
            @Override
-           public void write(JsonWriter out, ConvertOutputBody value) throws IOException {
+           public void write(JsonWriter out, UnicodeInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ConvertOutputBody read(JsonReader in) throws IOException {
+           public UnicodeInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -206,18 +188,18 @@ public class ConvertOutputBody {
   }
 
   /**
-   * Create an instance of ConvertOutputBody given an JSON string
+   * Create an instance of UnicodeInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ConvertOutputBody
-   * @throws IOException if the JSON string is invalid with respect to ConvertOutputBody
+   * @return An instance of UnicodeInputBody
+   * @throws IOException if the JSON string is invalid with respect to UnicodeInputBody
    */
-  public static ConvertOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConvertOutputBody.class);
+  public static UnicodeInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UnicodeInputBody.class);
   }
 
   /**
-   * Convert an instance of ConvertOutputBody to an JSON string
+   * Convert an instance of UnicodeInputBody to an JSON string
    *
    * @return JSON string
    */
