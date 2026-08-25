@@ -19,6 +19,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.StampInputBody;
+import io.stripyhorse.model.StampOutputBody;
 import io.stripyhorse.model.UnicodeInputBody;
 import io.stripyhorse.model.UnicodeOutputBody;
 import io.stripyhorse.model.VoidInputBody;
@@ -126,6 +128,20 @@ public class ConvertApiTest {
     public void rasterizeUnicodeTest() throws ApiException {
         UnicodeInputBody unicodeInputBody = null;
         UnicodeOutputBody response = api.rasterizeUnicode(unicodeInputBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Stamp an image onto ZPL labels
+     *
+     * Bakes a PNG/GIF/JPEG (a logo, a QA stamp, a brand mark) onto every label in the stream as a positioned graphic field drawn over the existing content. Position and width are in printer dots; height follows the image&#39;s aspect ratio.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void stampZplTest() throws ApiException {
+        StampInputBody stampInputBody = null;
+        StampOutputBody response = api.stampZpl(stampInputBody);
         // TODO: test validations
     }
 

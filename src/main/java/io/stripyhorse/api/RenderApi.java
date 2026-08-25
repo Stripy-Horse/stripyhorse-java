@@ -28,6 +28,8 @@ import java.io.IOException;
 
 
 import io.stripyhorse.model.ErrorModel;
+import io.stripyhorse.model.PreflightInputBody;
+import io.stripyhorse.model.PreflightOutputBody;
 import io.stripyhorse.model.RenderInputBody;
 import io.stripyhorse.model.RenderOutputBody;
 
@@ -74,6 +76,138 @@ public class RenderApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for preflightLabel
+     * @param preflightInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call preflightLabelCall(@javax.annotation.Nonnull PreflightInputBody preflightInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = preflightInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/preflight";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call preflightLabelValidateBeforeCall(@javax.annotation.Nonnull PreflightInputBody preflightInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'preflightInputBody' is set
+        if (preflightInputBody == null) {
+            throw new ApiException("Missing the required parameter 'preflightInputBody' when calling preflightLabel(Async)");
+        }
+
+        return preflightLabelCall(preflightInputBody, _callback);
+
+    }
+
+    /**
+     * Grade a label&#39;s barcodes before they ship
+     * Renders the ZPL and grades every barcode the way a verifier grades a printed label: round-trip decode, measured module width in printer dots, dot-grid alignment (catches rasterized barcodes), quiet zones in modules, physical X-dimension against the spec minimum, blur tolerance, and a cross-density table - plus static lint findings (structure, encoding traps, out-of-bounds fields). Grade fail means a scanner will reject it; fix it before a truck does.
+     * @param preflightInputBody  (required)
+     * @return PreflightOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public PreflightOutputBody preflightLabel(@javax.annotation.Nonnull PreflightInputBody preflightInputBody) throws ApiException {
+        ApiResponse<PreflightOutputBody> localVarResp = preflightLabelWithHttpInfo(preflightInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Grade a label&#39;s barcodes before they ship
+     * Renders the ZPL and grades every barcode the way a verifier grades a printed label: round-trip decode, measured module width in printer dots, dot-grid alignment (catches rasterized barcodes), quiet zones in modules, physical X-dimension against the spec minimum, blur tolerance, and a cross-density table - plus static lint findings (structure, encoding traps, out-of-bounds fields). Grade fail means a scanner will reject it; fix it before a truck does.
+     * @param preflightInputBody  (required)
+     * @return ApiResponse&lt;PreflightOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PreflightOutputBody> preflightLabelWithHttpInfo(@javax.annotation.Nonnull PreflightInputBody preflightInputBody) throws ApiException {
+        okhttp3.Call localVarCall = preflightLabelValidateBeforeCall(preflightInputBody, null);
+        Type localVarReturnType = new TypeToken<PreflightOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Grade a label&#39;s barcodes before they ship (asynchronously)
+     * Renders the ZPL and grades every barcode the way a verifier grades a printed label: round-trip decode, measured module width in printer dots, dot-grid alignment (catches rasterized barcodes), quiet zones in modules, physical X-dimension against the spec minimum, blur tolerance, and a cross-density table - plus static lint findings (structure, encoding traps, out-of-bounds fields). Grade fail means a scanner will reject it; fix it before a truck does.
+     * @param preflightInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call preflightLabelAsync(@javax.annotation.Nonnull PreflightInputBody preflightInputBody, final ApiCallback<PreflightOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = preflightLabelValidateBeforeCall(preflightInputBody, _callback);
+        Type localVarReturnType = new TypeToken<PreflightOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for renderZpl
      * @param renderInputBody  (required)

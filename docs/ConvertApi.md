@@ -9,6 +9,7 @@ All URIs are relative to *https://api.stripyhorse.io*
 | [**convertHtml**](ConvertApi.md#convertHtml) | **POST** /v1/convert/html | Convert an HTML label design to ZPL |
 | [**convertZplToHtml**](ConvertApi.md#convertZplToHtml) | **POST** /v1/convert/zpl-html | Decompile ZPL into editable HTML |
 | [**rasterizeUnicode**](ConvertApi.md#rasterizeUnicode) | **POST** /v1/unicode | Make Unicode ZPL printable on any Zebra |
+| [**stampZpl**](ConvertApi.md#stampZpl) | **POST** /v1/stamp | Stamp an image onto ZPL labels |
 | [**voidZpl**](ConvertApi.md#voidZpl) | **POST** /v1/void | Stamp ZPL as void / do-not-ship |
 
 
@@ -401,6 +402,80 @@ public class Example {
 ### Return type
 
 [**UnicodeOutputBody**](UnicodeOutputBody.md)
+
+### Authorization
+
+[headerKey](../README.md#headerKey), [bearerKey](../README.md#bearerKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
+
+<a id="stampZpl"></a>
+# **stampZpl**
+> StampOutputBody stampZpl(stampInputBody)
+
+Stamp an image onto ZPL labels
+
+Bakes a PNG/GIF/JPEG (a logo, a QA stamp, a brand mark) onto every label in the stream as a positioned graphic field drawn over the existing content. Position and width are in printer dots; height follows the image&#39;s aspect ratio.
+
+### Example
+```java
+// Import classes:
+import io.stripyhorse.ApiClient;
+import io.stripyhorse.ApiException;
+import io.stripyhorse.Configuration;
+import io.stripyhorse.auth.*;
+import io.stripyhorse.models.*;
+import io.stripyhorse.api.ConvertApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.stripyhorse.io");
+    
+    // Configure API key authorization: headerKey
+    ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
+    headerKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //headerKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerKey
+    HttpBearerAuth bearerKey = (HttpBearerAuth) defaultClient.getAuthentication("bearerKey");
+    bearerKey.setBearerToken("BEARER TOKEN");
+
+    ConvertApi apiInstance = new ConvertApi(defaultClient);
+    StampInputBody stampInputBody = new StampInputBody(); // StampInputBody | 
+    try {
+      StampOutputBody result = apiInstance.stampZpl(stampInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConvertApi#stampZpl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **stampInputBody** | [**StampInputBody**](StampInputBody.md)|  | |
+
+### Return type
+
+[**StampOutputBody**](StampOutputBody.md)
 
 ### Authorization
 

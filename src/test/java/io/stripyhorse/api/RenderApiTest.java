@@ -15,6 +15,8 @@ package io.stripyhorse.api;
 
 import io.stripyhorse.ApiException;
 import io.stripyhorse.model.ErrorModel;
+import io.stripyhorse.model.PreflightInputBody;
+import io.stripyhorse.model.PreflightOutputBody;
 import io.stripyhorse.model.RenderInputBody;
 import io.stripyhorse.model.RenderOutputBody;
 import org.junit.jupiter.api.Disabled;
@@ -32,6 +34,20 @@ import java.util.Map;
 public class RenderApiTest {
 
     private final RenderApi api = new RenderApi();
+
+    /**
+     * Grade a label&#39;s barcodes before they ship
+     *
+     * Renders the ZPL and grades every barcode the way a verifier grades a printed label: round-trip decode, measured module width in printer dots, dot-grid alignment (catches rasterized barcodes), quiet zones in modules, physical X-dimension against the spec minimum, blur tolerance, and a cross-density table - plus static lint findings (structure, encoding traps, out-of-bounds fields). Grade fail means a scanner will reject it; fix it before a truck does.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void preflightLabelTest() throws ApiException {
+        PreflightInputBody preflightInputBody = null;
+        PreflightOutputBody response = api.preflightLabel(preflightInputBody);
+        // TODO: test validations
+    }
 
     /**
      * Render ZPL to PNG images

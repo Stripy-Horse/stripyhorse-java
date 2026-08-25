@@ -32,6 +32,8 @@ import io.stripyhorse.model.ErrorModel;
 import java.io.File;
 import io.stripyhorse.model.HtmlInputBody;
 import io.stripyhorse.model.HtmlOutputBody;
+import io.stripyhorse.model.StampInputBody;
+import io.stripyhorse.model.StampOutputBody;
 import io.stripyhorse.model.UnicodeInputBody;
 import io.stripyhorse.model.UnicodeOutputBody;
 import io.stripyhorse.model.VoidInputBody;
@@ -886,6 +888,138 @@ public class ConvertApi {
 
         okhttp3.Call localVarCall = rasterizeUnicodeValidateBeforeCall(unicodeInputBody, _callback);
         Type localVarReturnType = new TypeToken<UnicodeOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for stampZpl
+     * @param stampInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stampZplCall(@javax.annotation.Nonnull StampInputBody stampInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = stampInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/stamp";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stampZplValidateBeforeCall(@javax.annotation.Nonnull StampInputBody stampInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'stampInputBody' is set
+        if (stampInputBody == null) {
+            throw new ApiException("Missing the required parameter 'stampInputBody' when calling stampZpl(Async)");
+        }
+
+        return stampZplCall(stampInputBody, _callback);
+
+    }
+
+    /**
+     * Stamp an image onto ZPL labels
+     * Bakes a PNG/GIF/JPEG (a logo, a QA stamp, a brand mark) onto every label in the stream as a positioned graphic field drawn over the existing content. Position and width are in printer dots; height follows the image&#39;s aspect ratio.
+     * @param stampInputBody  (required)
+     * @return StampOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public StampOutputBody stampZpl(@javax.annotation.Nonnull StampInputBody stampInputBody) throws ApiException {
+        ApiResponse<StampOutputBody> localVarResp = stampZplWithHttpInfo(stampInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stamp an image onto ZPL labels
+     * Bakes a PNG/GIF/JPEG (a logo, a QA stamp, a brand mark) onto every label in the stream as a positioned graphic field drawn over the existing content. Position and width are in printer dots; height follows the image&#39;s aspect ratio.
+     * @param stampInputBody  (required)
+     * @return ApiResponse&lt;StampOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StampOutputBody> stampZplWithHttpInfo(@javax.annotation.Nonnull StampInputBody stampInputBody) throws ApiException {
+        okhttp3.Call localVarCall = stampZplValidateBeforeCall(stampInputBody, null);
+        Type localVarReturnType = new TypeToken<StampOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stamp an image onto ZPL labels (asynchronously)
+     * Bakes a PNG/GIF/JPEG (a logo, a QA stamp, a brand mark) onto every label in the stream as a positioned graphic field drawn over the existing content. Position and width are in printer dots; height follows the image&#39;s aspect ratio.
+     * @param stampInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stampZplAsync(@javax.annotation.Nonnull StampInputBody stampInputBody, final ApiCallback<StampOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stampZplValidateBeforeCall(stampInputBody, _callback);
+        Type localVarReturnType = new TypeToken<StampOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
