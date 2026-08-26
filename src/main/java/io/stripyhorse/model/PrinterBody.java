@@ -52,8 +52,13 @@ import io.stripyhorse.JSON;
 /**
  * PrinterBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:15:11.832641834Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:35:03.267537080Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class PrinterBody {
+  public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
+  @SerializedName(SERIALIZED_NAME_ANONYMIZE)
+  @javax.annotation.Nonnull
+  private Boolean anonymize;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
@@ -173,6 +178,25 @@ public class PrinterBody {
 
   public PrinterBody() {
   }
+
+  public PrinterBody anonymize(@javax.annotation.Nonnull Boolean anonymize) {
+    this.anonymize = anonymize;
+    return this;
+  }
+
+  /**
+   * When true, PII is masked and graphics stripped from every captured frame
+   * @return anonymize
+   */
+  @javax.annotation.Nonnull
+  public Boolean getAnonymize() {
+    return anonymize;
+  }
+
+  public void setAnonymize(@javax.annotation.Nonnull Boolean anonymize) {
+    this.anonymize = anonymize;
+  }
+
 
   public PrinterBody createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -431,7 +455,8 @@ public class PrinterBody {
       return false;
     }
     PrinterBody printerBody = (PrinterBody) o;
-    return Objects.equals(this.createdAt, printerBody.createdAt) &&
+    return Objects.equals(this.anonymize, printerBody.anonymize) &&
+        Objects.equals(this.createdAt, printerBody.createdAt) &&
         Objects.equals(this.dpmm, printerBody.dpmm) &&
         Objects.equals(this.expiresAt, printerBody.expiresAt) &&
         Objects.equals(this.heightMm, printerBody.heightMm) &&
@@ -448,13 +473,14 @@ public class PrinterBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, dpmm, expiresAt, heightMm, id, ingestUrl, mode, name, state, tcp, webhookSecret, webhookUrl, widthMm);
+    return Objects.hash(anonymize, createdAt, dpmm, expiresAt, heightMm, id, ingestUrl, mode, name, state, tcp, webhookSecret, webhookUrl, widthMm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrinterBody {\n");
+    sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
@@ -486,10 +512,10 @@ public class PrinterBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "dpmm", "expiresAt", "heightMm", "id", "ingestUrl", "mode", "name", "state", "tcp", "webhookSecret", "webhookUrl", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "createdAt", "dpmm", "expiresAt", "heightMm", "id", "ingestUrl", "mode", "name", "state", "tcp", "webhookSecret", "webhookUrl", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("createdAt", "dpmm", "heightMm", "id", "mode", "name", "tcp", "widthMm"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("anonymize", "createdAt", "dpmm", "heightMm", "id", "mode", "name", "tcp", "widthMm"));
   }
 
   /**

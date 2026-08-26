@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * HostStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:15:11.832641834Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:35:03.267537080Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class HostStatus {
   public static final String SERIALIZED_NAME_BLOCKING = "blocking";
   @SerializedName(SERIALIZED_NAME_BLOCKING)

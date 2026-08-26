@@ -41,6 +41,14 @@ public class PrinterBodyTest {
     }
 
     /**
+     * Test the property 'anonymize'
+     */
+    @Test
+    public void anonymizeTest() {
+        // TODO: test anonymize
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test

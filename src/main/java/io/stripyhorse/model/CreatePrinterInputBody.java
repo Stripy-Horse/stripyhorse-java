@@ -49,8 +49,13 @@ import io.stripyhorse.JSON;
 /**
  * CreatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:15:11.832641834Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:35:03.267537080Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class CreatePrinterInputBody {
+  public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
+  @SerializedName(SERIALIZED_NAME_ANONYMIZE)
+  @javax.annotation.Nullable
+  private Boolean anonymize;
+
   /**
    * Print density in dots/mm (152/203/300/600 dpi); default 8
    */
@@ -283,6 +288,25 @@ public class CreatePrinterInputBody {
   public CreatePrinterInputBody() {
   }
 
+  public CreatePrinterInputBody anonymize(@javax.annotation.Nullable Boolean anonymize) {
+    this.anonymize = anonymize;
+    return this;
+  }
+
+  /**
+   * Mask PII and strip graphics from every captured frame
+   * @return anonymize
+   */
+  @javax.annotation.Nullable
+  public Boolean getAnonymize() {
+    return anonymize;
+  }
+
+  public void setAnonymize(@javax.annotation.Nullable Boolean anonymize) {
+    this.anonymize = anonymize;
+  }
+
+
   public CreatePrinterInputBody dpmm(@javax.annotation.Nullable DpmmEnum dpmm) {
     this.dpmm = dpmm;
     return this;
@@ -428,7 +452,8 @@ public class CreatePrinterInputBody {
       return false;
     }
     CreatePrinterInputBody createPrinterInputBody = (CreatePrinterInputBody) o;
-    return Objects.equals(this.dpmm, createPrinterInputBody.dpmm) &&
+    return Objects.equals(this.anonymize, createPrinterInputBody.anonymize) &&
+        Objects.equals(this.dpmm, createPrinterInputBody.dpmm) &&
         Objects.equals(this.heightMm, createPrinterInputBody.heightMm) &&
         Objects.equals(this.mode, createPrinterInputBody.mode) &&
         Objects.equals(this.name, createPrinterInputBody.name) &&
@@ -439,13 +464,14 @@ public class CreatePrinterInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dpmm, heightMm, mode, name, preset, webhookUrl, widthMm);
+    return Objects.hash(anonymize, dpmm, heightMm, mode, name, preset, webhookUrl, widthMm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrinterInputBody {\n");
+    sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
     sb.append("    heightMm: ").append(toIndentedString(heightMm)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
@@ -471,7 +497,7 @@ public class CreatePrinterInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("dpmm", "heightMm", "mode", "name", "preset", "webhookUrl", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "dpmm", "heightMm", "mode", "name", "preset", "webhookUrl", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

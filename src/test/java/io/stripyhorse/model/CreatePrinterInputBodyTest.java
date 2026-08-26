@@ -38,6 +38,14 @@ public class CreatePrinterInputBodyTest {
     }
 
     /**
+     * Test the property 'anonymize'
+     */
+    @Test
+    public void anonymizeTest() {
+        // TODO: test anonymize
+    }
+
+    /**
      * Test the property 'dpmm'
      */
     @Test

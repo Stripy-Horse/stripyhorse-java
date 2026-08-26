@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**anonymize** | **Boolean** | When true, PII is masked and graphics stripped from every captured frame |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**dpmm** | **Long** |  |  |
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |

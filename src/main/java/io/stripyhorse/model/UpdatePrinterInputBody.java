@@ -49,8 +49,13 @@ import io.stripyhorse.JSON;
 /**
  * UpdatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:15:11.832641834Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:35:03.267537080Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class UpdatePrinterInputBody {
+  public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
+  @SerializedName(SERIALIZED_NAME_ANONYMIZE)
+  @javax.annotation.Nullable
+  private Boolean anonymize;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -63,6 +68,25 @@ public class UpdatePrinterInputBody {
 
   public UpdatePrinterInputBody() {
   }
+
+  public UpdatePrinterInputBody anonymize(@javax.annotation.Nullable Boolean anonymize) {
+    this.anonymize = anonymize;
+    return this;
+  }
+
+  /**
+   * Get anonymize
+   * @return anonymize
+   */
+  @javax.annotation.Nullable
+  public Boolean getAnonymize() {
+    return anonymize;
+  }
+
+  public void setAnonymize(@javax.annotation.Nullable Boolean anonymize) {
+    this.anonymize = anonymize;
+  }
+
 
   public UpdatePrinterInputBody name(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -112,19 +136,21 @@ public class UpdatePrinterInputBody {
       return false;
     }
     UpdatePrinterInputBody updatePrinterInputBody = (UpdatePrinterInputBody) o;
-    return Objects.equals(this.name, updatePrinterInputBody.name) &&
+    return Objects.equals(this.anonymize, updatePrinterInputBody.anonymize) &&
+        Objects.equals(this.name, updatePrinterInputBody.name) &&
         Objects.equals(this.webhookUrl, updatePrinterInputBody.webhookUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, webhookUrl);
+    return Objects.hash(anonymize, name, webhookUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePrinterInputBody {\n");
+    sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
     sb.append("}");
@@ -145,7 +171,7 @@ public class UpdatePrinterInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "webhookUrl"));
+    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "name", "webhookUrl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

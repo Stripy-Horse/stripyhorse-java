@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**anonymize** | **Boolean** | Mask PII and strip graphics from every captured frame |  [optional] |
 |**dpmm** | [**DpmmEnum**](#DpmmEnum) | Print density in dots/mm (152/203/300/600 dpi); default 8 |  [optional] |
 |**heightMm** | **Double** |  |  [optional] |
 |**mode** | [**ModeEnum**](#ModeEnum) |  |  [optional] |
