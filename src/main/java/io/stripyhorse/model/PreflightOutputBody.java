@@ -53,7 +53,7 @@ import io.stripyhorse.JSON;
 /**
  * PreflightOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T05:34:20.304515713Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T05:56:03.071297194Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class PreflightOutputBody {
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
