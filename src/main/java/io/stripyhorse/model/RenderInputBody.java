@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * RenderInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:35:03.267537080Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T05:34:20.304515713Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class RenderInputBody {
   /**
    * Print density in dots/mm (152/203/300/600 dpi); default 8
