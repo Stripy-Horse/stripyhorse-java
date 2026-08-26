@@ -46,6 +46,14 @@ public class ElementTest {
     }
 
     /**
+     * Test the property 'columns'
+     */
+    @Test
+    public void columnsTest() {
+        // TODO: test columns
+    }
+
+    /**
      * Test the property 'cornerRadius'
      */
     @Test
@@ -187,6 +195,14 @@ public class ElementTest {
     @Test
     public void rotationTest() {
         // TODO: test rotation
+    }
+
+    /**
+     * Test the property 'rows'
+     */
+    @Test
+    public void rowsTest() {
+        // TODO: test rows
     }
 
     /**

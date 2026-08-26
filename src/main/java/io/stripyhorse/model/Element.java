@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * Element
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-25T20:52:49.742615742Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T03:15:11.832641834Z[Etc/UTC]", comments = "Generator version: 7.26.0-SNAPSHOT")
 public class Element {
   /**
    * Alignment when wrapping
@@ -113,6 +113,11 @@ public class Element {
   @SerializedName(SERIALIZED_NAME_ALIGN)
   @javax.annotation.Nullable
   private AlignEnum align;
+
+  public static final String SERIALIZED_NAME_COLUMNS = "columns";
+  @SerializedName(SERIALIZED_NAME_COLUMNS)
+  @javax.annotation.Nullable
+  private Long columns;
 
   public static final String SERIALIZED_NAME_CORNER_RADIUS = "cornerRadius";
   @SerializedName(SERIALIZED_NAME_CORNER_RADIUS)
@@ -372,6 +377,11 @@ public class Element {
   @javax.annotation.Nullable
   private RotationEnum rotation;
 
+  public static final String SERIALIZED_NAME_ROWS = "rows";
+  @SerializedName(SERIALIZED_NAME_ROWS)
+  @javax.annotation.Nullable
+  private Long rows;
+
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
   @javax.annotation.Nullable
@@ -407,6 +417,8 @@ public class Element {
     LINE("line"),
     
     CIRCLE("circle"),
+    
+    GRID("grid"),
     
     IMAGE("image"),
     
@@ -499,6 +511,27 @@ public class Element {
 
   public void setAlign(@javax.annotation.Nullable AlignEnum align) {
     this.align = align;
+  }
+
+
+  public Element columns(@javax.annotation.Nullable Long columns) {
+    this.columns = columns;
+    return this;
+  }
+
+  /**
+   * Grid columns (default 1)
+   * minimum: 0
+   * maximum: 50
+   * @return columns
+   */
+  @javax.annotation.Nullable
+  public Long getColumns() {
+    return columns;
+  }
+
+  public void setColumns(@javax.annotation.Nullable Long columns) {
+    this.columns = columns;
   }
 
 
@@ -846,6 +879,27 @@ public class Element {
   }
 
 
+  public Element rows(@javax.annotation.Nullable Long rows) {
+    this.rows = rows;
+    return this;
+  }
+
+  /**
+   * Grid rows (default 1)
+   * minimum: 0
+   * maximum: 50
+   * @return rows
+   */
+  @javax.annotation.Nullable
+  public Long getRows() {
+    return rows;
+  }
+
+  public void setRows(@javax.annotation.Nullable Long rows) {
+    this.rows = rows;
+  }
+
+
   public Element text(@javax.annotation.Nullable String text) {
     this.text = text;
     return this;
@@ -1013,6 +1067,7 @@ public class Element {
     }
     Element element = (Element) o;
     return Objects.equals(this.align, element.align) &&
+        Objects.equals(this.columns, element.columns) &&
         Objects.equals(this.cornerRadius, element.cornerRadius) &&
         Objects.equals(this.data, element.data) &&
         Objects.equals(this.diameter, element.diameter) &&
@@ -1031,6 +1086,7 @@ public class Element {
         Objects.equals(this.png, element.png) &&
         Objects.equals(this.printText, element.printText) &&
         Objects.equals(this.rotation, element.rotation) &&
+        Objects.equals(this.rows, element.rows) &&
         Objects.equals(this.text, element.text) &&
         Objects.equals(this.thickness, element.thickness) &&
         Objects.equals(this.threshold, element.threshold) &&
@@ -1043,7 +1099,7 @@ public class Element {
 
   @Override
   public int hashCode() {
-    return Objects.hash(align, cornerRadius, data, diameter, errorCorrection, font, fontHeight, fontWidth, height, length, lines, magnification, maxWidth, moduleSize, moduleWidth, orientation, png, printText, rotation, text, thickness, threshold, type, width, x, y, zpl);
+    return Objects.hash(align, columns, cornerRadius, data, diameter, errorCorrection, font, fontHeight, fontWidth, height, length, lines, magnification, maxWidth, moduleSize, moduleWidth, orientation, png, printText, rotation, rows, text, thickness, threshold, type, width, x, y, zpl);
   }
 
   @Override
@@ -1051,6 +1107,7 @@ public class Element {
     StringBuilder sb = new StringBuilder();
     sb.append("class Element {\n");
     sb.append("    align: ").append(toIndentedString(align)).append("\n");
+    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    cornerRadius: ").append(toIndentedString(cornerRadius)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    diameter: ").append(toIndentedString(diameter)).append("\n");
@@ -1069,6 +1126,7 @@ public class Element {
     sb.append("    png: ").append(toIndentedString(png)).append("\n");
     sb.append("    printText: ").append(toIndentedString(printText)).append("\n");
     sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
+    sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    thickness: ").append(toIndentedString(thickness)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
@@ -1095,7 +1153,7 @@ public class Element {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("align", "cornerRadius", "data", "diameter", "errorCorrection", "font", "fontHeight", "fontWidth", "height", "length", "lines", "magnification", "maxWidth", "moduleSize", "moduleWidth", "orientation", "png", "printText", "rotation", "text", "thickness", "threshold", "type", "width", "x", "y", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("align", "columns", "cornerRadius", "data", "diameter", "errorCorrection", "font", "fontHeight", "fontWidth", "height", "length", "lines", "magnification", "maxWidth", "moduleSize", "moduleWidth", "orientation", "png", "printText", "rotation", "rows", "text", "thickness", "threshold", "type", "width", "x", "y", "zpl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));

@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**align** | [**AlignEnum**](#AlignEnum) | Alignment when wrapping |  [optional] |
+|**columns** | **Long** | Grid columns (default 1) |  [optional] |
 |**cornerRadius** | **Long** | Box corner rounding 0-8 |  [optional] |
 |**data** | **String** | Barcode payload; {{name}} interpolates |  [optional] |
 |**diameter** | **Long** | Circle diameter in dots |  [optional] |
@@ -26,6 +27,7 @@
 |**png** | **String** | PNG/GIF/JPEG, base64-encoded |  [optional] |
 |**printText** | **Boolean** | Print the human-readable line under 1D barcodes (default true) |  [optional] |
 |**rotation** | [**RotationEnum**](#RotationEnum) |  |  [optional] |
+|**rows** | **Long** | Grid rows (default 1) |  [optional] |
 |**text** | **String** | Text content; {{name}} interpolates from variables |  [optional] |
 |**thickness** | **Long** | Stroke thickness in dots (default 1) |  [optional] |
 |**threshold** | **Long** | Bitonal threshold (default 128) |  [optional] |
@@ -94,6 +96,7 @@
 | BOX | &quot;box&quot; |
 | LINE | &quot;line&quot; |
 | CIRCLE | &quot;circle&quot; |
+| GRID | &quot;grid&quot; |
 | IMAGE | &quot;image&quot; |
 | RAW | &quot;raw&quot; |
 
