@@ -46,6 +46,14 @@ public class ElementTest {
     }
 
     /**
+     * Test the property 'anchor'
+     */
+    @Test
+    public void anchorTest() {
+        // TODO: test anchor
+    }
+
+    /**
      * Test the property 'columns'
      */
     @Test
@@ -126,6 +134,14 @@ public class ElementTest {
     }
 
     /**
+     * Test the property 'lineSpacing'
+     */
+    @Test
+    public void lineSpacingTest() {
+        // TODO: test lineSpacing
+    }
+
+    /**
      * Test the property 'lines'
      */
     @Test
@@ -147,6 +163,14 @@ public class ElementTest {
     @Test
     public void maxWidthTest() {
         // TODO: test maxWidth
+    }
+
+    /**
+     * Test the property 'mode'
+     */
+    @Test
+    public void modeTest() {
+        // TODO: test mode
     }
 
     /**

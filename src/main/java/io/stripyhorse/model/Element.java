@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * Element
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T21:20:15.812398469Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T22:04:49.898684942Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Element {
   /**
    * Alignment when wrapping
@@ -112,6 +112,69 @@ public class Element {
   @SerializedName(SERIALIZED_NAME_ALIGN)
   @javax.annotation.Nullable
   private AlignEnum align;
+
+  /**
+   * Which corner x,y names. topLeft (^FO, default); bottomLeft (^FT: the text baseline, what most designer-exported ZPL uses); the Right variants make x the field&#39;s right edge (ZPL justification 1)
+   */
+  @JsonAdapter(AnchorEnum.Adapter.class)
+  public enum AnchorEnum {
+    EMPTY(""),
+    
+    TOP_LEFT("topLeft"),
+    
+    BOTTOM_LEFT("bottomLeft"),
+    
+    TOP_RIGHT("topRight"),
+    
+    BOTTOM_RIGHT("bottomRight");
+
+    private String value;
+
+    AnchorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AnchorEnum fromValue(String value) {
+      for (AnchorEnum b : AnchorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AnchorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AnchorEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AnchorEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AnchorEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AnchorEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ANCHOR = "anchor";
+  @SerializedName(SERIALIZED_NAME_ANCHOR)
+  @javax.annotation.Nullable
+  private AnchorEnum anchor;
 
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
@@ -221,6 +284,11 @@ public class Element {
   @javax.annotation.Nullable
   private Long length;
 
+  public static final String SERIALIZED_NAME_LINE_SPACING = "lineSpacing";
+  @SerializedName(SERIALIZED_NAME_LINE_SPACING)
+  @javax.annotation.Nullable
+  private Long lineSpacing;
+
   public static final String SERIALIZED_NAME_LINES = "lines";
   @SerializedName(SERIALIZED_NAME_LINES)
   @javax.annotation.Nullable
@@ -235,6 +303,69 @@ public class Element {
   @SerializedName(SERIALIZED_NAME_MAX_WIDTH)
   @javax.annotation.Nullable
   private Long maxWidth;
+
+  /**
+   * Code 128 mode: N none (default), U UCC case, A automatic subset switching, D UCC/EAN application identifiers
+   */
+  @JsonAdapter(ModeEnum.Adapter.class)
+  public enum ModeEnum {
+    EMPTY(""),
+    
+    N("N"),
+    
+    U("U"),
+    
+    A("A"),
+    
+    D("D");
+
+    private String value;
+
+    ModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ModeEnum fromValue(String value) {
+      for (ModeEnum b : ModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ModeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ModeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_MODE = "mode";
+  @SerializedName(SERIALIZED_NAME_MODE)
+  @javax.annotation.Nullable
+  private ModeEnum mode;
 
   public static final String SERIALIZED_NAME_MODULE_SIZE = "moduleSize";
   @SerializedName(SERIALIZED_NAME_MODULE_SIZE)
@@ -513,6 +644,25 @@ public class Element {
   }
 
 
+  public Element anchor(@javax.annotation.Nullable AnchorEnum anchor) {
+    this.anchor = anchor;
+    return this;
+  }
+
+  /**
+   * Which corner x,y names. topLeft (^FO, default); bottomLeft (^FT: the text baseline, what most designer-exported ZPL uses); the Right variants make x the field&#39;s right edge (ZPL justification 1)
+   * @return anchor
+   */
+  @javax.annotation.Nullable
+  public AnchorEnum getAnchor() {
+    return anchor;
+  }
+
+  public void setAnchor(@javax.annotation.Nullable AnchorEnum anchor) {
+    this.anchor = anchor;
+  }
+
+
   public Element columns(@javax.annotation.Nullable Long columns) {
     this.columns = columns;
     return this;
@@ -707,6 +857,25 @@ public class Element {
   }
 
 
+  public Element lineSpacing(@javax.annotation.Nullable Long lineSpacing) {
+    this.lineSpacing = lineSpacing;
+    return this;
+  }
+
+  /**
+   * Extra dots between wrapped lines
+   * @return lineSpacing
+   */
+  @javax.annotation.Nullable
+  public Long getLineSpacing() {
+    return lineSpacing;
+  }
+
+  public void setLineSpacing(@javax.annotation.Nullable Long lineSpacing) {
+    this.lineSpacing = lineSpacing;
+  }
+
+
   public Element lines(@javax.annotation.Nullable Long lines) {
     this.lines = lines;
     return this;
@@ -761,6 +930,25 @@ public class Element {
 
   public void setMaxWidth(@javax.annotation.Nullable Long maxWidth) {
     this.maxWidth = maxWidth;
+  }
+
+
+  public Element mode(@javax.annotation.Nullable ModeEnum mode) {
+    this.mode = mode;
+    return this;
+  }
+
+  /**
+   * Code 128 mode: N none (default), U UCC case, A automatic subset switching, D UCC/EAN application identifiers
+   * @return mode
+   */
+  @javax.annotation.Nullable
+  public ModeEnum getMode() {
+    return mode;
+  }
+
+  public void setMode(@javax.annotation.Nullable ModeEnum mode) {
+    this.mode = mode;
   }
 
 
@@ -1066,6 +1254,7 @@ public class Element {
     }
     Element element = (Element) o;
     return Objects.equals(this.align, element.align) &&
+        Objects.equals(this.anchor, element.anchor) &&
         Objects.equals(this.columns, element.columns) &&
         Objects.equals(this.cornerRadius, element.cornerRadius) &&
         Objects.equals(this.data, element.data) &&
@@ -1076,9 +1265,11 @@ public class Element {
         Objects.equals(this.fontWidth, element.fontWidth) &&
         Objects.equals(this.height, element.height) &&
         Objects.equals(this.length, element.length) &&
+        Objects.equals(this.lineSpacing, element.lineSpacing) &&
         Objects.equals(this.lines, element.lines) &&
         Objects.equals(this.magnification, element.magnification) &&
         Objects.equals(this.maxWidth, element.maxWidth) &&
+        Objects.equals(this.mode, element.mode) &&
         Objects.equals(this.moduleSize, element.moduleSize) &&
         Objects.equals(this.moduleWidth, element.moduleWidth) &&
         Objects.equals(this.orientation, element.orientation) &&
@@ -1098,7 +1289,7 @@ public class Element {
 
   @Override
   public int hashCode() {
-    return Objects.hash(align, columns, cornerRadius, data, diameter, errorCorrection, font, fontHeight, fontWidth, height, length, lines, magnification, maxWidth, moduleSize, moduleWidth, orientation, png, printText, rotation, rows, text, thickness, threshold, type, width, x, y, zpl);
+    return Objects.hash(align, anchor, columns, cornerRadius, data, diameter, errorCorrection, font, fontHeight, fontWidth, height, length, lineSpacing, lines, magnification, maxWidth, mode, moduleSize, moduleWidth, orientation, png, printText, rotation, rows, text, thickness, threshold, type, width, x, y, zpl);
   }
 
   @Override
@@ -1106,6 +1297,7 @@ public class Element {
     StringBuilder sb = new StringBuilder();
     sb.append("class Element {\n");
     sb.append("    align: ").append(toIndentedString(align)).append("\n");
+    sb.append("    anchor: ").append(toIndentedString(anchor)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    cornerRadius: ").append(toIndentedString(cornerRadius)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
@@ -1116,9 +1308,11 @@ public class Element {
     sb.append("    fontWidth: ").append(toIndentedString(fontWidth)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    length: ").append(toIndentedString(length)).append("\n");
+    sb.append("    lineSpacing: ").append(toIndentedString(lineSpacing)).append("\n");
     sb.append("    lines: ").append(toIndentedString(lines)).append("\n");
     sb.append("    magnification: ").append(toIndentedString(magnification)).append("\n");
     sb.append("    maxWidth: ").append(toIndentedString(maxWidth)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    moduleSize: ").append(toIndentedString(moduleSize)).append("\n");
     sb.append("    moduleWidth: ").append(toIndentedString(moduleWidth)).append("\n");
     sb.append("    orientation: ").append(toIndentedString(orientation)).append("\n");
@@ -1152,7 +1346,7 @@ public class Element {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("align", "columns", "cornerRadius", "data", "diameter", "errorCorrection", "font", "fontHeight", "fontWidth", "height", "length", "lines", "magnification", "maxWidth", "moduleSize", "moduleWidth", "orientation", "png", "printText", "rotation", "rows", "text", "thickness", "threshold", "type", "width", "x", "y", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("align", "anchor", "columns", "cornerRadius", "data", "diameter", "errorCorrection", "font", "fontHeight", "fontWidth", "height", "length", "lineSpacing", "lines", "magnification", "maxWidth", "mode", "moduleSize", "moduleWidth", "orientation", "png", "printText", "rotation", "rows", "text", "thickness", "threshold", "type", "width", "x", "y", "zpl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -1193,6 +1387,13 @@ public class Element {
       if (jsonObj.get("align") != null && !jsonObj.get("align").isJsonNull()) {
         AlignEnum.validateJsonElement(jsonObj.get("align"));
       }
+      if ((jsonObj.get("anchor") != null && !jsonObj.get("anchor").isJsonNull()) && !jsonObj.get("anchor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `anchor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anchor").toString()));
+      }
+      // validate the optional field `anchor`
+      if (jsonObj.get("anchor") != null && !jsonObj.get("anchor").isJsonNull()) {
+        AnchorEnum.validateJsonElement(jsonObj.get("anchor"));
+      }
       if ((jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) && !jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }
@@ -1205,6 +1406,13 @@ public class Element {
       }
       if ((jsonObj.get("font") != null && !jsonObj.get("font").isJsonNull()) && !jsonObj.get("font").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `font` to be a primitive type in the JSON string but got `%s`", jsonObj.get("font").toString()));
+      }
+      if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
+      }
+      // validate the optional field `mode`
+      if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) {
+        ModeEnum.validateJsonElement(jsonObj.get("mode"));
       }
       if ((jsonObj.get("orientation") != null && !jsonObj.get("orientation").isJsonNull()) && !jsonObj.get("orientation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `orientation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orientation").toString()));

@@ -53,7 +53,7 @@ import io.stripyhorse.JSON;
 /**
  * ComposeInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T21:20:15.812398469Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T22:04:49.898684942Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ComposeInputBody {
   /**
    * Gets or Sets dpmm

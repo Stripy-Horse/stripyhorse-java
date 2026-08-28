@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**align** | [**AlignEnum**](#AlignEnum) | Alignment when wrapping |  [optional] |
+|**anchor** | [**AnchorEnum**](#AnchorEnum) | Which corner x,y names. topLeft (^FO, default); bottomLeft (^FT: the text baseline, what most designer-exported ZPL uses); the Right variants make x the field&#39;s right edge (ZPL justification 1) |  [optional] |
 |**columns** | **Long** | Grid columns (default 1) |  [optional] |
 |**cornerRadius** | **Long** | Box corner rounding 0-8 |  [optional] |
 |**data** | **String** | Barcode payload; {{name}} interpolates |  [optional] |
@@ -18,9 +19,11 @@
 |**fontWidth** | **Long** | Character width in dots; 0 follows fontHeight |  [optional] |
 |**height** | **Long** | Bar height in dots (1D) / box height in dots (box) |  [optional] |
 |**length** | **Long** | Line length in dots |  [optional] |
+|**lineSpacing** | **Long** | Extra dots between wrapped lines |  [optional] |
 |**lines** | **Long** | Max lines when wrapping (default 1) |  [optional] |
 |**magnification** | **Long** | QR module magnification (default 3) |  [optional] |
 |**maxWidth** | **Long** | Wrap text into a block this many dots wide |  [optional] |
+|**mode** | [**ModeEnum**](#ModeEnum) | Code 128 mode: N none (default), U UCC case, A automatic subset switching, D UCC/EAN application identifiers |  [optional] |
 |**moduleSize** | **Long** | DataMatrix module size in dots (default 4) |  [optional] |
 |**moduleWidth** | **Long** | Narrow element width in dots (1D; default 3) |  [optional] |
 |**orientation** | [**OrientationEnum**](#OrientationEnum) | Line direction |  [optional] |
@@ -51,6 +54,18 @@
 
 
 
+## Enum: AnchorEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;&quot; |
+| TOP_LEFT | &quot;topLeft&quot; |
+| BOTTOM_LEFT | &quot;bottomLeft&quot; |
+| TOP_RIGHT | &quot;topRight&quot; |
+| BOTTOM_RIGHT | &quot;bottomRight&quot; |
+
+
+
 ## Enum: ErrorCorrectionEnum
 
 | Name | Value |
@@ -60,6 +75,18 @@
 | M | &quot;M&quot; |
 | Q | &quot;Q&quot; |
 | H | &quot;H&quot; |
+
+
+
+## Enum: ModeEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;&quot; |
+| N | &quot;N&quot; |
+| U | &quot;U&quot; |
+| A | &quot;A&quot; |
+| D | &quot;D&quot; |
 
 
 
