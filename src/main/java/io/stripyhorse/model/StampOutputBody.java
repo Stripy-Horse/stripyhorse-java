@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * StampOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T22:04:49.898684942Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:29:10.609865089Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StampOutputBody {
   public static final String SERIALIZED_NAME_ZPL = "zpl";
   @SerializedName(SERIALIZED_NAME_ZPL)

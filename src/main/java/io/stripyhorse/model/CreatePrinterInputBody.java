@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * CreatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T22:04:49.898684942Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:29:10.609865089Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreatePrinterInputBody {
   public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
   @SerializedName(SERIALIZED_NAME_ANONYMIZE)
@@ -194,25 +194,23 @@ public class CreatePrinterInputBody {
     
     _6X4("6x4"),
     
+    _4X8("4x8"),
+    
     _4X4("4x4"),
     
-    _4X2("4x2"),
-    
-    _2X4("2x4"),
+    _4X3("4x3"),
     
     _3X5("3x5"),
     
     _5X3("5x3"),
     
+    _4X2("4x2"),
+    
+    _2X4("2x4"),
+    
     _2X3("2x3"),
     
     _3X2("3x2"),
-    
-    NETSTAMP("netstamp"),
-    
-    _2_25X1_25("2.25x1.25"),
-    
-    _1_5X1("1.5x1"),
     
     _2X1("2x1"),
     
@@ -220,11 +218,13 @@ public class CreatePrinterInputBody {
     
     _4X1("4x1"),
     
+    _2_25X1_25("2.25x1.25"),
+    
+    _1_5X1("1.5x1"),
+    
     _1X1("1x1"),
     
-    _4X3("4x3"),
-    
-    _4X8("4x8"),
+    NETSTAMP("netstamp"),
     
     A6("a6");
 

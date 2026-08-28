@@ -1445,22 +1445,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         preview:
@@ -1585,22 +1585,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         webhookUrl:
@@ -2120,22 +2120,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         threshold:
@@ -2357,22 +2357,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         widthMm:
@@ -2635,22 +2635,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         rotation:
@@ -2998,22 +2998,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         stamp:
@@ -3066,22 +3066,22 @@ components:
           enum:
           - 4x6
           - 6x4
+          - 4x8
           - 4x4
-          - 4x2
-          - 2x4
+          - 4x3
           - 3x5
           - 5x3
+          - 4x2
+          - 2x4
           - 2x3
           - 3x2
-          - netstamp
-          - 2.25x1.25
-          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
+          - 2.25x1.25
+          - 1.5x1
           - 1x1
-          - 4x3
-          - 4x8
+          - netstamp
           - a6
           type: string
         widthMm:
