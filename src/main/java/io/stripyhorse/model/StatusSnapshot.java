@@ -49,8 +49,13 @@ import io.stripyhorse.JSON;
 /**
  * StatusSnapshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:33:33.079136263Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T17:41:58.287237612Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatusSnapshot {
+  public static final String SERIALIZED_NAME_DARKNESS = "darkness";
+  @SerializedName(SERIALIZED_NAME_DARKNESS)
+  @javax.annotation.Nonnull
+  private String darkness;
+
   public static final String SERIALIZED_NAME_FAULTS = "faults";
   @SerializedName(SERIALIZED_NAME_FAULTS)
   @javax.annotation.Nonnull
@@ -60,6 +65,11 @@ public class StatusSnapshot {
   @SerializedName(SERIALIZED_NAME_FORMATS_IN_BUFFER)
   @javax.annotation.Nonnull
   private Long formatsInBuffer;
+
+  public static final String SERIALIZED_NAME_FRIENDLY_NAME = "friendlyName";
+  @SerializedName(SERIALIZED_NAME_FRIENDLY_NAME)
+  @javax.annotation.Nonnull
+  private String friendlyName;
 
   public static final String SERIALIZED_NAME_LABEL_LENGTH_DOTS = "labelLengthDots";
   @SerializedName(SERIALIZED_NAME_LABEL_LENGTH_DOTS)
@@ -71,6 +81,11 @@ public class StatusSnapshot {
   @javax.annotation.Nonnull
   private Long odometer;
 
+  public static final String SERIALIZED_NAME_SPEED_IPS = "speedIps";
+  @SerializedName(SERIALIZED_NAME_SPEED_IPS)
+  @javax.annotation.Nonnull
+  private String speedIps;
+
   public static final String SERIALIZED_NAME_WIDTH_DOTS = "widthDots";
   @SerializedName(SERIALIZED_NAME_WIDTH_DOTS)
   @javax.annotation.Nonnull
@@ -78,6 +93,25 @@ public class StatusSnapshot {
 
   public StatusSnapshot() {
   }
+
+  public StatusSnapshot darkness(@javax.annotation.Nonnull String darkness) {
+    this.darkness = darkness;
+    return this;
+  }
+
+  /**
+   * print.tone setting, e.g. 20.0
+   * @return darkness
+   */
+  @javax.annotation.Nonnull
+  public String getDarkness() {
+    return darkness;
+  }
+
+  public void setDarkness(@javax.annotation.Nonnull String darkness) {
+    this.darkness = darkness;
+  }
+
 
   public StatusSnapshot faults(@javax.annotation.Nonnull Faults faults) {
     this.faults = faults;
@@ -114,6 +148,25 @@ public class StatusSnapshot {
 
   public void setFormatsInBuffer(@javax.annotation.Nonnull Long formatsInBuffer) {
     this.formatsInBuffer = formatsInBuffer;
+  }
+
+
+  public StatusSnapshot friendlyName(@javax.annotation.Nonnull String friendlyName) {
+    this.friendlyName = friendlyName;
+    return this;
+  }
+
+  /**
+   * device.friendly_name override; empty means unset
+   * @return friendlyName
+   */
+  @javax.annotation.Nonnull
+  public String getFriendlyName() {
+    return friendlyName;
+  }
+
+  public void setFriendlyName(@javax.annotation.Nonnull String friendlyName) {
+    this.friendlyName = friendlyName;
   }
 
 
@@ -155,6 +208,25 @@ public class StatusSnapshot {
   }
 
 
+  public StatusSnapshot speedIps(@javax.annotation.Nonnull String speedIps) {
+    this.speedIps = speedIps;
+    return this;
+  }
+
+  /**
+   * media.speed setting, inches/second
+   * @return speedIps
+   */
+  @javax.annotation.Nonnull
+  public String getSpeedIps() {
+    return speedIps;
+  }
+
+  public void setSpeedIps(@javax.annotation.Nonnull String speedIps) {
+    this.speedIps = speedIps;
+  }
+
+
   public StatusSnapshot widthDots(@javax.annotation.Nonnull Long widthDots) {
     this.widthDots = widthDots;
     return this;
@@ -184,26 +256,32 @@ public class StatusSnapshot {
       return false;
     }
     StatusSnapshot statusSnapshot = (StatusSnapshot) o;
-    return Objects.equals(this.faults, statusSnapshot.faults) &&
+    return Objects.equals(this.darkness, statusSnapshot.darkness) &&
+        Objects.equals(this.faults, statusSnapshot.faults) &&
         Objects.equals(this.formatsInBuffer, statusSnapshot.formatsInBuffer) &&
+        Objects.equals(this.friendlyName, statusSnapshot.friendlyName) &&
         Objects.equals(this.labelLengthDots, statusSnapshot.labelLengthDots) &&
         Objects.equals(this.odometer, statusSnapshot.odometer) &&
+        Objects.equals(this.speedIps, statusSnapshot.speedIps) &&
         Objects.equals(this.widthDots, statusSnapshot.widthDots);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(faults, formatsInBuffer, labelLengthDots, odometer, widthDots);
+    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, speedIps, widthDots);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusSnapshot {\n");
+    sb.append("    darkness: ").append(toIndentedString(darkness)).append("\n");
     sb.append("    faults: ").append(toIndentedString(faults)).append("\n");
     sb.append("    formatsInBuffer: ").append(toIndentedString(formatsInBuffer)).append("\n");
+    sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
     sb.append("    labelLengthDots: ").append(toIndentedString(labelLengthDots)).append("\n");
     sb.append("    odometer: ").append(toIndentedString(odometer)).append("\n");
+    sb.append("    speedIps: ").append(toIndentedString(speedIps)).append("\n");
     sb.append("    widthDots: ").append(toIndentedString(widthDots)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,10 +301,10 @@ public class StatusSnapshot {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("faults", "formatsInBuffer", "labelLengthDots", "odometer", "widthDots"));
+    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "widthDots"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("faults", "formatsInBuffer", "labelLengthDots", "odometer", "widthDots"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "widthDots"));
   }
 
   /**
@@ -257,8 +335,17 @@ public class StatusSnapshot {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("darkness").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `darkness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("darkness").toString()));
+      }
       // validate the required field `faults`
       Faults.validateJsonElement(jsonObj.get("faults"));
+      if (!jsonObj.get("friendlyName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `friendlyName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("friendlyName").toString()));
+      }
+      if (!jsonObj.get("speedIps").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `speedIps` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speedIps").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

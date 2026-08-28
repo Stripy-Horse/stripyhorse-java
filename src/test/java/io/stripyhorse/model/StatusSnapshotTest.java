@@ -39,6 +39,14 @@ public class StatusSnapshotTest {
     }
 
     /**
+     * Test the property 'darkness'
+     */
+    @Test
+    public void darknessTest() {
+        // TODO: test darkness
+    }
+
+    /**
      * Test the property 'faults'
      */
     @Test
@@ -55,6 +63,14 @@ public class StatusSnapshotTest {
     }
 
     /**
+     * Test the property 'friendlyName'
+     */
+    @Test
+    public void friendlyNameTest() {
+        // TODO: test friendlyName
+    }
+
+    /**
      * Test the property 'labelLengthDots'
      */
     @Test
@@ -68,6 +84,14 @@ public class StatusSnapshotTest {
     @Test
     public void odometerTest() {
         // TODO: test odometer
+    }
+
+    /**
+     * Test the property 'speedIps'
+     */
+    @Test
+    public void speedIpsTest() {
+        // TODO: test speedIps
     }
 
     /**
