@@ -1448,6 +1448,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -1587,6 +1588,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -2093,6 +2095,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -2329,6 +2332,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -2606,6 +2610,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -2968,6 +2973,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1
@@ -3035,6 +3041,7 @@ components:
           - 3x2
           - netstamp
           - 2.25x1.25
+          - 1.5x1
           - 2x1
           - 3x1
           - 4x1

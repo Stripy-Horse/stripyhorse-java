@@ -51,7 +51,7 @@ import io.stripyhorse.JSON;
 /**
  * ListPrintersOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T17:41:58.287237612Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T21:20:15.812398469Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ListPrintersOutputBody {
   public static final String SERIALIZED_NAME_PRINTERS = "printers";
   @SerializedName(SERIALIZED_NAME_PRINTERS)
