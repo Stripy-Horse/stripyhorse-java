@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * PrinterBodyTCPStruct
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:29:10.609865089Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:59:14.333497697Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PrinterBodyTCPStruct {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)

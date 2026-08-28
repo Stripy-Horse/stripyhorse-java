@@ -1359,7 +1359,7 @@ components:
           diameter: 5
           errorCorrection: ""
           font: font
-          fontHeight: 5
+          fontHeight: 5637
           fontWidth: 2
           height: 7
           length: 9
@@ -1391,7 +1391,7 @@ components:
           diameter: 5
           errorCorrection: ""
           font: font
-          fontHeight: 5
+          fontHeight: 5637
           fontWidth: 2
           height: 7
           length: 9
@@ -1641,7 +1641,7 @@ components:
         diameter: 5
         errorCorrection: ""
         font: font
-        fontHeight: 5
+        fontHeight: 5637
         fontWidth: 2
         height: 7
         length: 9
@@ -1720,6 +1720,7 @@ components:
         fontHeight:
           description: Character height in dots (text)
           format: int64
+          maximum: 10000
           type: integer
         fontWidth:
           description: Character width in dots; 0 follows fontHeight
@@ -2798,7 +2799,7 @@ components:
       additionalProperties: false
       example:
         image: image
-        widthDots: 0
+        widthDots: 800
         x: 0
         "y": 0
         zpl: zpl
@@ -2809,6 +2810,7 @@ components:
         widthDots:
           description: Stamp width in dots; 0 keeps the image's natural size
           format: int64
+          maximum: 10000
           minimum: 0
           type: integer
         x:

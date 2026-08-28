@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * StampInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:29:10.609865089Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:59:14.333497697Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StampInputBody {
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -105,6 +105,7 @@ public class StampInputBody {
   /**
    * Stamp width in dots; 0 keeps the image&#39;s natural size
    * minimum: 0
+   * maximum: 10000
    * @return widthDots
    */
   @javax.annotation.Nullable
