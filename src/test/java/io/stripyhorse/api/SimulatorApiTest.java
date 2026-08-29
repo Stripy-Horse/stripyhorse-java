@@ -135,6 +135,8 @@ public class SimulatorApiTest {
     /**
      * List your printers
      *
+     * Every printer on your account, whichever of its keys created them.
+     *
      * @throws ApiException if the Api call fails
      */
     @Test

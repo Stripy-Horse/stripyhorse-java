@@ -95,6 +95,14 @@ public class StatusSnapshotTest {
     }
 
     /**
+     * Test the property 'tearOff'
+     */
+    @Test
+    public void tearOffTest() {
+        // TODO: test tearOff
+    }
+
+    /**
      * Test the property 'widthDots'
      */
     @Test

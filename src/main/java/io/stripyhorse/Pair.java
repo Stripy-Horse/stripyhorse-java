@@ -13,7 +13,7 @@
 
 package io.stripyhorse;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:59:14.333497697Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T22:28:33.305105513Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Pair {
   private final String name;
   private final String value;

@@ -14,6 +14,7 @@
 |**labelLengthDots** | **Long** |  |  |
 |**odometer** | **Long** |  |  |
 |**speedIps** | **String** | media.speed setting, inches/second |  |
+|**tearOff** | **String** | ezpl.tear_off setting, dots |  |
 |**widthDots** | **Long** |  |  |
 
 

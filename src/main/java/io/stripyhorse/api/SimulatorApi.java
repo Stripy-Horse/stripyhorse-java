@@ -1106,7 +1106,7 @@ public class SimulatorApi {
 
     /**
      * List your printers
-     * 
+     * Every printer on your account, whichever of its keys created them.
      * @return ListPrintersOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1124,7 +1124,7 @@ public class SimulatorApi {
 
     /**
      * List your printers
-     * 
+     * Every printer on your account, whichever of its keys created them.
      * @return ApiResponse&lt;ListPrintersOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1143,7 +1143,7 @@ public class SimulatorApi {
 
     /**
      * List your printers (asynchronously)
-     * 
+     * Every printer on your account, whichever of its keys created them.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

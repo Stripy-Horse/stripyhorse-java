@@ -49,7 +49,7 @@ import io.stripyhorse.JSON;
 /**
  * StatusSnapshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-28T23:59:14.333497697Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T22:28:33.305105513Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatusSnapshot {
   public static final String SERIALIZED_NAME_DARKNESS = "darkness";
   @SerializedName(SERIALIZED_NAME_DARKNESS)
@@ -85,6 +85,11 @@ public class StatusSnapshot {
   @SerializedName(SERIALIZED_NAME_SPEED_IPS)
   @javax.annotation.Nonnull
   private String speedIps;
+
+  public static final String SERIALIZED_NAME_TEAR_OFF = "tearOff";
+  @SerializedName(SERIALIZED_NAME_TEAR_OFF)
+  @javax.annotation.Nonnull
+  private String tearOff;
 
   public static final String SERIALIZED_NAME_WIDTH_DOTS = "widthDots";
   @SerializedName(SERIALIZED_NAME_WIDTH_DOTS)
@@ -227,6 +232,25 @@ public class StatusSnapshot {
   }
 
 
+  public StatusSnapshot tearOff(@javax.annotation.Nonnull String tearOff) {
+    this.tearOff = tearOff;
+    return this;
+  }
+
+  /**
+   * ezpl.tear_off setting, dots
+   * @return tearOff
+   */
+  @javax.annotation.Nonnull
+  public String getTearOff() {
+    return tearOff;
+  }
+
+  public void setTearOff(@javax.annotation.Nonnull String tearOff) {
+    this.tearOff = tearOff;
+  }
+
+
   public StatusSnapshot widthDots(@javax.annotation.Nonnull Long widthDots) {
     this.widthDots = widthDots;
     return this;
@@ -263,12 +287,13 @@ public class StatusSnapshot {
         Objects.equals(this.labelLengthDots, statusSnapshot.labelLengthDots) &&
         Objects.equals(this.odometer, statusSnapshot.odometer) &&
         Objects.equals(this.speedIps, statusSnapshot.speedIps) &&
+        Objects.equals(this.tearOff, statusSnapshot.tearOff) &&
         Objects.equals(this.widthDots, statusSnapshot.widthDots);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, speedIps, widthDots);
+    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, speedIps, tearOff, widthDots);
   }
 
   @Override
@@ -282,6 +307,7 @@ public class StatusSnapshot {
     sb.append("    labelLengthDots: ").append(toIndentedString(labelLengthDots)).append("\n");
     sb.append("    odometer: ").append(toIndentedString(odometer)).append("\n");
     sb.append("    speedIps: ").append(toIndentedString(speedIps)).append("\n");
+    sb.append("    tearOff: ").append(toIndentedString(tearOff)).append("\n");
     sb.append("    widthDots: ").append(toIndentedString(widthDots)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -301,10 +327,10 @@ public class StatusSnapshot {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "widthDots"));
+    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "tearOff", "widthDots"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "widthDots"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "tearOff", "widthDots"));
   }
 
   /**
@@ -345,6 +371,9 @@ public class StatusSnapshot {
       }
       if (!jsonObj.get("speedIps").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `speedIps` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speedIps").toString()));
+      }
+      if (!jsonObj.get("tearOff").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tearOff` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tearOff").toString()));
       }
   }
 
