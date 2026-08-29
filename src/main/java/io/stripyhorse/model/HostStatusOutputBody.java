@@ -52,7 +52,7 @@ import io.stripyhorse.JSON;
 /**
  * HostStatusOutputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T22:28:33.305105513Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T23:14:08.633770422Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class HostStatusOutputBody {
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
