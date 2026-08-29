@@ -6,6 +6,7 @@ All URIs are relative to *https://api.stripyhorse.io*
 |------------- | ------------- | -------------|
 | [**clearJobs**](SimulatorApi.md#clearJobs) | **DELETE** /v1/printers/{printerId}/jobs | Delete all captured jobs |
 | [**createPrinter**](SimulatorApi.md#createPrinter) | **POST** /v1/printers | Create a virtual printer |
+| [**deleteJob**](SimulatorApi.md#deleteJob) | **DELETE** /v1/printers/{printerId}/jobs/{jobId} | Delete one captured job |
 | [**deletePrinter**](SimulatorApi.md#deletePrinter) | **DELETE** /v1/printers/{printerId} | Delete a printer and its captured jobs |
 | [**getJob**](SimulatorApi.md#getJob) | **GET** /v1/printers/{printerId}/jobs/{jobId} | Get one job including its raw ZPL |
 | [**getJobLabel**](SimulatorApi.md#getJobLabel) | **GET** /v1/printers/{printerId}/jobs/{jobId}/labels/{index}.png | Get one rendered label as a PNG |
@@ -160,6 +161,79 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **0** | Error |  -  |
+
+<a id="deleteJob"></a>
+# **deleteJob**
+> deleteJob(printerId, jobId)
+
+Delete one captured job
+
+### Example
+```java
+// Import classes:
+import io.stripyhorse.ApiClient;
+import io.stripyhorse.ApiException;
+import io.stripyhorse.Configuration;
+import io.stripyhorse.auth.*;
+import io.stripyhorse.models.*;
+import io.stripyhorse.api.SimulatorApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.stripyhorse.io");
+    
+    // Configure API key authorization: headerKey
+    ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
+    headerKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //headerKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerKey
+    HttpBearerAuth bearerKey = (HttpBearerAuth) defaultClient.getAuthentication("bearerKey");
+    bearerKey.setBearerToken("BEARER TOKEN");
+
+    SimulatorApi apiInstance = new SimulatorApi(defaultClient);
+    String printerId = "printerId_example"; // String | 
+    Long jobId = 56L; // Long | 
+    try {
+      apiInstance.deleteJob(printerId, jobId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SimulatorApi#deleteJob");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **printerId** | **String**|  | |
+| **jobId** | **Long**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[headerKey](../README.md#headerKey), [bearerKey](../README.md#bearerKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **0** | Error |  -  |
 
 <a id="deletePrinter"></a>

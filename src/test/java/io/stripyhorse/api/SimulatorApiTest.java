@@ -66,6 +66,19 @@ public class SimulatorApiTest {
     }
 
     /**
+     * Delete one captured job
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteJobTest() throws ApiException {
+        String printerId = null;
+        Long jobId = null;
+        api.deleteJob(printerId, jobId);
+        // TODO: test validations
+    }
+
+    /**
      * Delete a printer and its captured jobs
      *
      * @throws ApiException if the Api call fails

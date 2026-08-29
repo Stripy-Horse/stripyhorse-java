@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * Element
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T23:14:08.633770422Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T23:23:00.153868792Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Element {
   /**
    * Alignment when wrapping
