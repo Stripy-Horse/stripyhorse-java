@@ -54,7 +54,7 @@ public class SimulatorApiTest {
     /**
      * Create a virtual printer
      *
-     * Free tier: one ephemeral printer (24h idle TTL). Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
+     * Free tier: one ephemeral printer, expiring after 4h with no jobs. Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
      *
      * @throws ApiException if the Api call fails
      */

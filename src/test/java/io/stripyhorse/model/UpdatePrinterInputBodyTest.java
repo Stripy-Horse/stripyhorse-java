@@ -38,6 +38,14 @@ public class UpdatePrinterInputBodyTest {
     }
 
     /**
+     * Test the property 'accessMode'
+     */
+    @Test
+    public void accessModeTest() {
+        // TODO: test accessMode
+    }
+
+    /**
      * Test the property 'anonymize'
      */
     @Test

@@ -51,8 +51,13 @@ import io.stripyhorse.JSON;
 /**
  * PrinterBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T03:16:10.729387782Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T05:58:49.152463933Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PrinterBody {
+  public static final String SERIALIZED_NAME_ACCESS_MODE = "accessMode";
+  @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
+  @javax.annotation.Nonnull
+  private String accessMode;
+
   public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
   @SerializedName(SERIALIZED_NAME_ANONYMIZE)
   @javax.annotation.Nonnull
@@ -177,6 +182,25 @@ public class PrinterBody {
 
   public PrinterBody() {
   }
+
+  public PrinterBody accessMode(@javax.annotation.Nonnull String accessMode) {
+    this.accessMode = accessMode;
+    return this;
+  }
+
+  /**
+   * Who may print to the TCP port: open (anyone), token (the stream must open with ~SH plus the ingest token), ip (only addresses the org has claimed)
+   * @return accessMode
+   */
+  @javax.annotation.Nonnull
+  public String getAccessMode() {
+    return accessMode;
+  }
+
+  public void setAccessMode(@javax.annotation.Nonnull String accessMode) {
+    this.accessMode = accessMode;
+  }
+
 
   public PrinterBody anonymize(@javax.annotation.Nonnull Boolean anonymize) {
     this.anonymize = anonymize;
@@ -454,7 +478,8 @@ public class PrinterBody {
       return false;
     }
     PrinterBody printerBody = (PrinterBody) o;
-    return Objects.equals(this.anonymize, printerBody.anonymize) &&
+    return Objects.equals(this.accessMode, printerBody.accessMode) &&
+        Objects.equals(this.anonymize, printerBody.anonymize) &&
         Objects.equals(this.createdAt, printerBody.createdAt) &&
         Objects.equals(this.dpmm, printerBody.dpmm) &&
         Objects.equals(this.expiresAt, printerBody.expiresAt) &&
@@ -472,13 +497,14 @@ public class PrinterBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymize, createdAt, dpmm, expiresAt, heightMm, id, ingestUrl, mode, name, state, tcp, webhookSecret, webhookUrl, widthMm);
+    return Objects.hash(accessMode, anonymize, createdAt, dpmm, expiresAt, heightMm, id, ingestUrl, mode, name, state, tcp, webhookSecret, webhookUrl, widthMm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrinterBody {\n");
+    sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
@@ -511,10 +537,10 @@ public class PrinterBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "createdAt", "dpmm", "expiresAt", "heightMm", "id", "ingestUrl", "mode", "name", "state", "tcp", "webhookSecret", "webhookUrl", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "createdAt", "dpmm", "expiresAt", "heightMm", "id", "ingestUrl", "mode", "name", "state", "tcp", "webhookSecret", "webhookUrl", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("anonymize", "createdAt", "dpmm", "heightMm", "id", "mode", "name", "tcp", "widthMm"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "createdAt", "dpmm", "heightMm", "id", "mode", "name", "tcp", "widthMm"));
   }
 
   /**
@@ -545,6 +571,9 @@ public class PrinterBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("accessMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessMode").toString()));
+      }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }

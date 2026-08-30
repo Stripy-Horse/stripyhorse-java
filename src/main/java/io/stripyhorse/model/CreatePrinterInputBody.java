@@ -48,8 +48,69 @@ import io.stripyhorse.JSON;
 /**
  * CreatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T03:16:10.729387782Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T05:58:49.152463933Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreatePrinterInputBody {
+  /**
+   * Who may print to the TCP port; default open. Use token from CI, where the source address is different every run.
+   */
+  @JsonAdapter(AccessModeEnum.Adapter.class)
+  public enum AccessModeEnum {
+    EMPTY(""),
+    
+    OPEN("open"),
+    
+    TOKEN("token"),
+    
+    IP("ip");
+
+    private String value;
+
+    AccessModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AccessModeEnum fromValue(String value) {
+      for (AccessModeEnum b : AccessModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AccessModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccessModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AccessModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AccessModeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AccessModeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ACCESS_MODE = "accessMode";
+  @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
+  @javax.annotation.Nullable
+  private AccessModeEnum accessMode;
+
   public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
   @SerializedName(SERIALIZED_NAME_ANONYMIZE)
   @javax.annotation.Nullable
@@ -289,6 +350,25 @@ public class CreatePrinterInputBody {
   public CreatePrinterInputBody() {
   }
 
+  public CreatePrinterInputBody accessMode(@javax.annotation.Nullable AccessModeEnum accessMode) {
+    this.accessMode = accessMode;
+    return this;
+  }
+
+  /**
+   * Who may print to the TCP port; default open. Use token from CI, where the source address is different every run.
+   * @return accessMode
+   */
+  @javax.annotation.Nullable
+  public AccessModeEnum getAccessMode() {
+    return accessMode;
+  }
+
+  public void setAccessMode(@javax.annotation.Nullable AccessModeEnum accessMode) {
+    this.accessMode = accessMode;
+  }
+
+
   public CreatePrinterInputBody anonymize(@javax.annotation.Nullable Boolean anonymize) {
     this.anonymize = anonymize;
     return this;
@@ -453,7 +533,8 @@ public class CreatePrinterInputBody {
       return false;
     }
     CreatePrinterInputBody createPrinterInputBody = (CreatePrinterInputBody) o;
-    return Objects.equals(this.anonymize, createPrinterInputBody.anonymize) &&
+    return Objects.equals(this.accessMode, createPrinterInputBody.accessMode) &&
+        Objects.equals(this.anonymize, createPrinterInputBody.anonymize) &&
         Objects.equals(this.dpmm, createPrinterInputBody.dpmm) &&
         Objects.equals(this.heightMm, createPrinterInputBody.heightMm) &&
         Objects.equals(this.mode, createPrinterInputBody.mode) &&
@@ -465,13 +546,14 @@ public class CreatePrinterInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymize, dpmm, heightMm, mode, name, preset, webhookUrl, widthMm);
+    return Objects.hash(accessMode, anonymize, dpmm, heightMm, mode, name, preset, webhookUrl, widthMm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrinterInputBody {\n");
+    sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    dpmm: ").append(toIndentedString(dpmm)).append("\n");
     sb.append("    heightMm: ").append(toIndentedString(heightMm)).append("\n");
@@ -498,7 +580,7 @@ public class CreatePrinterInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "dpmm", "heightMm", "mode", "name", "preset", "webhookUrl", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "dpmm", "heightMm", "mode", "name", "preset", "webhookUrl", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -532,6 +614,13 @@ public class CreatePrinterInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("accessMode") != null && !jsonObj.get("accessMode").isJsonNull()) && !jsonObj.get("accessMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessMode").toString()));
+      }
+      // validate the optional field `accessMode`
+      if (jsonObj.get("accessMode") != null && !jsonObj.get("accessMode").isJsonNull()) {
+        AccessModeEnum.validateJsonElement(jsonObj.get("accessMode"));
+      }
       // validate the optional field `dpmm`
       if (jsonObj.get("dpmm") != null && !jsonObj.get("dpmm").isJsonNull()) {
         DpmmEnum.validateJsonElement(jsonObj.get("dpmm"));

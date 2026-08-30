@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**accessMode** | **String** | Who may print to the TCP port: open (anyone), token (the stream must open with ~SH plus the ingest token), ip (only addresses the org has claimed) |  |
 |**anonymize** | **Boolean** | When true, PII is masked and graphics stripped from every captured frame |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**dpmm** | **Long** |  |  |

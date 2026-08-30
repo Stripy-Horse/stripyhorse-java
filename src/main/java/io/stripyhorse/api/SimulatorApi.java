@@ -280,7 +280,7 @@ public class SimulatorApi {
 
     /**
      * Create a virtual printer
-     * Free tier: one ephemeral printer (24h idle TTL). Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
+     * Free tier: one ephemeral printer, expiring after 4h with no jobs. Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
      * @param createPrinterInputBody  (required)
      * @return PrinterBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -299,7 +299,7 @@ public class SimulatorApi {
 
     /**
      * Create a virtual printer
-     * Free tier: one ephemeral printer (24h idle TTL). Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
+     * Free tier: one ephemeral printer, expiring after 4h with no jobs. Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
      * @param createPrinterInputBody  (required)
      * @return ApiResponse&lt;PrinterBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -319,7 +319,7 @@ public class SimulatorApi {
 
     /**
      * Create a virtual printer (asynchronously)
-     * Free tier: one ephemeral printer (24h idle TTL). Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
+     * Free tier: one ephemeral printer, expiring after 4h with no jobs. Paid tiers: persistent printers. The ingest URL and webhook secret are only returned here.
      * @param createPrinterInputBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

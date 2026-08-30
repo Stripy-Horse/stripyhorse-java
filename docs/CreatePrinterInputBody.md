@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**accessMode** | [**AccessModeEnum**](#AccessModeEnum) | Who may print to the TCP port; default open. Use token from CI, where the source address is different every run. |  [optional] |
 |**anonymize** | **Boolean** | Mask PII and strip graphics from every captured frame |  [optional] |
 |**dpmm** | [**DpmmEnum**](#DpmmEnum) | Print density in dots/mm (152/203/300/600 dpi); default 8 |  [optional] |
 |**heightMm** | **Double** |  |  [optional] |
@@ -15,6 +16,17 @@
 |**preset** | [**PresetEnum**](#PresetEnum) | Named label size in inches; alternative to widthMm/heightMm |  [optional] |
 |**webhookUrl** | **String** |  |  [optional] |
 |**widthMm** | **Double** |  |  [optional] |
+
+
+
+## Enum: AccessModeEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;&quot; |
+| OPEN | &quot;open&quot; |
+| TOKEN | &quot;token&quot; |
+| IP | &quot;ip&quot; |
 
 
 

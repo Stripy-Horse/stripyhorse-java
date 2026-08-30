@@ -48,8 +48,67 @@ import io.stripyhorse.JSON;
 /**
  * UpdatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T03:16:10.729387782Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T05:58:49.152463933Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdatePrinterInputBody {
+  /**
+   * Gets or Sets accessMode
+   */
+  @JsonAdapter(AccessModeEnum.Adapter.class)
+  public enum AccessModeEnum {
+    OPEN("open"),
+    
+    TOKEN("token"),
+    
+    IP("ip");
+
+    private String value;
+
+    AccessModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AccessModeEnum fromValue(String value) {
+      for (AccessModeEnum b : AccessModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AccessModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccessModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AccessModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AccessModeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AccessModeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ACCESS_MODE = "accessMode";
+  @SerializedName(SERIALIZED_NAME_ACCESS_MODE)
+  @javax.annotation.Nullable
+  private AccessModeEnum accessMode;
+
   public static final String SERIALIZED_NAME_ANONYMIZE = "anonymize";
   @SerializedName(SERIALIZED_NAME_ANONYMIZE)
   @javax.annotation.Nullable
@@ -67,6 +126,25 @@ public class UpdatePrinterInputBody {
 
   public UpdatePrinterInputBody() {
   }
+
+  public UpdatePrinterInputBody accessMode(@javax.annotation.Nullable AccessModeEnum accessMode) {
+    this.accessMode = accessMode;
+    return this;
+  }
+
+  /**
+   * Get accessMode
+   * @return accessMode
+   */
+  @javax.annotation.Nullable
+  public AccessModeEnum getAccessMode() {
+    return accessMode;
+  }
+
+  public void setAccessMode(@javax.annotation.Nullable AccessModeEnum accessMode) {
+    this.accessMode = accessMode;
+  }
+
 
   public UpdatePrinterInputBody anonymize(@javax.annotation.Nullable Boolean anonymize) {
     this.anonymize = anonymize;
@@ -135,20 +213,22 @@ public class UpdatePrinterInputBody {
       return false;
     }
     UpdatePrinterInputBody updatePrinterInputBody = (UpdatePrinterInputBody) o;
-    return Objects.equals(this.anonymize, updatePrinterInputBody.anonymize) &&
+    return Objects.equals(this.accessMode, updatePrinterInputBody.accessMode) &&
+        Objects.equals(this.anonymize, updatePrinterInputBody.anonymize) &&
         Objects.equals(this.name, updatePrinterInputBody.name) &&
         Objects.equals(this.webhookUrl, updatePrinterInputBody.webhookUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymize, name, webhookUrl);
+    return Objects.hash(accessMode, anonymize, name, webhookUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePrinterInputBody {\n");
+    sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    anonymize: ").append(toIndentedString(anonymize)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
@@ -170,7 +250,7 @@ public class UpdatePrinterInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("anonymize", "name", "webhookUrl"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "name", "webhookUrl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -197,6 +277,13 @@ public class UpdatePrinterInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("accessMode") != null && !jsonObj.get("accessMode").isJsonNull()) && !jsonObj.get("accessMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessMode").toString()));
+      }
+      // validate the optional field `accessMode`
+      if (jsonObj.get("accessMode") != null && !jsonObj.get("accessMode").isJsonNull()) {
+        AccessModeEnum.validateJsonElement(jsonObj.get("accessMode"));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
