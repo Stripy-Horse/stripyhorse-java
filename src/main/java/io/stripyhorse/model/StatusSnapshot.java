@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.stripyhorse.model.Faults;
+import io.stripyhorse.model.HeldJob;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +52,7 @@ import io.stripyhorse.JSON;
 /**
  * StatusSnapshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-29T23:23:00.153868792Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:31:22.372154308Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatusSnapshot {
   public static final String SERIALIZED_NAME_DARKNESS = "darkness";
   @SerializedName(SERIALIZED_NAME_DARKNESS)
@@ -80,6 +83,11 @@ public class StatusSnapshot {
   @SerializedName(SERIALIZED_NAME_ODOMETER)
   @javax.annotation.Nonnull
   private Long odometer;
+
+  public static final String SERIALIZED_NAME_QUEUE = "queue";
+  @SerializedName(SERIALIZED_NAME_QUEUE)
+  @javax.annotation.Nullable
+  private List<HeldJob> queue;
 
   public static final String SERIALIZED_NAME_SPEED_IPS = "speedIps";
   @SerializedName(SERIALIZED_NAME_SPEED_IPS)
@@ -213,6 +221,33 @@ public class StatusSnapshot {
   }
 
 
+  public StatusSnapshot queue(@javax.annotation.Nullable List<HeldJob> queue) {
+    this.queue = queue;
+    return this;
+  }
+
+  public StatusSnapshot addQueueItem(HeldJob queueItem) {
+    if (this.queue == null) {
+      this.queue = new ArrayList<>();
+    }
+    this.queue.add(queueItem);
+    return this;
+  }
+
+  /**
+   * Get queue
+   * @return queue
+   */
+  @javax.annotation.Nullable
+  public List<HeldJob> getQueue() {
+    return queue;
+  }
+
+  public void setQueue(@javax.annotation.Nullable List<HeldJob> queue) {
+    this.queue = queue;
+  }
+
+
   public StatusSnapshot speedIps(@javax.annotation.Nonnull String speedIps) {
     this.speedIps = speedIps;
     return this;
@@ -286,6 +321,7 @@ public class StatusSnapshot {
         Objects.equals(this.friendlyName, statusSnapshot.friendlyName) &&
         Objects.equals(this.labelLengthDots, statusSnapshot.labelLengthDots) &&
         Objects.equals(this.odometer, statusSnapshot.odometer) &&
+        Objects.equals(this.queue, statusSnapshot.queue) &&
         Objects.equals(this.speedIps, statusSnapshot.speedIps) &&
         Objects.equals(this.tearOff, statusSnapshot.tearOff) &&
         Objects.equals(this.widthDots, statusSnapshot.widthDots);
@@ -293,7 +329,7 @@ public class StatusSnapshot {
 
   @Override
   public int hashCode() {
-    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, speedIps, tearOff, widthDots);
+    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, queue, speedIps, tearOff, widthDots);
   }
 
   @Override
@@ -306,6 +342,7 @@ public class StatusSnapshot {
     sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
     sb.append("    labelLengthDots: ").append(toIndentedString(labelLengthDots)).append("\n");
     sb.append("    odometer: ").append(toIndentedString(odometer)).append("\n");
+    sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    speedIps: ").append(toIndentedString(speedIps)).append("\n");
     sb.append("    tearOff: ").append(toIndentedString(tearOff)).append("\n");
     sb.append("    widthDots: ").append(toIndentedString(widthDots)).append("\n");
@@ -327,10 +364,10 @@ public class StatusSnapshot {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "tearOff", "widthDots"));
+    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "tearOff", "widthDots"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "speedIps", "tearOff", "widthDots"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "tearOff", "widthDots"));
   }
 
   /**
@@ -368,6 +405,16 @@ public class StatusSnapshot {
       Faults.validateJsonElement(jsonObj.get("faults"));
       if (!jsonObj.get("friendlyName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `friendlyName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("friendlyName").toString()));
+      }
+      if (jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) {
+        if (!jsonObj.get("queue").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `queue` to be an array in the JSON string but got `%s`", jsonObj.get("queue").toString()));
+        }
+        JsonArray jsonArrayqueue = jsonObj.getAsJsonArray("queue");
+        // validate the required field `queue` (array)
+        for (int i = 0; i < jsonArrayqueue.size(); i++) {
+          HeldJob.validateJsonElement(jsonArrayqueue.get(i));
+        }
       }
       if (!jsonObj.get("speedIps").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `speedIps` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speedIps").toString()));

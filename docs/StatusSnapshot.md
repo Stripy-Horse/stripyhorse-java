@@ -13,6 +13,7 @@
 |**friendlyName** | **String** | device.friendly_name override; empty means unset |  |
 |**labelLengthDots** | **Long** |  |  |
 |**odometer** | **Long** |  |  |
+|**queue** | [**List&lt;HeldJob&gt;**](HeldJob.md) |  |  |
 |**speedIps** | **String** | media.speed setting, inches/second |  |
 |**tearOff** | **String** | ezpl.tear_off setting, dots |  |
 |**widthDots** | **Long** |  |  |

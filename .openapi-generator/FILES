@@ -21,6 +21,7 @@ docs/ErrorDetail.md
 docs/ErrorModel.md
 docs/Faults.md
 docs/Finding.md
+docs/HeldJob.md
 docs/HostStatus.md
 docs/HostStatusInputBody.md
 docs/HostStatusOutputBody.md
@@ -98,6 +99,7 @@ src/main/java/io/stripyhorse/model/ErrorDetail.java
 src/main/java/io/stripyhorse/model/ErrorModel.java
 src/main/java/io/stripyhorse/model/Faults.java
 src/main/java/io/stripyhorse/model/Finding.java
+src/main/java/io/stripyhorse/model/HeldJob.java
 src/main/java/io/stripyhorse/model/HostStatus.java
 src/main/java/io/stripyhorse/model/HostStatusInputBody.java
 src/main/java/io/stripyhorse/model/HostStatusOutputBody.java
@@ -145,6 +147,7 @@ src/test/java/io/stripyhorse/model/ErrorDetailTest.java
 src/test/java/io/stripyhorse/model/ErrorModelTest.java
 src/test/java/io/stripyhorse/model/FaultsTest.java
 src/test/java/io/stripyhorse/model/FindingTest.java
+src/test/java/io/stripyhorse/model/HeldJobTest.java
 src/test/java/io/stripyhorse/model/HostStatusInputBodyTest.java
 src/test/java/io/stripyhorse/model/HostStatusOutputBodyTest.java
 src/test/java/io/stripyhorse/model/HostStatusTest.java

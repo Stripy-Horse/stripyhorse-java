@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.stripyhorse.model.RenderedLabel;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,66 +47,82 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * RenderOutputBody
+ * HeldJob
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T01:31:22.372154308Z[Etc/UTC]", comments = "Generator version: 7.24.0")
-public class RenderOutputBody {
-  public static final String SERIALIZED_NAME_LABEL_COUNT = "labelCount";
-  @SerializedName(SERIALIZED_NAME_LABEL_COUNT)
+public class HeldJob {
+  public static final String SERIALIZED_NAME_BYTES = "bytes";
+  @SerializedName(SERIALIZED_NAME_BYTES)
   @javax.annotation.Nonnull
-  private Long labelCount;
+  private Long bytes;
 
-  public static final String SERIALIZED_NAME_LABELS = "labels";
-  @SerializedName(SERIALIZED_NAME_LABELS)
-  @javax.annotation.Nullable
-  private List<RenderedLabel> labels;
+  public static final String SERIALIZED_NAME_RECEIVED_AT = "receivedAt";
+  @SerializedName(SERIALIZED_NAME_RECEIVED_AT)
+  @javax.annotation.Nonnull
+  private OffsetDateTime receivedAt;
 
-  public RenderOutputBody() {
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nonnull
+  private String source;
+
+  public HeldJob() {
   }
 
-  public RenderOutputBody labelCount(@javax.annotation.Nonnull Long labelCount) {
-    this.labelCount = labelCount;
+  public HeldJob bytes(@javax.annotation.Nonnull Long bytes) {
+    this.bytes = bytes;
     return this;
   }
 
   /**
-   * Get labelCount
-   * @return labelCount
+   * Size of the held frame
+   * @return bytes
    */
   @javax.annotation.Nonnull
-  public Long getLabelCount() {
-    return labelCount;
+  public Long getBytes() {
+    return bytes;
   }
 
-  public void setLabelCount(@javax.annotation.Nonnull Long labelCount) {
-    this.labelCount = labelCount;
+  public void setBytes(@javax.annotation.Nonnull Long bytes) {
+    this.bytes = bytes;
   }
 
 
-  public RenderOutputBody labels(@javax.annotation.Nullable List<RenderedLabel> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public RenderOutputBody addLabelsItem(RenderedLabel labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<>();
-    }
-    this.labels.add(labelsItem);
+  public HeldJob receivedAt(@javax.annotation.Nonnull OffsetDateTime receivedAt) {
+    this.receivedAt = receivedAt;
     return this;
   }
 
   /**
-   * Get labels
-   * @return labels
+   * Get receivedAt
+   * @return receivedAt
    */
-  @javax.annotation.Nullable
-  public List<RenderedLabel> getLabels() {
-    return labels;
+  @javax.annotation.Nonnull
+  public OffsetDateTime getReceivedAt() {
+    return receivedAt;
   }
 
-  public void setLabels(@javax.annotation.Nullable List<RenderedLabel> labels) {
-    this.labels = labels;
+  public void setReceivedAt(@javax.annotation.Nonnull OffsetDateTime receivedAt) {
+    this.receivedAt = receivedAt;
+  }
+
+
+  public HeldJob source(@javax.annotation.Nonnull String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * How it arrived: tcp or https
+   * @return source
+   */
+  @javax.annotation.Nonnull
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nonnull String source) {
+    this.source = source;
   }
 
 
@@ -121,22 +135,24 @@ public class RenderOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RenderOutputBody renderOutputBody = (RenderOutputBody) o;
-    return Objects.equals(this.labelCount, renderOutputBody.labelCount) &&
-        Objects.equals(this.labels, renderOutputBody.labels);
+    HeldJob heldJob = (HeldJob) o;
+    return Objects.equals(this.bytes, heldJob.bytes) &&
+        Objects.equals(this.receivedAt, heldJob.receivedAt) &&
+        Objects.equals(this.source, heldJob.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(labelCount, labels);
+    return Objects.hash(bytes, receivedAt, source);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RenderOutputBody {\n");
-    sb.append("    labelCount: ").append(toIndentedString(labelCount)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("class HeldJob {\n");
+    sb.append("    bytes: ").append(toIndentedString(bytes)).append("\n");
+    sb.append("    receivedAt: ").append(toIndentedString(receivedAt)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,49 +171,42 @@ public class RenderOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("labelCount", "labels"));
+    openapiFields = new HashSet<String>(Arrays.asList("bytes", "receivedAt", "source"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("labelCount", "labels"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("bytes", "receivedAt", "source"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to RenderOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to HeldJob
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RenderOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RenderOutputBody is not found in the empty JSON string", RenderOutputBody.openapiRequiredFields.toString()));
+        if (!HeldJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HeldJob is not found in the empty JSON string", HeldJob.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!RenderOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RenderOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!HeldJob.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HeldJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RenderOutputBody.openapiRequiredFields) {
+      for (String requiredField : HeldJob.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("labels") != null && !jsonObj.get("labels").isJsonNull()) {
-        if (!jsonObj.get("labels").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `labels` to be an array in the JSON string but got `%s`", jsonObj.get("labels").toString()));
-        }
-        JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
-        // validate the required field `labels` (array)
-        for (int i = 0; i < jsonArraylabels.size(); i++) {
-          RenderedLabel.validateJsonElement(jsonArraylabels.get(i));
-        }
+      if (!jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
   }
 
@@ -205,22 +214,22 @@ public class RenderOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RenderOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RenderOutputBody' and its subtypes
+       if (!HeldJob.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'HeldJob' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RenderOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RenderOutputBody.class));
+       final TypeAdapter<HeldJob> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(HeldJob.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RenderOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<HeldJob>() {
            @Override
-           public void write(JsonWriter out, RenderOutputBody value) throws IOException {
+           public void write(JsonWriter out, HeldJob value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RenderOutputBody read(JsonReader in) throws IOException {
+           public HeldJob read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -231,18 +240,18 @@ public class RenderOutputBody {
   }
 
   /**
-   * Create an instance of RenderOutputBody given an JSON string
+   * Create an instance of HeldJob given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of RenderOutputBody
-   * @throws IOException if the JSON string is invalid with respect to RenderOutputBody
+   * @return An instance of HeldJob
+   * @throws IOException if the JSON string is invalid with respect to HeldJob
    */
-  public static RenderOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RenderOutputBody.class);
+  public static HeldJob fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, HeldJob.class);
   }
 
   /**
-   * Convert an instance of RenderOutputBody to an JSON string
+   * Convert an instance of HeldJob to an JSON string
    *
    * @return JSON string
    */

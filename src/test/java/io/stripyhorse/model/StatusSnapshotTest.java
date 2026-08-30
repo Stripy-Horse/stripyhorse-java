@@ -19,8 +19,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.stripyhorse.model.Faults;
+import io.stripyhorse.model.HeldJob;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -84,6 +87,14 @@ public class StatusSnapshotTest {
     @Test
     public void odometerTest() {
         // TODO: test odometer
+    }
+
+    /**
+     * Test the property 'queue'
+     */
+    @Test
+    public void queueTest() {
+        // TODO: test queue
     }
 
     /**

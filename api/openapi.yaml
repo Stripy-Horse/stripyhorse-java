@@ -1969,6 +1969,27 @@ components:
       - label
       - message
       - severity
+    HeldJob:
+      additionalProperties: false
+      example:
+        bytes: 2
+        receivedAt: 2000-01-23T04:56:07.000+00:00
+        source: source
+      properties:
+        bytes:
+          description: Size of the held frame
+          format: int64
+          type: integer
+        receivedAt:
+          format: date-time
+          type: string
+        source:
+          description: "How it arrived: tcp or https"
+          type: string
+      required:
+      - bytes
+      - receivedAt
+      - source
     HostStatus:
       additionalProperties: false
       example:
@@ -2321,15 +2342,22 @@ components:
             friendlyName: friendlyName
             labelLengthDots: 5
             odometer: 5
+            queue:
+            - bytes: 2
+              receivedAt: 2000-01-23T04:56:07.000+00:00
+              source: source
+            - bytes: 2
+              receivedAt: 2000-01-23T04:56:07.000+00:00
+              source: source
             speedIps: speedIps
             tearOff: tearOff
-            widthDots: 2
+            widthDots: 7
           tcp:
             host: host
-            port: 7
+            port: 9
           webhookSecret: webhookSecret
           webhookUrl: webhookUrl
-          widthMm: 9.301444243932576
+          widthMm: 3.616076749251911
         - anonymize: true
           createdAt: 2000-01-23T04:56:07.000+00:00
           dpmm: 0
@@ -2352,15 +2380,22 @@ components:
             friendlyName: friendlyName
             labelLengthDots: 5
             odometer: 5
+            queue:
+            - bytes: 2
+              receivedAt: 2000-01-23T04:56:07.000+00:00
+              source: source
+            - bytes: 2
+              receivedAt: 2000-01-23T04:56:07.000+00:00
+              source: source
             speedIps: speedIps
             tearOff: tearOff
-            widthDots: 2
+            widthDots: 7
           tcp:
             host: host
-            port: 7
+            port: 9
           webhookSecret: webhookSecret
           webhookUrl: webhookUrl
-          widthMm: 9.301444243932576
+          widthMm: 3.616076749251911
       properties:
         printers:
           items:
@@ -2572,15 +2607,22 @@ components:
           friendlyName: friendlyName
           labelLengthDots: 5
           odometer: 5
+          queue:
+          - bytes: 2
+            receivedAt: 2000-01-23T04:56:07.000+00:00
+            source: source
+          - bytes: 2
+            receivedAt: 2000-01-23T04:56:07.000+00:00
+            source: source
           speedIps: speedIps
           tearOff: tearOff
-          widthDots: 2
+          widthDots: 7
         tcp:
           host: host
-          port: 7
+          port: 9
         webhookSecret: webhookSecret
         webhookUrl: webhookUrl
-        widthMm: 9.301444243932576
+        widthMm: 3.616076749251911
       properties:
         anonymize:
           description: "When true, PII is masked and graphics stripped from every\
@@ -2637,7 +2679,7 @@ components:
       additionalProperties: false
       example:
         host: host
-        port: 7
+        port: 9
       properties:
         host:
           type: string
@@ -2892,9 +2934,16 @@ components:
           friendlyName: friendlyName
           labelLengthDots: 5
           odometer: 5
+          queue:
+          - bytes: 2
+            receivedAt: 2000-01-23T04:56:07.000+00:00
+            source: source
+          - bytes: 2
+            receivedAt: 2000-01-23T04:56:07.000+00:00
+            source: source
           speedIps: speedIps
           tearOff: tearOff
-          widthDots: 2
+          widthDots: 7
       properties:
         state:
           $ref: "#/components/schemas/StatusSnapshot"
@@ -2932,9 +2981,16 @@ components:
         friendlyName: friendlyName
         labelLengthDots: 5
         odometer: 5
+        queue:
+        - bytes: 2
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          source: source
+        - bytes: 2
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          source: source
         speedIps: speedIps
         tearOff: tearOff
-        widthDots: 2
+        widthDots: 7
       properties:
         darkness:
           description: "print.tone setting, e.g. 20.0"
@@ -2953,6 +3009,12 @@ components:
         odometer:
           format: int64
           type: integer
+        queue:
+          items:
+            $ref: "#/components/schemas/HeldJob"
+          nullable: true
+          type: array
+          default: null
         speedIps:
           description: "media.speed setting, inches/second"
           type: string
@@ -2969,6 +3031,7 @@ components:
       - friendlyName
       - labelLengthDots
       - odometer
+      - queue
       - speedIps
       - tearOff
       - widthDots
