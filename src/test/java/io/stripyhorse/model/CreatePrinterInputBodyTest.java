@@ -94,6 +94,14 @@ public class CreatePrinterInputBodyTest {
     }
 
     /**
+     * Test the property 'sharedPort'
+     */
+    @Test
+    public void sharedPortTest() {
+        // TODO: test sharedPort
+    }
+
+    /**
      * Test the property 'webhookUrl'
      */
     @Test

@@ -48,7 +48,7 @@ import io.stripyhorse.JSON;
 /**
  * CreatePrinterInputBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T05:58:49.152463933Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T00:01:22.643377429Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreatePrinterInputBody {
   /**
    * Who may print to the TCP port; default open. Use token from CI, where the source address is different every run.
@@ -337,6 +337,11 @@ public class CreatePrinterInputBody {
   @javax.annotation.Nullable
   private PresetEnum preset;
 
+  public static final String SERIALIZED_NAME_SHARED_PORT = "sharedPort";
+  @SerializedName(SERIALIZED_NAME_SHARED_PORT)
+  @javax.annotation.Nullable
+  private Boolean sharedPort;
+
   public static final String SERIALIZED_NAME_WEBHOOK_URL = "webhookUrl";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
   @javax.annotation.Nullable
@@ -484,6 +489,25 @@ public class CreatePrinterInputBody {
   }
 
 
+  public CreatePrinterInputBody sharedPort(@javax.annotation.Nullable Boolean sharedPort) {
+    this.sharedPort = sharedPort;
+    return this;
+  }
+
+  /**
+   * Put this printer on the shared router port instead of spending one of the plan&#39;s dedicated ports. It is then reached by naming it in the stream, a ZPL comment carrying the ingest token, which suits CI.
+   * @return sharedPort
+   */
+  @javax.annotation.Nullable
+  public Boolean getSharedPort() {
+    return sharedPort;
+  }
+
+  public void setSharedPort(@javax.annotation.Nullable Boolean sharedPort) {
+    this.sharedPort = sharedPort;
+  }
+
+
   public CreatePrinterInputBody webhookUrl(@javax.annotation.Nullable String webhookUrl) {
     this.webhookUrl = webhookUrl;
     return this;
@@ -540,13 +564,14 @@ public class CreatePrinterInputBody {
         Objects.equals(this.mode, createPrinterInputBody.mode) &&
         Objects.equals(this.name, createPrinterInputBody.name) &&
         Objects.equals(this.preset, createPrinterInputBody.preset) &&
+        Objects.equals(this.sharedPort, createPrinterInputBody.sharedPort) &&
         Objects.equals(this.webhookUrl, createPrinterInputBody.webhookUrl) &&
         Objects.equals(this.widthMm, createPrinterInputBody.widthMm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, anonymize, dpmm, heightMm, mode, name, preset, webhookUrl, widthMm);
+    return Objects.hash(accessMode, anonymize, dpmm, heightMm, mode, name, preset, sharedPort, webhookUrl, widthMm);
   }
 
   @Override
@@ -560,6 +585,7 @@ public class CreatePrinterInputBody {
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
+    sb.append("    sharedPort: ").append(toIndentedString(sharedPort)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
     sb.append("    widthMm: ").append(toIndentedString(widthMm)).append("\n");
     sb.append("}");
@@ -580,7 +606,7 @@ public class CreatePrinterInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "dpmm", "heightMm", "mode", "name", "preset", "webhookUrl", "widthMm"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessMode", "anonymize", "dpmm", "heightMm", "mode", "name", "preset", "sharedPort", "webhookUrl", "widthMm"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -14,6 +14,7 @@
 |**mode** | [**ModeEnum**](#ModeEnum) |  |  [optional] |
 |**name** | **String** |  |  |
 |**preset** | [**PresetEnum**](#PresetEnum) | Named label size in inches; alternative to widthMm/heightMm |  [optional] |
+|**sharedPort** | **Boolean** | Put this printer on the shared router port instead of spending one of the plan&#39;s dedicated ports. It is then reached by naming it in the stream, a ZPL comment carrying the ingest token, which suits CI. |  [optional] |
 |**webhookUrl** | **String** |  |  [optional] |
 |**widthMm** | **Double** |  |  [optional] |
 
