@@ -15,6 +15,7 @@
 |**odometer** | **Long** |  |  |
 |**queue** | [**List&lt;HeldJob&gt;**](HeldJob.md) |  |  |
 |**speedIps** | **String** | media.speed setting, inches/second |  |
+|**supplies** | [**Supplies**](Supplies.md) | What is left on the roll; zero loaded means endless |  |
 |**tearOff** | **String** | ezpl.tear_off setting, dots |  |
 |**widthDots** | **Long** |  |  |
 

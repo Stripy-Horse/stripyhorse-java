@@ -31,6 +31,7 @@ docs/JobOutputBody.md
 docs/JobSummary.md
 docs/ListJobsOutputBody.md
 docs/ListPrintersOutputBody.md
+docs/MediaInputBody.md
 docs/PreflightInputBody.md
 docs/PreflightOutputBody.md
 docs/PrinterBody.md
@@ -47,6 +48,7 @@ docs/StampOutputBody.md
 docs/StateOutputBody.md
 docs/StatusField.md
 docs/StatusSnapshot.md
+docs/Supplies.md
 docs/UnicodeInputBody.md
 docs/UnicodeOutputBody.md
 docs/UpdatePrinterInputBody.md
@@ -109,6 +111,7 @@ src/main/java/io/stripyhorse/model/JobOutputBody.java
 src/main/java/io/stripyhorse/model/JobSummary.java
 src/main/java/io/stripyhorse/model/ListJobsOutputBody.java
 src/main/java/io/stripyhorse/model/ListPrintersOutputBody.java
+src/main/java/io/stripyhorse/model/MediaInputBody.java
 src/main/java/io/stripyhorse/model/PreflightInputBody.java
 src/main/java/io/stripyhorse/model/PreflightOutputBody.java
 src/main/java/io/stripyhorse/model/PrinterBody.java
@@ -122,6 +125,7 @@ src/main/java/io/stripyhorse/model/StampOutputBody.java
 src/main/java/io/stripyhorse/model/StateOutputBody.java
 src/main/java/io/stripyhorse/model/StatusField.java
 src/main/java/io/stripyhorse/model/StatusSnapshot.java
+src/main/java/io/stripyhorse/model/Supplies.java
 src/main/java/io/stripyhorse/model/UnicodeInputBody.java
 src/main/java/io/stripyhorse/model/UnicodeOutputBody.java
 src/main/java/io/stripyhorse/model/UpdatePrinterInputBody.java
@@ -157,6 +161,7 @@ src/test/java/io/stripyhorse/model/JobOutputBodyTest.java
 src/test/java/io/stripyhorse/model/JobSummaryTest.java
 src/test/java/io/stripyhorse/model/ListJobsOutputBodyTest.java
 src/test/java/io/stripyhorse/model/ListPrintersOutputBodyTest.java
+src/test/java/io/stripyhorse/model/MediaInputBodyTest.java
 src/test/java/io/stripyhorse/model/PreflightInputBodyTest.java
 src/test/java/io/stripyhorse/model/PreflightOutputBodyTest.java
 src/test/java/io/stripyhorse/model/PrinterBodyTCPStructTest.java
@@ -170,6 +175,7 @@ src/test/java/io/stripyhorse/model/StampOutputBodyTest.java
 src/test/java/io/stripyhorse/model/StateOutputBodyTest.java
 src/test/java/io/stripyhorse/model/StatusFieldTest.java
 src/test/java/io/stripyhorse/model/StatusSnapshotTest.java
+src/test/java/io/stripyhorse/model/SuppliesTest.java
 src/test/java/io/stripyhorse/model/UnicodeInputBodyTest.java
 src/test/java/io/stripyhorse/model/UnicodeOutputBodyTest.java
 src/test/java/io/stripyhorse/model/UpdatePrinterInputBodyTest.java

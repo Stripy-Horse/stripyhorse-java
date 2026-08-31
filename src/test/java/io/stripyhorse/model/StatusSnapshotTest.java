@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.stripyhorse.model.Faults;
 import io.stripyhorse.model.HeldJob;
+import io.stripyhorse.model.Supplies;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -103,6 +104,14 @@ public class StatusSnapshotTest {
     @Test
     public void speedIpsTest() {
         // TODO: test speedIps
+    }
+
+    /**
+     * Test the property 'supplies'
+     */
+    @Test
+    public void suppliesTest() {
+        // TODO: test supplies
     }
 
     /**

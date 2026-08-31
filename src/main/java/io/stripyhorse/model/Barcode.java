@@ -53,7 +53,7 @@ import io.stripyhorse.JSON;
 /**
  * Barcode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T00:01:22.643377429Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T02:30:00.440569875Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Barcode {
   public static final String SERIALIZED_NAME_BLUR_MARGIN_DOTS = "blurMarginDots";
   @SerializedName(SERIALIZED_NAME_BLUR_MARGIN_DOTS)

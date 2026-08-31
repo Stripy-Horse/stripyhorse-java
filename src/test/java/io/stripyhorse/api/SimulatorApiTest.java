@@ -20,6 +20,7 @@ import io.stripyhorse.model.Faults;
 import io.stripyhorse.model.JobOutputBody;
 import io.stripyhorse.model.ListJobsOutputBody;
 import io.stripyhorse.model.ListPrintersOutputBody;
+import io.stripyhorse.model.MediaInputBody;
 import io.stripyhorse.model.PrinterBody;
 import io.stripyhorse.model.StateOutputBody;
 import io.stripyhorse.model.UpdatePrinterInputBody;
@@ -155,6 +156,21 @@ public class SimulatorApiTest {
     @Test
     public void listPrintersTest() throws ApiException {
         ListPrintersOutputBody response = api.listPrinters();
+        // TODO: test validations
+    }
+
+    /**
+     * Fit a fresh roll and ribbon
+     *
+     * A loaded roll runs down as labels print and raises paper out when it is spent, which holds everything sent after it. Zero is an endless roll, which is the default and never runs out.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void loadPrinterMediaTest() throws ApiException {
+        String printerId = null;
+        MediaInputBody mediaInputBody = null;
+        StateOutputBody response = api.loadPrinterMedia(printerId, mediaInputBody);
         // TODO: test validations
     }
 

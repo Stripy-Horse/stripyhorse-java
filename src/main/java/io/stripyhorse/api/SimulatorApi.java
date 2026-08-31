@@ -33,6 +33,7 @@ import io.stripyhorse.model.Faults;
 import io.stripyhorse.model.JobOutputBody;
 import io.stripyhorse.model.ListJobsOutputBody;
 import io.stripyhorse.model.ListPrintersOutputBody;
+import io.stripyhorse.model.MediaInputBody;
 import io.stripyhorse.model.PrinterBody;
 import io.stripyhorse.model.StateOutputBody;
 import io.stripyhorse.model.UpdatePrinterInputBody;
@@ -1296,6 +1297,148 @@ public class SimulatorApi {
 
         okhttp3.Call localVarCall = listPrintersValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ListPrintersOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for loadPrinterMedia
+     * @param printerId  (required)
+     * @param mediaInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call loadPrinterMediaCall(@javax.annotation.Nonnull String printerId, @javax.annotation.Nonnull MediaInputBody mediaInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = mediaInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/printers/{printerId}/media"
+            .replace("{" + "printerId" + "}", localVarApiClient.escapeString(printerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "headerKey", "bearerKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call loadPrinterMediaValidateBeforeCall(@javax.annotation.Nonnull String printerId, @javax.annotation.Nonnull MediaInputBody mediaInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'printerId' is set
+        if (printerId == null) {
+            throw new ApiException("Missing the required parameter 'printerId' when calling loadPrinterMedia(Async)");
+        }
+
+        // verify the required parameter 'mediaInputBody' is set
+        if (mediaInputBody == null) {
+            throw new ApiException("Missing the required parameter 'mediaInputBody' when calling loadPrinterMedia(Async)");
+        }
+
+        return loadPrinterMediaCall(printerId, mediaInputBody, _callback);
+
+    }
+
+    /**
+     * Fit a fresh roll and ribbon
+     * A loaded roll runs down as labels print and raises paper out when it is spent, which holds everything sent after it. Zero is an endless roll, which is the default and never runs out.
+     * @param printerId  (required)
+     * @param mediaInputBody  (required)
+     * @return StateOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public StateOutputBody loadPrinterMedia(@javax.annotation.Nonnull String printerId, @javax.annotation.Nonnull MediaInputBody mediaInputBody) throws ApiException {
+        ApiResponse<StateOutputBody> localVarResp = loadPrinterMediaWithHttpInfo(printerId, mediaInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Fit a fresh roll and ribbon
+     * A loaded roll runs down as labels print and raises paper out when it is spent, which holds everything sent after it. Zero is an endless roll, which is the default and never runs out.
+     * @param printerId  (required)
+     * @param mediaInputBody  (required)
+     * @return ApiResponse&lt;StateOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StateOutputBody> loadPrinterMediaWithHttpInfo(@javax.annotation.Nonnull String printerId, @javax.annotation.Nonnull MediaInputBody mediaInputBody) throws ApiException {
+        okhttp3.Call localVarCall = loadPrinterMediaValidateBeforeCall(printerId, mediaInputBody, null);
+        Type localVarReturnType = new TypeToken<StateOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Fit a fresh roll and ribbon (asynchronously)
+     * A loaded roll runs down as labels print and raises paper out when it is spent, which holds everything sent after it. Zero is an endless roll, which is the default and never runs out.
+     * @param printerId  (required)
+     * @param mediaInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call loadPrinterMediaAsync(@javax.annotation.Nonnull String printerId, @javax.annotation.Nonnull MediaInputBody mediaInputBody, final ApiCallback<StateOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = loadPrinterMediaValidateBeforeCall(printerId, mediaInputBody, _callback);
+        Type localVarReturnType = new TypeToken<StateOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

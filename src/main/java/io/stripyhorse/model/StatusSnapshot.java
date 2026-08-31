@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.stripyhorse.model.Faults;
 import io.stripyhorse.model.HeldJob;
+import io.stripyhorse.model.Supplies;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +53,7 @@ import io.stripyhorse.JSON;
 /**
  * StatusSnapshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T00:01:22.643377429Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T02:30:00.440569875Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StatusSnapshot {
   public static final String SERIALIZED_NAME_DARKNESS = "darkness";
   @SerializedName(SERIALIZED_NAME_DARKNESS)
@@ -93,6 +94,11 @@ public class StatusSnapshot {
   @SerializedName(SERIALIZED_NAME_SPEED_IPS)
   @javax.annotation.Nonnull
   private String speedIps;
+
+  public static final String SERIALIZED_NAME_SUPPLIES = "supplies";
+  @SerializedName(SERIALIZED_NAME_SUPPLIES)
+  @javax.annotation.Nonnull
+  private Supplies supplies;
 
   public static final String SERIALIZED_NAME_TEAR_OFF = "tearOff";
   @SerializedName(SERIALIZED_NAME_TEAR_OFF)
@@ -267,6 +273,25 @@ public class StatusSnapshot {
   }
 
 
+  public StatusSnapshot supplies(@javax.annotation.Nonnull Supplies supplies) {
+    this.supplies = supplies;
+    return this;
+  }
+
+  /**
+   * What is left on the roll; zero loaded means endless
+   * @return supplies
+   */
+  @javax.annotation.Nonnull
+  public Supplies getSupplies() {
+    return supplies;
+  }
+
+  public void setSupplies(@javax.annotation.Nonnull Supplies supplies) {
+    this.supplies = supplies;
+  }
+
+
   public StatusSnapshot tearOff(@javax.annotation.Nonnull String tearOff) {
     this.tearOff = tearOff;
     return this;
@@ -323,13 +348,14 @@ public class StatusSnapshot {
         Objects.equals(this.odometer, statusSnapshot.odometer) &&
         Objects.equals(this.queue, statusSnapshot.queue) &&
         Objects.equals(this.speedIps, statusSnapshot.speedIps) &&
+        Objects.equals(this.supplies, statusSnapshot.supplies) &&
         Objects.equals(this.tearOff, statusSnapshot.tearOff) &&
         Objects.equals(this.widthDots, statusSnapshot.widthDots);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, queue, speedIps, tearOff, widthDots);
+    return Objects.hash(darkness, faults, formatsInBuffer, friendlyName, labelLengthDots, odometer, queue, speedIps, supplies, tearOff, widthDots);
   }
 
   @Override
@@ -344,6 +370,7 @@ public class StatusSnapshot {
     sb.append("    odometer: ").append(toIndentedString(odometer)).append("\n");
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    speedIps: ").append(toIndentedString(speedIps)).append("\n");
+    sb.append("    supplies: ").append(toIndentedString(supplies)).append("\n");
     sb.append("    tearOff: ").append(toIndentedString(tearOff)).append("\n");
     sb.append("    widthDots: ").append(toIndentedString(widthDots)).append("\n");
     sb.append("}");
@@ -364,10 +391,10 @@ public class StatusSnapshot {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "tearOff", "widthDots"));
+    openapiFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "supplies", "tearOff", "widthDots"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "tearOff", "widthDots"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("darkness", "faults", "formatsInBuffer", "friendlyName", "labelLengthDots", "odometer", "queue", "speedIps", "supplies", "tearOff", "widthDots"));
   }
 
   /**
@@ -419,6 +446,8 @@ public class StatusSnapshot {
       if (!jsonObj.get("speedIps").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `speedIps` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speedIps").toString()));
       }
+      // validate the required field `supplies`
+      Supplies.validateJsonElement(jsonObj.get("supplies"));
       if (!jsonObj.get("tearOff").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tearOff` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tearOff").toString()));
       }

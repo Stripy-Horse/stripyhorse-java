@@ -46,58 +46,62 @@ import java.util.Set;
 import io.stripyhorse.JSON;
 
 /**
- * ConvertedPage
+ * MediaInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T02:30:00.440569875Z[Etc/UTC]", comments = "Generator version: 7.24.0")
-public class ConvertedPage {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  @javax.annotation.Nonnull
-  private Long page;
+public class MediaInputBody {
+  public static final String SERIALIZED_NAME_LABELS = "labels";
+  @SerializedName(SERIALIZED_NAME_LABELS)
+  @javax.annotation.Nullable
+  private Long labels;
 
-  public static final String SERIALIZED_NAME_ZPL = "zpl";
-  @SerializedName(SERIALIZED_NAME_ZPL)
-  @javax.annotation.Nonnull
-  private String zpl;
+  public static final String SERIALIZED_NAME_RIBBON_METRES = "ribbonMetres";
+  @SerializedName(SERIALIZED_NAME_RIBBON_METRES)
+  @javax.annotation.Nullable
+  private Double ribbonMetres;
 
-  public ConvertedPage() {
+  public MediaInputBody() {
   }
 
-  public ConvertedPage page(@javax.annotation.Nonnull Long page) {
-    this.page = page;
+  public MediaInputBody labels(@javax.annotation.Nullable Long labels) {
+    this.labels = labels;
     return this;
   }
 
   /**
-   * 1-based page number
-   * @return page
+   * Labels on the roll; 0 for an endless roll
+   * minimum: 0
+   * maximum: 1000000
+   * @return labels
    */
-  @javax.annotation.Nonnull
-  public Long getPage() {
-    return page;
+  @javax.annotation.Nullable
+  public Long getLabels() {
+    return labels;
   }
 
-  public void setPage(@javax.annotation.Nonnull Long page) {
-    this.page = page;
+  public void setLabels(@javax.annotation.Nullable Long labels) {
+    this.labels = labels;
   }
 
 
-  public ConvertedPage zpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public MediaInputBody ribbonMetres(@javax.annotation.Nullable Double ribbonMetres) {
+    this.ribbonMetres = ribbonMetres;
     return this;
   }
 
   /**
-   * Get zpl
-   * @return zpl
+   * Ribbon on the spool in metres; 0 for endless, which is also what direct thermal looks like
+   * minimum: 0
+   * maximum: 10000
+   * @return ribbonMetres
    */
-  @javax.annotation.Nonnull
-  public String getZpl() {
-    return zpl;
+  @javax.annotation.Nullable
+  public Double getRibbonMetres() {
+    return ribbonMetres;
   }
 
-  public void setZpl(@javax.annotation.Nonnull String zpl) {
-    this.zpl = zpl;
+  public void setRibbonMetres(@javax.annotation.Nullable Double ribbonMetres) {
+    this.ribbonMetres = ribbonMetres;
   }
 
 
@@ -110,22 +114,22 @@ public class ConvertedPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertedPage convertedPage = (ConvertedPage) o;
-    return Objects.equals(this.page, convertedPage.page) &&
-        Objects.equals(this.zpl, convertedPage.zpl);
+    MediaInputBody mediaInputBody = (MediaInputBody) o;
+    return Objects.equals(this.labels, mediaInputBody.labels) &&
+        Objects.equals(this.ribbonMetres, mediaInputBody.ribbonMetres);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, zpl);
+    return Objects.hash(labels, ribbonMetres);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertedPage {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    zpl: ").append(toIndentedString(zpl)).append("\n");
+    sb.append("class MediaInputBody {\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    ribbonMetres: ").append(toIndentedString(ribbonMetres)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,65 +148,55 @@ public class ConvertedPage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiFields = new HashSet<String>(Arrays.asList("labels", "ribbonMetres"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("page", "zpl"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConvertedPage
+   * @throws IOException if the JSON Element is invalid with respect to MediaInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ConvertedPage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConvertedPage is not found in the empty JSON string", ConvertedPage.openapiRequiredFields.toString()));
+        if (!MediaInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MediaInputBody is not found in the empty JSON string", MediaInputBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConvertedPage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConvertedPage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConvertedPage.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!MediaInputBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MediaInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("zpl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `zpl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zpl").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConvertedPage.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConvertedPage' and its subtypes
+       if (!MediaInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MediaInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConvertedPage> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConvertedPage.class));
+       final TypeAdapter<MediaInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MediaInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ConvertedPage>() {
+       return (TypeAdapter<T>) new TypeAdapter<MediaInputBody>() {
            @Override
-           public void write(JsonWriter out, ConvertedPage value) throws IOException {
+           public void write(JsonWriter out, MediaInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ConvertedPage read(JsonReader in) throws IOException {
+           public MediaInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -213,18 +207,18 @@ public class ConvertedPage {
   }
 
   /**
-   * Create an instance of ConvertedPage given an JSON string
+   * Create an instance of MediaInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ConvertedPage
-   * @throws IOException if the JSON string is invalid with respect to ConvertedPage
+   * @return An instance of MediaInputBody
+   * @throws IOException if the JSON string is invalid with respect to MediaInputBody
    */
-  public static ConvertedPage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConvertedPage.class);
+  public static MediaInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MediaInputBody.class);
   }
 
   /**
-   * Convert an instance of ConvertedPage to an JSON string
+   * Convert an instance of MediaInputBody to an JSON string
    *
    * @return JSON string
    */
