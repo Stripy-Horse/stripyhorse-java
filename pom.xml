@@ -5,7 +5,7 @@
     <artifactId>stripyhorse</artifactId>
     <packaging>jar</packaging>
     <name>stripyhorse</name>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <url>https://github.com/Stripy-Horse/stripyhorse-java</url>
     <description>Official Java client for the Stripy Horse API: Zebra/ZPL developer tools</description>
     <scm>
