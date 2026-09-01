@@ -1,0 +1,6 @@
+# JitPack builds this repo straight from the v* tag the main repo pushes,
+# so there is nothing to publish and no credentials to hold. Maven Central
+# would need namespace verification and GPG signing; that can come later
+# without changing the coordinates people already depend on.
+jdk:
+  - openjdk11

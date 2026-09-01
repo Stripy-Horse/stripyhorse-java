@@ -9,6 +9,36 @@ itself emitted from the server's handler code, so the SDK can never drift from t
 
 Java 8+, OkHttp/Gson based. Maven (`pom.xml`) and Gradle builds included.
 
+## Install
+
+Published through [JitPack](https://jitpack.io/#Stripy-Horse/stripyhorse-java),
+which builds straight from this repo's release tag. Add the repository, then the
+dependency.
+
+Maven:
+
+```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+
+<dependency>
+  <groupId>com.github.Stripy-Horse</groupId>
+  <artifactId>stripyhorse-java</artifactId>
+  <version>v0.2.0</version>
+</dependency>
+```
+
+Gradle:
+
+```groovy
+repositories { maven { url 'https://jitpack.io' } }
+dependencies { implementation 'com.github.Stripy-Horse:stripyhorse-java:v0.2.0' }
+```
+
 ## Setup
 
 ```java

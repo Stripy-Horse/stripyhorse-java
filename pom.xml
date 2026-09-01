@@ -5,29 +5,29 @@
     <artifactId>stripyhorse</artifactId>
     <packaging>jar</packaging>
     <name>stripyhorse</name>
-    <version>0.1.0</version>
-    <url>https://github.com/openapitools/openapi-generator</url>
-    <description>OpenAPI Java</description>
+    <version>0.2.0</version>
+    <url>https://github.com/Stripy-Horse/stripyhorse-java</url>
+    <description>Official Java client for the Stripy Horse API: Zebra/ZPL developer tools</description>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
+        <connection>scm:git:git@github.com:Stripy-Horse/stripyhorse-java.git</connection>
+        <developerConnection>scm:git:git@github.com:Stripy-Horse/stripyhorse-java.git</developerConnection>
+        <url>https://github.com/Stripy-Horse/stripyhorse-java</url>
     </scm>
 
     <licenses>
         <license>
             <name>MIT</name>
-            <url>http://unlicense.org</url>
+            <url>https://opensource.org/license/mit</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <name>OpenAPI-Generator Contributors</name>
-            <email>team@openapitools.org</email>
-            <organization>OpenAPITools.org</organization>
-            <organizationUrl>http://openapitools.org</organizationUrl>
+            <name>Ben Faerber</name>
+            <email>ben@stripyhorse.io</email>
+            <organization>Stripy Horse</organization>
+            <organizationUrl>https://stripyhorse.io</organizationUrl>
         </developer>
     </developers>
 

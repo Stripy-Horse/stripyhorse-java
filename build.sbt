@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.stripyhorse",
     name := "stripyhorse",
-    version := "0.1.0",
+    version := "0.2.0",
     scalaVersion := "2.11.12",
     scalacOptions ++= Seq("-feature"),
     compile / javacOptions ++= Seq("-Xlint:deprecation"),
